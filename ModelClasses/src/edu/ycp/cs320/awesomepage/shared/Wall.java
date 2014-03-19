@@ -3,6 +3,10 @@ package edu.ycp.cs320.awesomepage.shared;
 public class Wall {
 	private String status;
 
+	public Wall(){
+		
+	}
+	
 	public String getStatus() {
 		return status;
 	}

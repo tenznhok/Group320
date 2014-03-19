@@ -20,5 +20,4 @@ public class friendName {
 	public void setFriendLastName(String friendLastName) {
 		this.friendLastName = friendLastName;
 	}
-	
 }

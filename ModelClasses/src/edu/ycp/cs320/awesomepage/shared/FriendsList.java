@@ -7,6 +7,10 @@ public class FriendsList {
 	private friendName friendName;
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 
+	public FriendsList(){
+		
+	}
+	
 	// add friend into the user's list
 	public void addFriend(ArrayList<friendName> friend){
 		listOfFriend.addAll(friend);		
