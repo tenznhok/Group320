@@ -3,6 +3,7 @@ package edu.ycp.cs320.awesomepage.shared;
 public class User {
 	private String userName;
 	private String password;
+	private String email;
 	
 	public User(String name, String password) {
 		
@@ -19,12 +20,19 @@ public class User {
 		return userName;
 	}
 	
-	public void setpassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
 	
+	public void setEmail() {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return password;
+	}
 }
