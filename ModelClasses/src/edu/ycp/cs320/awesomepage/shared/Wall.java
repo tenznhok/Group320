@@ -1,7 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class Wall {
-	private int id;
+	private int id; //keep track of what user do
 	private int userId;
 	private String status;
 	
@@ -27,6 +27,14 @@ public class Wall {
 	
 	public void deleteWall(){
 		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

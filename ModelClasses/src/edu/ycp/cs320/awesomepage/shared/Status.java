@@ -1,7 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class Status {
-	private int id;
+	private int id; //keep track of what user do
 	private int userId; // id of the user who posted this status
 	private String message;
 	public int getUserId() {
