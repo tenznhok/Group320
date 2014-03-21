@@ -1,7 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class User {
-	private int id;
+	private int id; //every user have an ID
 	private String userName;
 	private String password;
 	private String email;
