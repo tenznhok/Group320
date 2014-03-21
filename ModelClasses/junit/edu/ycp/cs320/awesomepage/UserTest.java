@@ -36,9 +36,9 @@ public class UserTest {
 	@Test
 	public void testGetPassword() {
 		
-		assertEquals( "Apple", person1.getpassword() );
-		assertEquals( "tkendk222", person2.getpassword() );
-		assertEquals( "dog", person3.getpassword() );
+		assertEquals( "Apple", person1.getPassword() );
+		assertEquals( "tkendk222", person2.getPassword() );
+		assertEquals( "dog", person3.getPassword() );
 		
 	}
 
