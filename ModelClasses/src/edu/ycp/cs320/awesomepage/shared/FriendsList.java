@@ -1,11 +1,16 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class FriendsList {
 	private friendName friendName;
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 
+	public FriendsList(){
+		
+	}
+	
 	// add friend into the user's list
 	public void addFriend(ArrayList<friendName> friend){
 		listOfFriend.addAll(friend);		

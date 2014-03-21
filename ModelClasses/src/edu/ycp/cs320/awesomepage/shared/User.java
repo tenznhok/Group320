@@ -1,24 +1,12 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class User {
-	private int id; //every user have an ID
 	private String userName;
 	private String password;
 	private String email;
 	
-	public User(String name, String password) {
+	public User() {
 		
-		this.userName = name;
-		this.password = password;
-		
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public int getId() {
-		return id;
 	}
 	
 	public void setUserName(String userName) {
@@ -37,11 +25,11 @@ public class User {
 		return password;
 	}
 	
-	public void setEmail() {
+	public void setEmail( String email ) {
 		this.email = email;
 	}
 	
 	public String getEmail() {
-		return password;
+		return email;
 	}
 }
