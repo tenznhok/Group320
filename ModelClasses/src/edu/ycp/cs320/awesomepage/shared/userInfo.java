@@ -1,7 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class userInfo {
-	private int id;
+	private int id; // ID to keep track of user
 	private String firstName;
 	private String lastName;
 	private String emailContact;
