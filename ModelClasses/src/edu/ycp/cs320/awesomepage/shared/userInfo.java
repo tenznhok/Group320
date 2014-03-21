@@ -1,6 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class userInfo {
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String emailContact;
@@ -73,6 +74,14 @@ public class userInfo {
 		this.phoneNum = phoneNum;
 		this.country = country;
 		this.city = city;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 
