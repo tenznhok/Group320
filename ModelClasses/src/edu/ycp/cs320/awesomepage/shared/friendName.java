@@ -1,6 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class friendName {
+	private int friendID; // ID of each friend
 	private String friendFirstName;
 	private String friendLastName;
 	
@@ -19,5 +20,11 @@ public class friendName {
 	}
 	public void setFriendLastName(String friendLastName) {
 		this.friendLastName = friendLastName;
+	}
+	public int getFriendID() {
+		return friendID;
+	}
+	public void setFriendID(int friendID) {
+		this.friendID = friendID;
 	}
 }

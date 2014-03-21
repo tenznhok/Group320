@@ -24,5 +24,13 @@ public class Wall {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 }
