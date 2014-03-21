@@ -11,4 +11,12 @@ public class Wall {
 		this.status = status;
 	}
 	
+	public void editWall(){
+		
+	}
+	
+	public void deleteWall(){
+		
+	}
+	
 }
