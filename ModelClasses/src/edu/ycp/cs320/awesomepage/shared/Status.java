@@ -4,6 +4,11 @@ public class Status {
 	private int id; //keep track of what user do
 	private int userId; // id of the user who posted this status
 	private String message;
+	
+	public Status(){
+		
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

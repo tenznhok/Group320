@@ -5,9 +5,10 @@ public class friendName {
 	private String friendFirstName;
 	private String friendLastName;
 	
-	public friendName(String friendFirstName, String friendLastName){
+	public friendName(String friendFirstName, String friendLastName, int friendID){
 		this.friendFirstName = friendFirstName;
 		this.friendLastName = friendLastName;
+		this.friendID = friendID;
 	}
 	public String getFriendFirstName() {
 		return friendFirstName;
