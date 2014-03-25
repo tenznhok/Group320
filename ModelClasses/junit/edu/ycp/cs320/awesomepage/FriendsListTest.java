@@ -2,6 +2,8 @@ package edu.ycp.cs320.awesomepage;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,27 +12,50 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 
 public class FriendsListTest {
 	
-	private FriendsList friends;
-	//private friendName userFriend1, userFriend2, userFriend3, userFriend4;
-	private friendName userFriend[];
 	
-	@Before
-	public void setUp(){
-		
-		
-		userFriend[1] = new friendName( "Jack","Jim", 159 );
-		userFriend[2] = new friendName( "Bill","Pie", 160 );
-		userFriend[3] = new friendName( "Yellow","Bird", 161 );
-		userFriend[4] = new friendName( "Tom","Five", 162 );
-		
-		friends = new FriendsList();
-		
-		friends.addFriend(userFriend);
-	}
-
+	//private friendName userFriend1, userFriend2, userFriend3, userFriend4;
+	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
+	private FriendsList list = new FriendsList();
+	friendName name1 = new friendName("Jack", "First", 1);	
+	friendName name2 = new friendName ("Harry", "Potter", 2);
+	friendName name3 = new friendName ("Ron", "Westley", 3);
+	
+// add friends	
+	
 	@Test
-	public void test() {
+	public void testAddFriend() {
+		listOfFriend.add(name1);
+		listOfFriend.add(name2);
+		listOfFriend.add(name3);
+		list.addFriend(listOfFriend);
 		
+		
+		
+	listOfFriend.get(1).equals("Jack");
+	listOfFriend.get(2).getFriendFirstName().equals("Harry");
+	assertEquals(3,list.countFriend());
+	
+				
 	}
+	
+	
+	@Test
+	public void testRemoveFriend(){
+		listOfFriend.add(name1);
+		listOfFriend.add(name2);
+		listOfFriend.add(name3);
+		list.addFriend(listOfFriend);
+
+	
+		listOfFriend.remove(name2);
+		
+		
+		assertFalse("Jack", listOfFriend.contains("Jack"));
+		assertFalse("Harry", listOfFriend.equals(name2));
+		assertEquals(2,listOfFriend.size());
+
+	}
+	
+	
 
 }
