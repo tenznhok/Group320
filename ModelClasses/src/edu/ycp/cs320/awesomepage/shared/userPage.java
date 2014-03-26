@@ -4,7 +4,7 @@ public class userPage {
 	
 	private Wall userWall = new Wall();
 	private Status userStatus = new Status();
-	private FriendsList userFriends = new FriendsList();
+	private FriendsList usersFriends = new FriendsList();
 	
 	
 	public void upDateStatus( String message ) {
