@@ -1,6 +1,7 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class User {
+	private int userID;
 	private String userName;
 	private String password;
 	private String email;
@@ -31,5 +32,13 @@ public class User {
 	
 	public String getEmail() {
 		return email;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 }

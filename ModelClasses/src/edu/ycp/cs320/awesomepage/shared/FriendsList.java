@@ -1,7 +1,6 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class FriendsList {
 	private friendName friendName;
