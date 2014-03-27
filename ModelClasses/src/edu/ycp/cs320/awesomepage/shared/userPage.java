@@ -6,7 +6,9 @@ public class userPage {
 	private Status userStatus = new Status();
 	private FriendsList usersFriends = new FriendsList();
 	
-	
+	public userPage(){
+		
+	}
 	public void upDateStatus( String message ) {
 		
 		userStatus.setMessage(message);
@@ -17,4 +19,10 @@ public class userPage {
 	{
 		return userWall.getStatus();
 	}
+	
+	public friendName getFriendsName()
+	{
+		return usersFriends.getFriendName();
+	}
+	
 }
