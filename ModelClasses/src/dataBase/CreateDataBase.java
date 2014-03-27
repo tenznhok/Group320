@@ -16,5 +16,4 @@ public class CreateDataBase {
 	    }
 	    System.out.println("Opened database successfully");
 	  }
-
 }
