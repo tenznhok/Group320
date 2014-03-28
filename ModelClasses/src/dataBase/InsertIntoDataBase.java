@@ -2,34 +2,31 @@ package dataBase;
 
 import java.sql.*;
 
-import edu.ycp.cs320.awesomepage.shared.User;
-
-
-public class CreateTable {
-
-	public static void main( String args[] ) throws SQLException{
+public class InsertIntoDataBase {
+	
+	public static void main( String args[] )
+	  {
 	    Connection c = null;
 	    Statement stmt = null;
-	    
 	    try {
 	      Class.forName("org.sqlite.JDBC");
 	      c = DriverManager.getConnection("jdbc:sqlite:users.db");
+	      c.setAutoCommit(false);
 	      System.out.println("Opened database successfully");
-	      
+
 	      stmt = c.createStatement();
 	      
-	      String sql = 
-					"	create table users " +
-					"	(id integer primary key NOT NULL," +
-					"	user_id integer NOT NULL," +
-					"	user_name varchar(25) )";
-			stmt.executeUpdate( sql );
-			stmt.close();
-			c.close();
+	      String sql = " insert into users ( id, user_id, user_name ) " +
+                  "VALUES (2,32,'Michael');";
+	      stmt.executeUpdate(sql);
+
+	      stmt.close();
+	      c.commit();
+	      c.close();
 	    } catch ( Exception e ) {
 	      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 	      System.exit(0);
 	    }
-	    System.out.println("Table created successfully");
+	    System.out.println("Records created successfully");
 	  }
 }
