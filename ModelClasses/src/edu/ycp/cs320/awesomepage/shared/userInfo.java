@@ -69,7 +69,7 @@ public class userInfo {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+	//
 	public void editInfo(String firstName, String lastName, String emailContact, String maleOrFemale, String phoneNum, String country, String city){
 		this.firstName = firstName;
 		this.lastName = lastName;
