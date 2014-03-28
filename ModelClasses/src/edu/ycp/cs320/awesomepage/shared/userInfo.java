@@ -10,6 +10,10 @@ public class userInfo {
 	private String country;
 	private String city;
 	
+	public userInfo(){
+		
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
