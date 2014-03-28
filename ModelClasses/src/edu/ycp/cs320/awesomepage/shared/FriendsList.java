@@ -23,7 +23,7 @@ public class FriendsList {
 				name = listOfFriend.get(i);
 				if (name.equals(getFriendName())){
 					toRemove.add(name);
-				}
+				}//
 			}
 			
 			listOfFriend.removeAll(toRemove);
