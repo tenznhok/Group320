@@ -10,6 +10,10 @@ public class userInfo {
 	private String country;
 	private String city;
 	
+	public userInfo(){
+		
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -65,7 +69,7 @@ public class userInfo {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+	//
 	public void editInfo(String firstName, String lastName, String emailContact, String maleOrFemale, String phoneNum, String country, String city){
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -83,6 +87,4 @@ public class userInfo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-
 }
