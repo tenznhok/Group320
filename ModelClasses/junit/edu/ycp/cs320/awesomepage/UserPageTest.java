@@ -39,6 +39,6 @@ public class UserPageTest {
 	@Test
 	public void testGetFriendsName()
 	{
-		assertEquals( "Harry", page.getFriendsName() );
+		assertEquals( name, page.getFriendsName() );
 	}
 }
