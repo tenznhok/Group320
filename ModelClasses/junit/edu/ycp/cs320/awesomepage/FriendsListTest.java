@@ -16,9 +16,11 @@ public class FriendsListTest {
 	//private friendName userFriend1, userFriend2, userFriend3, userFriend4;
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 	private FriendsList list = new FriendsList();
+
 	friendName name1 = new friendName("Jack", "First", 1);	
 	friendName name2 = new friendName ("Harry", "Potter", 2);
 	friendName name3 = new friendName ("Ron", "Westley", 3);
+	
 	
 // add friends	
 	
@@ -28,6 +30,7 @@ public class FriendsListTest {
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
 		list.addFriend(listOfFriend);
+	
 		
 		
 		
@@ -54,6 +57,23 @@ public class FriendsListTest {
 		assertFalse("Harry", listOfFriend.equals(name2));
 		assertEquals(2,listOfFriend.size());
 
+	}
+	
+	@Test
+	public void testSetFriendName() {
+		listOfFriend.add(name1);
+		listOfFriend.add(name2);
+		listOfFriend.add(name3);
+		
+		list.setFriendName(name3);
+	
+		
+		
+		
+	
+	assertEquals("Ron",list.getFriendName());
+	
+				
 	}
 	
 	
