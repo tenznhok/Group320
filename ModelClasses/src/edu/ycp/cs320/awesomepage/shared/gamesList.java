@@ -8,12 +8,12 @@ public class gamesList {
 	 	
 	 
 	 	// add games into the user's list
-	 	public void addFriend(ArrayList<games> games){
+	 	public void addGame(ArrayList<games> games){
 	 		listOfGames.addAll(games);		
 	 	}
 	 	
 	 	//remove games from the user's list
-	 	public void removeFriend(games games){
+	 	public void removeGame(games games){
 	 		ArrayList<games> toRemove = new ArrayList<games>();
 	 		
 	 			for (int i = 0; i < listOfGames.size(); i++){
@@ -28,7 +28,7 @@ public class gamesList {
 	 	
 	 	
 	 	//count how many games in the list
-	 	public int countFriend(){
+	 	public int countGames(){
 	 		int count; 
 	 		count = listOfGames.size();
 	 		return count;
