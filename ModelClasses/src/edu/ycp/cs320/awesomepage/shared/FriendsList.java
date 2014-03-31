@@ -44,8 +44,12 @@ public class FriendsList {
 		return friendName;
 	}
 
-	public void setFriendName(friendName friendName) {
-		this.friendName = friendName;
+	public void setFriendName(friendName friendName, String firstName, String lastName ) {
+		
+		friendName.setFriendFirstName( firstName );
+		friendName.setFriendLastName( lastName );
+		//this.friendName = friendName;
+		
 	}
 
 	

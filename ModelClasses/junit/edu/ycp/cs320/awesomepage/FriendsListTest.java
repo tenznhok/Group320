@@ -65,13 +65,14 @@ public class FriendsListTest {
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
 		
-		list.setFriendName(name3);
+		//list.setFriendName(name3);
+		
+		list.setFriendName(name3, "Michael", "NotMe");
+		
+				
 	
-		
-		
-		
-	
-	assertEquals("Ron",list.getFriendName());
+		assertEquals( "Michael", listOfFriend.get(2).getFriendFirstName() );
+		assertEquals( "NotMe", listOfFriend.get(2).getFriendLastName() );
 	
 				
 	}
