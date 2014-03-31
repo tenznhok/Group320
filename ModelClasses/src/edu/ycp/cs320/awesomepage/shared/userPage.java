@@ -12,12 +12,11 @@ public class userPage {
 	public void upDateStatus( String message ) {
 		
 		userStatus.setMessage(message);
-		
 	}
 	
 	public String getStatus()
 	{
-		return userWall.getStatus();
+		return userStatus.getMessage();
 	}
 	
 	public friendName getFriendsName()
