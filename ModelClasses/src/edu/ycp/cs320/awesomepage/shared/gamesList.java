@@ -6,6 +6,9 @@ public class gamesList {
 		private games gameName;
 	 	private ArrayList<games> listOfGames;
 	 	
+	 	public gamesList(){
+	 		
+	 	}
 	 
 	 	// add games into the user's list
 	 	public void addGame(ArrayList<games> games){
