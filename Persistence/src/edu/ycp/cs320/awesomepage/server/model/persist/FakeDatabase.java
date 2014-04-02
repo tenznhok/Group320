@@ -8,6 +8,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 public class FakeDatabase implements IDatabase {
 	private List<User> userList;
 	
+	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
 		
@@ -23,6 +24,16 @@ public class FakeDatabase implements IDatabase {
 	@Override
 	public User login(String username, String password) {
 		// TODO Auto-generated method stub
+//		if (userList.contains(username) && userList.contains(password)) {
+//			if (username == user.getUserName() && password == user.getPassword()){
+//				
+//			}
+//		}
+		for (User user : userList) {
+			if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+				return user;
+			}
+		}
 		return null;
 	}
 

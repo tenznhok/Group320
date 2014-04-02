@@ -13,7 +13,7 @@ public class gamesTest {
 	@Before
 	public void setup(){
 		
-		gamesName = new games();
+		gamesName = new games("Block");
 		gamesName.setGameName("Terris");
 		gamesName.setGameName("Block");
 		

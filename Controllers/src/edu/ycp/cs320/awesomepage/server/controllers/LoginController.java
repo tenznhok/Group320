@@ -5,6 +5,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 
 public class LoginController {
 	public User login(String username, String password) {
+		
 		return DatabaseProvider.getInstance().login(username, password);
 	}
 }

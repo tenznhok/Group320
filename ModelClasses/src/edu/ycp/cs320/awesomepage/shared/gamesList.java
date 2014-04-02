@@ -8,8 +8,8 @@ public class gamesList {
 	 	
 	 
 	 	// add games into the user's list
-	 	public void addGame(ArrayList<games> games){
-	 		listOfGames.addAll(games);		
+	 	public void addGame( games games){
+	 		listOfGames.add(games);		
 	 	}
 	 	
 	 	//remove games from the user's list
