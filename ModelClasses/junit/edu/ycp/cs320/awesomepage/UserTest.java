@@ -18,6 +18,7 @@ public class UserTest {
 		person.setUserName("Jim");
 		person.setPassword("Apple");
 		person.setEmail("email@mail.com");
+		person.setUserID(123);
 		
 	}
 
@@ -37,5 +38,11 @@ public class UserTest {
 	public void testEmail(){
 		
 		assertEquals( "email@mail.com", person.getEmail() );
+	}
+	
+	@Test
+	public void testGetUserID(){
+		
+		assertEquals( 123, person.getUserID() );
 	}
 }
