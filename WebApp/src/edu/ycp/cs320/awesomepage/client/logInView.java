@@ -9,7 +9,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 
-public class logInView extends Composite {
+
+public class logInView extends Composite implements FieldVerifier {
 	
 
 }
