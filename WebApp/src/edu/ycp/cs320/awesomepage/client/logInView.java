@@ -41,6 +41,20 @@ public class logInView extends Composite /*implements FieldVerifier*/ {
 		layoutPanel.setWidgetTopHeight(PasswordLabel, 114.0, Unit.PX, 18.0, Unit.PX);
 		
 		Button btnLogin = new Button("New button");
+		btnLogin.addClickHandler(new ClickHandler() 
+		{
+			public void onClick(ClickEvent event) 
+			{
+				handleLogIn();
+			}
+
+			private void handleLogIn() 
+			{
+				String userName;
+				
+			}
+		});
+		
 		btnLogin.setText("LOGIN");
 		layoutPanel.add(btnLogin);
 		layoutPanel.setWidgetLeftWidth(btnLogin, 182.0, Unit.PX, 81.0, Unit.PX);
