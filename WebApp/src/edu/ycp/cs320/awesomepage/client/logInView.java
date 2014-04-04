@@ -14,7 +14,6 @@ import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.Image;
 
 
-
 public class logInView extends Composite /*implements FieldVerifier*/ {
 	private TextBox textBoxUserName;
 	public logInView() {
@@ -35,7 +34,7 @@ public class logInView extends Composite /*implements FieldVerifier*/ {
 		layoutPanel.setWidgetLeftWidth(UserNameLabel, 50.0, Unit.PX, 90.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(UserNameLabel, 74.0, Unit.PX, 18.0, Unit.PX);
 		
-		InlineLabel PasswordLabel = new InlineLabel("Password:");
+		final InlineLabel PasswordLabel = new InlineLabel("Password:");
 		layoutPanel.add(PasswordLabel);
 		layoutPanel.setWidgetLeftWidth(PasswordLabel, 50.0, Unit.PX, 90.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(PasswordLabel, 114.0, Unit.PX, 18.0, Unit.PX);
@@ -47,11 +46,10 @@ public class logInView extends Composite /*implements FieldVerifier*/ {
 			{
 				handleLogIn();
 			}
-
 			private void handleLogIn() 
 			{
-				String userName;
-				
+				String userName = String.valueOf( textBoxUserName.getText() );;
+				String userPassword = String.valueOf( PasswordLabel.getText() );
 			}
 		});
 		
