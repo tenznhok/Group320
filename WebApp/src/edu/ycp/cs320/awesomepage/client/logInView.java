@@ -70,11 +70,6 @@ public class logInView extends Composite  {
 		image.setSize("600", "560");
 		layoutPanel.setWidgetLeftWidth(image, 24.0, Unit.PX, 486.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(image, 286.0, Unit.PX, 549.0, Unit.PX);
-		
-		Image image_1 = new Image("Untitled.png");
-		layoutPanel.add(image_1);
-		layoutPanel.setWidgetLeftWidth(image_1, 582.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image_1, 81.0, Unit.PX, 100.0, Unit.PX);
 	}
 
 }
