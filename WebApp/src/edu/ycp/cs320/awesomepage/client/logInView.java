@@ -1,5 +1,7 @@
 package edu.ycp.cs320.awesomepage.client;
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.LayoutPanel;
@@ -14,10 +16,13 @@ import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.Image;
 
+import edu.ycp.cs320.awesomepage.shared.User;
+
 
 
 public class logInView extends Composite  {
 	private TextBox textBoxUserName;
+	private PasswordTextBox passwordTextBox;
 	public logInView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -48,11 +53,6 @@ public class logInView extends Composite  {
 			{
 				handleLogIn();
 			}
-			private void handleLogIn() 
-			{
-				String userName = String.valueOf( textBoxUserName.getText() );
-				String userPassword = String.valueOf( PasswordLabel.getText() );
-			}
 		});
 		
 		btnLogin.setText("LOGIN");
@@ -60,7 +60,7 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetLeftWidth(btnLogin, 182.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnLogin, 182.0, Unit.PX, 30.0, Unit.PX);
 		
-		PasswordTextBox passwordTextBox = new PasswordTextBox();
+		passwordTextBox = new PasswordTextBox();
 		layoutPanel.add(passwordTextBox);
 		layoutPanel.setWidgetLeftWidth(passwordTextBox, 135.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(passwordTextBox, 111.0, Unit.PX, 32.0, Unit.PX);
@@ -75,6 +75,38 @@ public class logInView extends Composite  {
 		layoutPanel.add(image_1);
 		layoutPanel.setWidgetLeftWidth(image_1, 473.0, Unit.PX, 250.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(image_1, 35.0, Unit.PX, 218.0, Unit.PX);
+	}
+
+	protected void handleLogIn() 
+	{
+		String userName = String.valueOf( textBoxUserName.getText() );
+		String userPassword = String.valueOf( passwordTextBox.getText() );
+		
+		// Call login RPC method to attempt to log in
+		RPC.loginService.logIn(userName, userPassword, new AsyncCallback<User>() {
+			
+			@Override
+			public void onSuccess(User result) {
+				if (result == null) {
+					// No such username/password
+					// TODO: display error message in UI
+					
+					GWT.log("Login failed (unknown username/password)");
+				} else {
+					// Successful login!
+					// TODO: switch to next view
+					GWT.log("Successful login!");
+				}
+				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				String message = caught.getMessage();
+				// TODO: display error message in UI
+				GWT.log("Login RPC call failed");
+			}
+		});
 	}
 
 }

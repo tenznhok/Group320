@@ -1,6 +1,8 @@
 package edu.ycp.cs320.awesomepage.shared;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	private int userID;
 	private String userName;
 	private String password;
