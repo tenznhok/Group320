@@ -50,7 +50,7 @@ public class logInView extends Composite  {
 			}
 			private void handleLogIn() 
 			{
-				String userName = String.valueOf( textBoxUserName.getText() );;
+				String userName = String.valueOf( textBoxUserName.getText() );
 				String userPassword = String.valueOf( PasswordLabel.getText() );
 			}
 		});
@@ -70,6 +70,11 @@ public class logInView extends Composite  {
 		image.setSize("600", "560");
 		layoutPanel.setWidgetLeftWidth(image, 24.0, Unit.PX, 486.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(image, 286.0, Unit.PX, 549.0, Unit.PX);
+		
+		Image image_1 = new Image("LoginPage_IMG.png");
+		layoutPanel.add(image_1);
+		layoutPanel.setWidgetLeftWidth(image_1, 473.0, Unit.PX, 250.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image_1, 35.0, Unit.PX, 218.0, Unit.PX);
 	}
 
 }
