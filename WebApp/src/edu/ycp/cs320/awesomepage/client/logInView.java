@@ -24,6 +24,7 @@ public class logInView extends Composite  {
 	private TextBox textBoxUserName;
 	private PasswordTextBox passwordTextBox;
 	private InlineLabel errorLabel;
+	private InlineLabel loginSucessLable;
 	public logInView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -87,6 +88,12 @@ public class logInView extends Composite  {
 		layoutPanel.add(errorLabel);
 		layoutPanel.setWidgetLeftWidth(errorLabel, 13.0, Unit.PX, 386.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(errorLabel, 334.0, Unit.PX, 18.0, Unit.PX);
+		
+		loginSucessLable = new InlineLabel("");
+		loginSucessLable.setStyleDependentName("awesomepage-sucessLable", true);
+		layoutPanel.add(loginSucessLable);
+		layoutPanel.setWidgetLeftWidth(loginSucessLable, 252.0, Unit.PX, 173.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(loginSucessLable, 286.0, Unit.PX, 23.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
@@ -109,6 +116,7 @@ public class logInView extends Composite  {
 					// Successful login!
 					// TODO: switch to next view
 					GWT.log("Successful login!");
+					loginSucessLable.setText("You re logging into your page.....");
 				}
 				
 			}
