@@ -13,12 +13,16 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 		System.out.println("Server's logIn method called!");
 		
 		// TODO: use a controller to check the database
-		
+	
 		LoginController controller = new LoginController();
-		
-		return controller.login(username, password);
-		
-		//return null;
+		controller.login(username, password);
+		if (controller.equals(username) && controller.equals(password)){
+			System.out.println("Successful log in...");
+		}
+		else {
+			System.out.println("Wrong username/ password ...");
+		}
+		return null;
 	}
 
 }
