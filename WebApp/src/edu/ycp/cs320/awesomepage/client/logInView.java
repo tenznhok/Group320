@@ -23,6 +23,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 public class logInView extends Composite  {
 	private TextBox textBoxUserName;
 	private PasswordTextBox passwordTextBox;
+	private InlineLabel errorLabel;
 	public logInView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -80,6 +81,12 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetTopBottom(image_3, -32.0, Unit.PX, 170.0, Unit.PX);
 		image_3.setSize("300", "500");
 		layoutPanel.setWidgetLeftRight(image_3, 405.0, Unit.PX, 0.0, Unit.PX);
+		
+		errorLabel = new InlineLabel("");
+		errorLabel.setStyleName("awesomepage-errorLabel", true);
+		layoutPanel.add(errorLabel);
+		layoutPanel.setWidgetLeftWidth(errorLabel, 13.0, Unit.PX, 386.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(errorLabel, 334.0, Unit.PX, 18.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
@@ -97,6 +104,7 @@ public class logInView extends Composite  {
 					// TODO: display error message in UI
 					
 					GWT.log("Login failed (unknown username/password)");
+					errorLabel.setText("Unknown username/password: please re-enter");
 				} else {
 					// Successful login!
 					// TODO: switch to next view
