@@ -94,6 +94,8 @@ public class logInView extends Composite  {
 		layoutPanel.add(loginSucessLable);
 		layoutPanel.setWidgetLeftWidth(loginSucessLable, 252.0, Unit.PX, 240.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 286.0, Unit.PX, 23.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(loginSucessLable, 96.0, Unit.PX, 173.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(loginSucessLable, 310.0, Unit.PX, 23.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
@@ -116,8 +118,11 @@ public class logInView extends Composite  {
 					// Successful login!
 					// TODO: switch to next view
 					GWT.log("Successful login!");
-					errorLabel.setText(" ");
-					loginSucessLable.setText("You're logging into your page.....");
+					errorLabel.setText(""); // clear previous error if there was one
+					loginSucessLable.setText("You re logging into your page.....");
+					
+					// Switch to webpage view
+					WebApp.setView(new webpageView());
 				}
 				
 			}
