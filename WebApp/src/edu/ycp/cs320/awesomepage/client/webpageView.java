@@ -19,13 +19,17 @@ import com.google.gwt.user.client.ui.ListBox;
 
 
 public class webpageView extends Composite {
+	private Button statusBtt;
+	private Button btnAddFriend;
+	private Button btnAddGames;
+	private Button btnEditInfo;
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		layoutPanel.setSize("527px", "195px");
 		
-		Button statusBtt = new Button("Post");
+		statusBtt = new Button("Post");
 		statusBtt.setText("Status");
 		layoutPanel.add(statusBtt);
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
@@ -36,18 +40,18 @@ public class webpageView extends Composite {
 		layoutPanel.setWidgetLeftWidth(status, 219.0, Unit.PX, 296.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(status, 225.0, Unit.PX, 86.0, Unit.PX);
 		
-		Button btnAddFriend = new Button("Add Friend");
+		btnAddFriend = new Button("Add Friend");
 		btnAddFriend.setText("Add Friends");
 		layoutPanel.add(btnAddFriend);
 		layoutPanel.setWidgetLeftWidth(btnAddFriend, 165.0, Unit.PX, 98.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnAddFriend, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		Button btnAddGames = new Button("Add Games");
+		btnAddGames = new Button("Add Games");
 		layoutPanel.add(btnAddGames);
 		layoutPanel.setWidgetLeftWidth(btnAddGames, 269.0, Unit.PX, 98.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnAddGames, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		Button btnEditInfo = new Button("Edit Info");
+		btnEditInfo = new Button("Edit Info");
 		layoutPanel.add(btnEditInfo);
 		layoutPanel.setWidgetLeftWidth(btnEditInfo, 373.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
