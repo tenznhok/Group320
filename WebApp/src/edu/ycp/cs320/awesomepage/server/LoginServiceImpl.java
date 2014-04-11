@@ -15,14 +15,14 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 		// TODO: use a controller to check the database
 	
 		LoginController controller = new LoginController();
-		controller.login(username, password);
-		if (controller.equals(username) && controller.equals(password)){
+		//controller.login(username, password);
+		if (  ){
 			System.out.println("Successful log in...");
 		}
 		else {
 			System.out.println("Wrong username/ password ...");
 		}
-		return null;
+		return controller.login(username, password);
 	}
 
 }
