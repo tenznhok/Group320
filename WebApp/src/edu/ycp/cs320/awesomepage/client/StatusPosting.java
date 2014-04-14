@@ -1,6 +1,7 @@
 package edu.ycp.cs320.awesomepage.client;
 
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -14,13 +15,14 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 public class StatusPosting extends Composite {
 	private Button statusPostButt;
+	private TextBox statusTextbox;
 	public StatusPosting() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		layoutPanel.setSize("501px", "412px");
 		
-		TextBox statusTextbox = new TextBox();
+		statusTextbox = new TextBox();
 		layoutPanel.add(statusTextbox);
 		layoutPanel.setWidgetLeftWidth(statusTextbox, 0.0, Unit.PX, 483.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusTextbox, 54.0, Unit.PX, 128.0, Unit.PX);
@@ -40,9 +42,24 @@ public class StatusPosting extends Composite {
 	
 	private void postingStatus() {
 		
+		String status = String.valueOf(statusTextbox.getText());
 		
-		// Switch to webpage view
-			WebApp.setView(new webpageView());
+		RPC.statusService.postStatus(Session.getInstance().getUser(), status, new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void result) {
+				// Status posted successfully
+				
+				// Switch to webpage view
+				WebApp.setView(new webpageView());
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO: display error message in UI
+			}
+		});
+		
 		
 	}
 }

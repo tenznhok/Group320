@@ -15,12 +15,10 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.Image;
-
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
-
 import com.google.gwt.user.client.ui.ListBox;
 
 public class webpageView extends Composite {
@@ -72,7 +70,7 @@ public class webpageView extends Composite {
 		btnEditStatus = new Button("Edit Status");
 		layoutPanel.add(btnEditStatus);
 		layoutPanel.setWidgetLeftWidth(btnEditStatus, 78.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnEditStatus, 318.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnEditStatus, 310.0, Unit.PX, 30.0, Unit.PX);
 	}
 	
 	protected void handleStatusPost() {

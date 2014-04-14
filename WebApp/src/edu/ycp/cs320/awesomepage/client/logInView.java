@@ -133,6 +133,9 @@ public class logInView extends Composite  {
 					errorLabel.setText(""); // clear previous error if there was one
 					loginSucessLable.setText("You re logging into your page.....");
 					
+					// Store the user object in the Session
+					Session.getInstance().setUser(result);
+					
 					// Switch to webpage view
 					WebApp.setView(new webpageView());
 				}
