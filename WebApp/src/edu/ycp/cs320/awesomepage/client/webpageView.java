@@ -28,14 +28,21 @@ public class webpageView extends Composite {
 	private Button btnAddFriend;
 	private Button btnAddGames;
 	private Button btnEditInfo;
+	private Button btnEditStatus;
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-
-		layoutPanel.setSize("527px", "195px");
+		layoutPanel.setSize("527px", "450px");
 		
 		statusBtt = new Button("Post");
+		statusBtt.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleStatusPost();
+			}
+
+			
+		});
 		statusBtt.setText("Status");
 		layoutPanel.add(statusBtt);
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
@@ -43,8 +50,8 @@ public class webpageView extends Composite {
 		
 		Label status = new Label("");
 		layoutPanel.add(status);
-		layoutPanel.setWidgetLeftWidth(status, 219.0, Unit.PX, 296.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(status, 225.0, Unit.PX, 86.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(status, 78.0, Unit.PX, 376.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(status, 218.0, Unit.PX, 86.0, Unit.PX);
 		
 		btnAddFriend = new Button("Add Friend");
 		btnAddFriend.setText("Add Friends");
@@ -61,5 +68,18 @@ public class webpageView extends Composite {
 		layoutPanel.add(btnEditInfo);
 		layoutPanel.setWidgetLeftWidth(btnEditInfo, 373.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
+		
+		btnEditStatus = new Button("Edit Status");
+		layoutPanel.add(btnEditStatus);
+		layoutPanel.setWidgetLeftWidth(btnEditStatus, 78.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnEditStatus, 318.0, Unit.PX, 30.0, Unit.PX);
+	}
+	
+	protected void handleStatusPost() {
+		
+		// Switch to StatusPosting view
+		WebApp.setView(new StatusPosting());
+		
+		
 	}
 }

@@ -17,6 +17,7 @@ public class WebApp implements EntryPoint {
 	public void onModuleLoad() {
 		IsWidget view = new logInView();
 		
+		
 		setView(view);
 	}
 
