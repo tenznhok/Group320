@@ -96,6 +96,11 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 286.0, Unit.PX, 23.0, Unit.PX);
 		layoutPanel.setWidgetLeftWidth(loginSucessLable, 96.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 310.0, Unit.PX, 23.0, Unit.PX);
+		
+		Button btnSignupNow = new Button("SignUp NOW!!");
+		layoutPanel.add(btnSignupNow);
+		layoutPanel.setWidgetLeftWidth(btnSignupNow, 296.0, Unit.PX, 129.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnSignupNow, 274.0, Unit.PX, 30.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
