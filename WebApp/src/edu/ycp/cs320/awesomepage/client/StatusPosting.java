@@ -14,13 +14,14 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 public class StatusPosting extends Composite {
 	private Button statusPostButt;
+	private TextBox statusTextbox;
 	public StatusPosting() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		layoutPanel.setSize("501px", "412px");
 		
-		TextBox statusTextbox = new TextBox();
+		statusTextbox = new TextBox();
 		layoutPanel.add(statusTextbox);
 		layoutPanel.setWidgetLeftWidth(statusTextbox, 0.0, Unit.PX, 483.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusTextbox, 54.0, Unit.PX, 128.0, Unit.PX);
