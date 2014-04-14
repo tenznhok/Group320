@@ -1,6 +1,7 @@
 package edu.ycp.cs320.awesomepage.client;
 
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -41,9 +42,24 @@ public class StatusPosting extends Composite {
 	
 	private void postingStatus() {
 		
+		String status = String.valueOf(statusTextbox.getText());
 		
-		// Switch to webpage view
-			WebApp.setView(new webpageView());
+		RPC.statusService.postStatus(Session.getInstance().getUser(), status, new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void result) {
+				// Status posted successfully
+				
+				// Switch to webpage view
+				WebApp.setView(new webpageView());
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO: display error message in UI
+			}
+		});
+		
 		
 	}
 }
