@@ -20,7 +20,7 @@
   </servlet>
     <servlet>
     <servlet-name>SignUpServiceImpl</servlet-name>
-    <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImpl</servlet-class>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImp</servlet-class>
   </servlet>
   
   
@@ -38,7 +38,7 @@
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>SignUpServiceImpl</servlet-name>
-    <url-pattern>/webapp/signup</url-pattern>
+    <url-pattern>/web/signup</url-pattern>
   </servlet-mapping>
   
   <!-- Servlet context listeners -->
