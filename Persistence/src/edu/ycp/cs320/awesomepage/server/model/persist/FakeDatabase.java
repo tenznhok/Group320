@@ -24,9 +24,6 @@ public class FakeDatabase implements IDatabase {
 	@Override
 	public User login(String username, String password) {	
 		// TODO Auto-generated method stub
-
-
-
 		for (User user : userList) {
 			if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
 				return user;
@@ -34,5 +31,16 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
-
+	
+	@Override 
+	public User signUp( String userName, String password ){
+		User newUser = new User();
+		newUser.setEmail("user@ycp.edu");
+		newUser.setUserName(userName);
+		newUser.setPassword(password);
+		newUser.setUserID(userList.size()+1);
+		userList.add(newUser);
+		
+		return null;
+	}
 }
