@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Image;
 
 public class signUpView extends Composite {
 	public signUpView() {
@@ -18,7 +19,7 @@ public class signUpView extends Composite {
 		Label lblUsername = new Label("UserName :");
 		layoutPanel.add(lblUsername);
 		layoutPanel.setWidgetLeftWidth(lblUsername, 15.0, Unit.PX, 85.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblUsername, 73.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblUsername, 89.0, Unit.PX, 18.0, Unit.PX);
 		
 		InlineLabel inlineLabel = new InlineLabel("First Name: ");
 		layoutPanel.add(inlineLabel);
@@ -40,11 +41,6 @@ public class signUpView extends Composite {
 		layoutPanel.setWidgetLeftWidth(nlnlblEmail, 15.0, Unit.PX, 90.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(nlnlblEmail, 268.0, Unit.PX, 18.0, Unit.PX);
 		
-		PasswordTextBox passwordTextBox = new PasswordTextBox();
-		layoutPanel.add(passwordTextBox);
-		layoutPanel.setWidgetLeftWidth(passwordTextBox, 123.0, Unit.PX, 173.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(passwordTextBox, 211.0, Unit.PX, 32.0, Unit.PX);
-		
 		TextBox textBox = new TextBox();
 		layoutPanel.add(textBox);
 		layoutPanel.setWidgetLeftWidth(textBox, 123.0, Unit.PX, 173.0, Unit.PX);
@@ -60,6 +56,11 @@ public class signUpView extends Composite {
 		layoutPanel.setWidgetLeftWidth(textBox_2, 123.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(textBox_2, 161.0, Unit.PX, 34.0, Unit.PX);
 		
+		PasswordTextBox passwordTextBox = new PasswordTextBox();
+		layoutPanel.add(passwordTextBox);
+		layoutPanel.setWidgetLeftWidth(passwordTextBox, 123.0, Unit.PX, 173.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(passwordTextBox, 211.0, Unit.PX, 32.0, Unit.PX);
+		
 		TextBox textBox_3 = new TextBox();
 		layoutPanel.add(textBox_3);
 		layoutPanel.setWidgetLeftWidth(textBox_3, 121.0, Unit.PX, 163.0, Unit.PX);
@@ -69,5 +70,11 @@ public class signUpView extends Composite {
 		layoutPanel.add(btnSignUp);
 		layoutPanel.setWidgetLeftWidth(btnSignUp, 184.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnSignUp, 315.0, Unit.PX, 30.0, Unit.PX);
+		
+		Image image = new Image("SignUp.png");
+		layoutPanel.add(image);
+		image.setSize("250", "100");
+		layoutPanel.setWidgetLeftWidth(image, 322.0, Unit.PX, 250.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 107.0, Unit.PX);
 	}
 }

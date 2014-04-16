@@ -4,7 +4,7 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 
-@RemoteServiceRelativePath("signup")
+@RemoteServiceRelativePath("sign_up")
 public interface SignUpService extends RemoteService{
 
 }

@@ -139,9 +139,7 @@ public class logInView extends Composite  {
 					// Switch to webpage view
 					WebApp.setView(new webpageView());
 				}
-				
 			}
-			
 			@Override
 			public void onFailure(Throwable caught) {
 				String message = caught.getMessage();
