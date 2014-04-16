@@ -20,7 +20,7 @@
   </servlet>
     <servlet>
     <servlet-name>SignUpServiceImpl</servlet-name>
-    <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImpl</servlet-class>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImp</servlet-class>
   </servlet>
   
   
