@@ -20,6 +20,6 @@ public class LoginControllerTest {
 		User user = controller.login("testuser", "abc123");
 		assertNotNull(user);
 		assertEquals("testuser", user.getUserName());
-		// etc.
+		
 	}
 }
