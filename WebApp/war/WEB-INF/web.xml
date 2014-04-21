@@ -19,7 +19,7 @@
     <servlet-class>edu.ycp.cs320.awesomepage.server.StatusServiceImpl</servlet-class>
   </servlet>
     <servlet>
-    <servlet-name>SignUpServiceImpl</servlet-name>
+    <servlet-name>SignUpServiceImp</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImp</servlet-class>
   </servlet>
   
@@ -37,7 +37,7 @@
     <url-pattern>/webapp/status</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
-    <servlet-name>SignUpServiceImpl</servlet-name>
+    <servlet-name>SignUpServiceImp</servlet-name>
     <url-pattern>/webapp/sign_up</url-pattern>
   </servlet-mapping>
   

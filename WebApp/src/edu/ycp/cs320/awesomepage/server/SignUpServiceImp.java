@@ -13,10 +13,10 @@ public class SignUpServiceImp extends RemoteServiceServlet implements SignUpServ
 		
 		User result = controller.signUp(username, password);
 		if (result == null) {
-			System.out.println("No new user I like cake!!");
+			System.out.println("No new user!!");
 		} else {
-			System.out.println("Successful to make good cake!!");
+			System.out.println("Successful!!");
 		}
-		return result;
+		return null;
 	}
 }
