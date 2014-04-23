@@ -53,6 +53,7 @@ public class FakeDatabase implements IDatabase {
 	//makes the users empty user info which than can be edited in the edit user info page
 	private void userInfoStart(int userID) 
 	{
+		//new user info
 		userInfo newInfo = new userInfo();
 		newInfo.setId(userInfoList.size()+1);
 		newInfo.setUserId( userID );
