@@ -29,6 +29,7 @@ public class webpageView extends Composite {
 	private Button btnEditInfo;
 	private Button btnEditStatus;
 	private Button signOutBut;
+	private Label status;
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -48,7 +49,7 @@ public class webpageView extends Composite {
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		Label status = new Label("");
+		status = new Label("");
 		layoutPanel.add(status);
 		layoutPanel.setWidgetLeftWidth(status, 78.0, Unit.PX, 376.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(status, 218.0, Unit.PX, 86.0, Unit.PX);

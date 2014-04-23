@@ -52,6 +52,7 @@ public class StatusPosting extends Composite {
 				
 				// Switch to webpage view
 				WebApp.setView(new webpageView());
+				
 			}
 			
 			@Override

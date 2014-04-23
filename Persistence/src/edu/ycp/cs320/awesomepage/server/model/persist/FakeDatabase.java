@@ -43,4 +43,10 @@ public class FakeDatabase implements IDatabase {
 		
 		return newUser;
 	}
+	
+	@Override
+	public User status(User user, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
