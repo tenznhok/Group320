@@ -8,5 +8,5 @@ import edu.ycp.cs320.awesomepage.shared.User;
 
 @RemoteServiceRelativePath("sign_up")
 public interface SignUpService extends RemoteService{
-	public User signUp(String username, String password);
+	public User signUp(String username, String password, String email);
 }

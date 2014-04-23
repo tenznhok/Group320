@@ -5,6 +5,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 
-public interface SignUpServiceAsync {
-	void signUp(String username, String password, AsyncCallback<User> callback);
+public interface SignUpServiceAsync 
+{
+	void signUp(String username, String password, String email, AsyncCallback<User> callback);
 }
