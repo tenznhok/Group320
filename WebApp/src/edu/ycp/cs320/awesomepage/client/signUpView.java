@@ -91,16 +91,15 @@ public class signUpView extends Composite {
 		layoutPanel.setWidgetLeftWidth(btnSignUp, 184.0, Unit.PX, 100.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnSignUp, 315.0, Unit.PX, 30.0, Unit.PX);
 		
-		Image image = new Image("SignUp.png");
-		layoutPanel.add(image);
-		image.setSize("250", "100");
-		layoutPanel.setWidgetLeftWidth(image, 322.0, Unit.PX, 250.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 107.0, Unit.PX);
-		
 		errorLabel = new Label("");
 		layoutPanel.add(errorLabel);
 		layoutPanel.setWidgetLeftWidth(errorLabel, 363.0, Unit.PX, 277.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(errorLabel, 315.0, Unit.PX, 16.0, Unit.PX);
+		
+		Image image = new Image((String) null);
+		layoutPanel.add(image);
+		layoutPanel.setWidgetLeftWidth(image, 15.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, -17.0, Unit.PX, 100.0, Unit.PX);
 	}
 	
 	public void signUp(){
