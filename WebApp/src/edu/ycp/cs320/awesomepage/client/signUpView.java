@@ -108,10 +108,10 @@ public class signUpView extends Composite {
 		//String userFirstName = String.valueOf( FirstNameTextBox.getText() );
 		//String userLastName = String.valueOf( LastNameTextBox.getText() );
 		String userPassword = String.valueOf( PasswordTextBox.getText() );
-		//String email = String.valueOf( EmailTextBox.getText() );
+		String email = String.valueOf( EmailTextBox.getText() );
 		
 		// Call login RPC method to attempt to log in
-		RPC.SignUpService.signUp(userName, userPassword, new AsyncCallback<User>() {
+		RPC.SignUpService.signUp(userName, userPassword, email, new AsyncCallback<User>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub

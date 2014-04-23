@@ -33,14 +33,20 @@ public class FakeDatabase implements IDatabase {
 	}
 	
 	@Override 
-	public User signUp( String userName, String password ){
+	public User signUp( String userName, String password, String email ){
 		User newUser = new User();
-		newUser.setEmail("user@ycp.edu");
+		newUser.setEmail( email );
 		newUser.setUserName(userName);
 		newUser.setPassword(password);
 		newUser.setUserID(2);
 		userList.add(newUser);
 		
 		return newUser;
+	}
+	
+	@Override
+	public User status(User user, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
