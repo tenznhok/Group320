@@ -65,10 +65,14 @@ public class FakeDatabase implements IDatabase {
 		
 		userInfoList.add(newInfo);
 	}
-
 	//@Override
 	//public userInfo editInfo( int userID )
 	//{
 		
 	//}
+	@Override
+	public User status(User user, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
