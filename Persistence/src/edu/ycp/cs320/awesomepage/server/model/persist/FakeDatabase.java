@@ -38,7 +38,7 @@ public class FakeDatabase implements IDatabase {
 		newUser.setEmail( email );
 		newUser.setUserName(userName);
 		newUser.setPassword(password);
-		newUser.setUserID(2);
+		newUser.setUserID(userList.size()+1);
 		userList.add(newUser);
 		
 		return newUser;
