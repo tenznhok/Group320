@@ -19,7 +19,6 @@ import com.google.gwt.user.client.ui.Image;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 
-
 public class logInView extends Composite  {
 	private TextBox textBoxUserName;
 	private PasswordTextBox passwordTextBox;
@@ -98,19 +97,17 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetLeftWidth(loginSucessLable, 96.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 310.0, Unit.PX, 23.0, Unit.PX);
 		
-
-		Button btnSignUp = new Button("SignUp NOW!!");
-		btnSignUp.addClickHandler(new ClickHandler() 
+		btnSignupNow = new Button("SignUp NOW!!");
+		btnSignupNow.addClickHandler(new ClickHandler() 
 		{
 			public void onClick(ClickEvent event) 
 			{
 				handleSignUp();
 			}
 		});
-		layoutPanel.add(btnSignUp);
-		layoutPanel.setWidgetLeftWidth(btnSignUp, 13.0, Unit.PX, 129.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnSignUp, 370.0, Unit.PX, 30.0, Unit.PX);
-
+		layoutPanel.add(btnSignupNow);
+		layoutPanel.setWidgetLeftWidth(btnSignupNow, 296.0, Unit.PX, 129.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnSignupNow, 274.0, Unit.PX, 30.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
@@ -142,9 +139,7 @@ public class logInView extends Composite  {
 					// Switch to webpage view
 					WebApp.setView(new webpageView());
 				}
-				
 			}
-			
 			@Override
 			public void onFailure(Throwable caught) {
 				String message = caught.getMessage();
@@ -154,11 +149,8 @@ public class logInView extends Composite  {
 		});
 	}
 	
-
-	protected void handleSignUp() {
-		// Switch to signUp view
+	protected void handleSignUp()
+	{
 		WebApp.setView(new signUpView());
-		
-
 	}
 }

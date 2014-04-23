@@ -57,7 +57,6 @@ public class StatusPosting extends Composite {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO: display error message in UI
-				GWT.log("Unsuccessfully posting status");
 			}
 		});
 		

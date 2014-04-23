@@ -8,4 +8,7 @@ public class RPC {
 	
 	public static final StatusServiceAsync statusService =
 			GWT.create(StatusService.class);
+	
+	public static final SignUpServiceAsync SignUpService = 
+			GWT.create(SignUpService.class);
 }
