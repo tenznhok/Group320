@@ -3,17 +3,20 @@ package edu.ycp.cs320.awesomepage.server.model.persist;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
 	private List<User> userList;
 	private List<userInfo> userInfoList;
+	private List<Status> userStatusList;
 	
 	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
 		this.userInfoList = new ArrayList<userInfo>();
+		this.userStatusList = new ArrayList<Status>();
 		
 		// add initial user data
 		User user = new User();
@@ -22,9 +25,11 @@ public class FakeDatabase implements IDatabase {
 		user.setUserID(1);
 		user.setUserName("testuser");
 		userList.add(user);
+		//sets the user info
 		userInfoStart( user.getUserID() );
+		//sets the user status
+		userStatusStart( user.getUserID() );
 	}
-
 	@Override
 	public User login(String username, String password) {	
 		// TODO Auto-generated method stub
@@ -65,6 +70,15 @@ public class FakeDatabase implements IDatabase {
 		newInfo.setPhoneNum(null);
 		
 		userInfoList.add(newInfo);
+	}
+	private void userStatusStart( int userID ) 
+	{
+		Status newStatus = new Status();
+		
+		newStatus.setUserId(userID);
+		newStatus.setMessage("Welcome to AwesomePage!!");
+		
+		userStatusList.add(newStatus);
 	}
 	//@Override
 	//public userInfo editInfo( int userID )
