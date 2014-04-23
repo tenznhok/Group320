@@ -28,6 +28,7 @@ public class webpageView extends Composite {
 	private Button btnAddGames;
 	private Button btnEditInfo;
 	private Button btnEditStatus;
+	private Button signOutBut;
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -72,8 +73,24 @@ public class webpageView extends Composite {
 		layoutPanel.add(btnEditStatus);
 		layoutPanel.setWidgetLeftWidth(btnEditStatus, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditStatus, 310.0, Unit.PX, 30.0, Unit.PX);
+		
+		signOutBut = new Button("Sign Out");
+		signOutBut.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleSignOut();
+			}
+		});
+		layoutPanel.add(signOutBut);
+		layoutPanel.setWidgetLeftWidth(signOutBut, 78.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(signOutBut, 357.0, Unit.PX, 30.0, Unit.PX);
 	}
 	
+	protected void handleSignOut() {
+		//log out and go to the login view
+		WebApp.setView(new logInView());
+		
+	}
+
 	protected void handleStatusPost() {
 		
 		// Switch to StatusPosting view

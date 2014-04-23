@@ -13,5 +13,6 @@ public class StatusServiceImpl extends RemoteServiceServlet implements StatusSer
 		// TODO: check to make sure that the provided User really is the user that is logged in
 		
 		// TODO: add the status to the database
+		
 	}
 }
