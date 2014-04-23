@@ -1,7 +1,8 @@
 package edu.ycp.cs320.awesomepage.shared;
 
 public class userInfo {
-	private int id; // ID to keep track of user
+	private int id; // unique id of this userInfo (may not be same as User id)
+	private int userId; // ID of User object
 	private String firstName;
 	private String lastName;
 	private String emailContact;
@@ -12,6 +13,14 @@ public class userInfo {
 	
 	public userInfo(){
 		
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	public int getUserId() {
+		return userId;
 	}
 	
 	public String getFirstName() {

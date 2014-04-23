@@ -38,15 +38,10 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetLeftWidth(textBoxUserName, 109.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(textBoxUserName, 169.0, Unit.PX, 34.0, Unit.PX);
 		
-		InlineLabel UserNameLabel = new InlineLabel("UserName:");
-		layoutPanel.add(UserNameLabel);
-		layoutPanel.setWidgetLeftWidth(UserNameLabel, 13.0, Unit.PX, 90.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(UserNameLabel, 180.0, Unit.PX, 23.0, Unit.PX);
-		
-		final InlineLabel PasswordLabel = new InlineLabel("Password:");
-		layoutPanel.add(PasswordLabel);
-		layoutPanel.setWidgetLeftWidth(PasswordLabel, 13.0, Unit.PX, 90.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(PasswordLabel, 223.0, Unit.PX, 18.0, Unit.PX);
+		passwordTextBox = new PasswordTextBox();
+		layoutPanel.add(passwordTextBox);
+		layoutPanel.setWidgetLeftWidth(passwordTextBox, 109.0, Unit.PX, 173.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(passwordTextBox, 209.0, Unit.PX, 32.0, Unit.PX);
 		
 		Button btnLogin = new Button("New button");
 		btnLogin.addClickHandler(new ClickHandler() 
@@ -62,10 +57,27 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetLeftWidth(btnLogin, 149.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnLogin, 274.0, Unit.PX, 30.0, Unit.PX);
 		
-		passwordTextBox = new PasswordTextBox();
-		layoutPanel.add(passwordTextBox);
-		layoutPanel.setWidgetLeftWidth(passwordTextBox, 109.0, Unit.PX, 173.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(passwordTextBox, 209.0, Unit.PX, 32.0, Unit.PX);
+		btnSignupNow = new Button("SignUp NOW!!");
+		btnSignupNow.addClickHandler(new ClickHandler() 
+		{
+			public void onClick(ClickEvent event) 
+			{
+				handleSignUp();
+			}
+		});
+		layoutPanel.add(btnSignupNow);
+		layoutPanel.setWidgetLeftWidth(btnSignupNow, 296.0, Unit.PX, 129.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnSignupNow, 274.0, Unit.PX, 30.0, Unit.PX);
+		
+		InlineLabel UserNameLabel = new InlineLabel("UserName:");
+		layoutPanel.add(UserNameLabel);
+		layoutPanel.setWidgetLeftWidth(UserNameLabel, 13.0, Unit.PX, 90.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(UserNameLabel, 180.0, Unit.PX, 23.0, Unit.PX);
+		
+		final InlineLabel PasswordLabel = new InlineLabel("Password:");
+		layoutPanel.add(PasswordLabel);
+		layoutPanel.setWidgetLeftWidth(PasswordLabel, 13.0, Unit.PX, 90.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(PasswordLabel, 223.0, Unit.PX, 18.0, Unit.PX);
 		
 		Image image_1 = new Image("Login.jpg");
 		layoutPanel.add(image_1);
@@ -96,18 +108,6 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 286.0, Unit.PX, 23.0, Unit.PX);
 		layoutPanel.setWidgetLeftWidth(loginSucessLable, 96.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 310.0, Unit.PX, 23.0, Unit.PX);
-		
-		btnSignupNow = new Button("SignUp NOW!!");
-		btnSignupNow.addClickHandler(new ClickHandler() 
-		{
-			public void onClick(ClickEvent event) 
-			{
-				handleSignUp();
-			}
-		});
-		layoutPanel.add(btnSignupNow);
-		layoutPanel.setWidgetLeftWidth(btnSignupNow, 296.0, Unit.PX, 129.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnSignupNow, 274.0, Unit.PX, 30.0, Unit.PX);
 	}
 
 	protected void handleLogIn() 
