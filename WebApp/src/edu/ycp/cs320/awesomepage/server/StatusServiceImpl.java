@@ -1,5 +1,8 @@
 package edu.ycp.cs320.awesomepage.server;
+import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.userInfo;
+
 import java.util.List;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import edu.ycp.cs320.awesomepage.client.StatusService;
@@ -25,7 +28,8 @@ public class StatusServiceImpl extends RemoteServiceServlet implements StatusSer
 	public void postStatus(User user, String status) {
 		System.out.println("User " + user.getEmail() + " posting status " + status);
 		statusController controller = new statusController();
-		User result = controller.status(user, status);
+		
+		controller.postStatus(user.getUserID(), status);
 		
 		// TODO: check to make sure that the provided User really is the user that is logged in
 		
@@ -34,8 +38,11 @@ public class StatusServiceImpl extends RemoteServiceServlet implements StatusSer
 	}
 	
 	@Override
-	public String[] getStatusesForUser(User user) {
+	public String getStatusesForUser(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		statusController controller = new statusController();
+		String result = controller.status(user.getUserID(), "");
+		
+		return result;
 	}
 }

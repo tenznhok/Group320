@@ -113,15 +113,12 @@ public class webpageView extends Composite implements View {
 			GWT.log("No user in session?");
 			return;
 		}
-		RPC.statusService.getStatusesForUser(user, new AsyncCallback<String[]>() {
+		RPC.statusService.getStatusesForUser(user, new AsyncCallback<String>() {
 			@Override
-			public void onSuccess(String[] result) {
+			public void onSuccess(String result) {
 				// Show statuses in list
-				for (String status : result) {
-					statusListBox.addItem(status);
-				}
+				statusListBox.addItem(result);
 			}
-			
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO: display error message

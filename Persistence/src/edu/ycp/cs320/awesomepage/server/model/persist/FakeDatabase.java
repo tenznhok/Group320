@@ -81,9 +81,28 @@ public class FakeDatabase implements IDatabase {
 		userStatusList.add(newStatus);
 	}
 	@Override
-	public User status(User user, String password) {
+	public String status( int id ) {
 		// TODO Auto-generated method stub
+		for (Status status : userStatusList) {
+			if( status.getUserId() == id )
+			{
+				return status.getMessage();
+			}
+		}
 		return null;
+	}
+	@Override
+	public Status postStatus(int id, String newStatus){
+		
+		for (Status status : userStatusList) {
+			if( status.getUserId() == id )
+			{
+				status.setMessage(newStatus);
+			}
+		}
+		return null;
+		
+		
 	}
 	@Override
 	public userInfo editInfo() {
