@@ -15,7 +15,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
 
-public class signUpView extends Composite {
+public class signUpView extends Composite implements View {
 	private Button btnSignUp;
 	private TextBox UserNameTextBox;
 	private TextBox FirstNameTextBox;
@@ -100,6 +100,11 @@ public class signUpView extends Composite {
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftWidth(image, 15.0, Unit.PX, 100.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(image, -17.0, Unit.PX, 100.0, Unit.PX);
+	}
+	
+	@Override
+	public void activate() {
+		// Nothing to do (don't need to load data)
 	}
 	
 	public void signUp(){

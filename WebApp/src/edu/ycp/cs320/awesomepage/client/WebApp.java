@@ -9,13 +9,13 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class WebApp implements EntryPoint {
-	private static IsWidget currentView;
+	private static View currentView;
 	
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		IsWidget view = new logInView();
+		View view = new logInView();
 		
 		
 		setView(view);
@@ -26,7 +26,7 @@ public class WebApp implements EntryPoint {
 	 * 
 	 * @param view the view to switch to
 	 */
-	public static void setView(IsWidget view) {
+	public static void setView(View view) {
 		if (currentView != null) {
 			// Remove old view
 			RootLayoutPanel.get().remove(currentView);
@@ -36,6 +36,10 @@ public class WebApp implements EntryPoint {
 		RootLayoutPanel.get().add(view);
 		RootLayoutPanel.get().setWidgetLeftRight(view, 0.0, Unit.PX, 0.0, Unit.PX);
 		RootLayoutPanel.get().setWidgetTopBottom(view, 0.0, Unit.PX, 0.0, Unit.PX);
+		
+		// Activate the view (allowing it to load data if necessary)
+		view.activate();
+		
 		currentView = view;
 	}
 }
