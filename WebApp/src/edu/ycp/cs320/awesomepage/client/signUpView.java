@@ -95,11 +95,6 @@ public class signUpView extends Composite implements View {
 		layoutPanel.add(errorLabel);
 		layoutPanel.setWidgetLeftWidth(errorLabel, 363.0, Unit.PX, 277.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(errorLabel, 315.0, Unit.PX, 16.0, Unit.PX);
-		
-		/*Image image = new Image((String) null);
-		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 15.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, -17.0, Unit.PX, 100.0, Unit.PX);*/
 	}
 	
 	@Override
