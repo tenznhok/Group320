@@ -22,9 +22,6 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.ListBox;
 
-import edu.ycp.cs320.awesomepage.shared.Status;
-import edu.ycp.cs320.awesomepage.shared.User;
-
 public class webpageView extends Composite {
 	private Button statusBtt;
 	private Button btnAddFriend;
@@ -33,10 +30,6 @@ public class webpageView extends Composite {
 	private Button btnEditStatus;
 	private Button signOutBut;
 	private Label status;
-	
-	//private User user = Session.getInstance().getUser();
-	//private Status userStatus;
-	
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -56,7 +49,7 @@ public class webpageView extends Composite {
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		status = new Label();
+		status = new Label("");
 		layoutPanel.add(status);
 		layoutPanel.setWidgetLeftWidth(status, 78.0, Unit.PX, 376.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(status, 218.0, Unit.PX, 86.0, Unit.PX);
@@ -103,6 +96,7 @@ public class webpageView extends Composite {
 		
 		// Switch to StatusPosting view
 		WebApp.setView(new StatusPosting());
+		
 		
 		
 	}
