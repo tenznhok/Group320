@@ -64,7 +64,7 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
 		
 		btnAddFriend = new Button("Add Friend");
-		btnAddFriend.setText("Add Friends");
+		btnAddFriend.setText("Friends");
 		layoutPanel.add(btnAddFriend);
 		layoutPanel.setWidgetLeftWidth(btnAddFriend, 165.0, Unit.PX, 98.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnAddFriend, 140.0, Unit.PX, 30.0, Unit.PX);
