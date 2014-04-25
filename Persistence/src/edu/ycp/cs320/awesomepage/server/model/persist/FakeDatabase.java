@@ -51,7 +51,7 @@ public class FakeDatabase implements IDatabase {
 		userList.add(newUser);
 		
 		//makes empty user info
-		userInfoStart( newUser.getUserID() );
+		userInfoStart( userList.size()+1 );
 		
 		return newUser;
 	}
@@ -64,7 +64,7 @@ public class FakeDatabase implements IDatabase {
 		newInfo.setUserId( userID );
 		newInfo.setFirstName("Bob");
 		newInfo.setLastName("Jim");
-		newInfo.setMaleOrFemale(null);
+		newInfo.setMaleOrFemale(" ");
 		newInfo.setCity("York");
 		newInfo.setCountry("Moon");
 		newInfo.setPhoneNum("1234567899");

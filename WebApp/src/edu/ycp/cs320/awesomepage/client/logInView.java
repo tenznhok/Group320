@@ -19,7 +19,7 @@ import com.google.gwt.user.client.ui.Image;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 
-public class logInView extends Composite  {
+public class logInView extends Composite implements View  {
 	private TextBox textBoxUserName;
 	private PasswordTextBox passwordTextBox;
 	private InlineLabel errorLabel;
@@ -108,6 +108,11 @@ public class logInView extends Composite  {
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 286.0, Unit.PX, 23.0, Unit.PX);
 		layoutPanel.setWidgetLeftWidth(loginSucessLable, 96.0, Unit.PX, 173.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginSucessLable, 310.0, Unit.PX, 23.0, Unit.PX);
+	}
+	
+	@Override
+	public void activate() {
+		// Nothing to do (don't need to load any data)
 	}
 
 	protected void handleLogIn() 

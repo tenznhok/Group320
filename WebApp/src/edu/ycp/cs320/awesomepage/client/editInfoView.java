@@ -13,7 +13,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
-public class editInfoView extends Composite  {
+public class editInfoView extends Composite implements View  {
 	private TextBox FirstNameTextBox;
 	private TextBox LastNameTextBox;
 	private TextBox EmailTextBox;
@@ -118,6 +118,12 @@ public class editInfoView extends Composite  {
 		});
 		absolutePanel.add(CancelButton, 405, 140);
 	}
+	
+	@Override
+	public void activate() {
+		// Nothing to do (don't need to load data)
+	}
+	
 	private void handleUpDate() {
 		// TODO Auto-generated method stub
 		WebApp.setView(new webpageView());

@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
-public class StatusPosting extends Composite {
+public class StatusPosting extends Composite implements View {
 	private Button statusPostButt;
 	private TextBox statusTextbox;
 	public StatusPosting() {
@@ -38,6 +38,11 @@ public class StatusPosting extends Composite {
 		layoutPanel.add(statusPostButt);
 		layoutPanel.setWidgetLeftWidth(statusPostButt, 14.0, Unit.PX, 61.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusPostButt, 198.0, Unit.PX, 30.0, Unit.PX);
+	}
+	
+	@Override
+	public void activate() {
+		// Nothing to do (don't need to load data)
 	}
 	
 	private void postingStatus() {

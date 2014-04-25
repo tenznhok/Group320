@@ -3,6 +3,7 @@ package edu.ycp.cs320.awesomepage.client;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.LayoutPanel;
@@ -22,14 +23,29 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.ListBox;
 
-public class webpageView extends Composite {
+
+
+
+import edu.ycp.cs320.awesomepage.shared.Status;
+import edu.ycp.cs320.awesomepage.shared.User;
+
+public class webpageView extends Composite implements View {
+
 	private Button statusBtt;
 	private Button btnAddFriend;
 	private Button btnAddGames;
 	private Button btnEditInfo;
 	private Button btnEditStatus;
 	private Button signOutBut;
+
 	private Label status;
+
+	private ListBox statusListBox;
+	
+	//private User user = Session.getInstance().getUser();
+	//private Status userStatus;
+	
+
 	public webpageView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -46,11 +62,6 @@ public class webpageView extends Composite {
 		layoutPanel.add(statusBtt);
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
-		
-		status = new Label("");
-		layoutPanel.add(status);
-		layoutPanel.setWidgetLeftWidth(status, 78.0, Unit.PX, 376.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(status, 218.0, Unit.PX, 86.0, Unit.PX);
 		
 		btnAddFriend = new Button("Add Friend");
 		btnAddFriend.setText("Add Friends");
@@ -87,6 +98,36 @@ public class webpageView extends Composite {
 		layoutPanel.add(signOutBut);
 		layoutPanel.setWidgetLeftWidth(signOutBut, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(signOutBut, 357.0, Unit.PX, 30.0, Unit.PX);
+		
+		statusListBox = new ListBox();
+		layoutPanel.add(statusListBox);
+		layoutPanel.setWidgetLeftWidth(statusListBox, 78.0, Unit.PX, 376.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusListBox, 176.0, Unit.PX, 128.0, Unit.PX);
+		statusListBox.setVisibleItemCount(5);
+	}
+	
+	
+	public void activate() {
+		User user = Session.getInstance().getUser();
+		if (user == null) {
+			GWT.log("No user in session?");
+			return;
+		}
+		RPC.statusService.getStatusesForUser(user, new AsyncCallback<String[]>() {
+			@Override
+			public void onSuccess(String[] result) {
+				// Show statuses in list
+				for (String status : result) {
+					statusListBox.addItem(status);
+				}
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO: display error message
+				GWT.log("Couldn't display statuses", caught);
+			}
+		});
 	}
 	
 	protected void handleSignOut() {
