@@ -117,6 +117,7 @@ public class webpageView extends Composite implements View {
 			@Override
 			public void onSuccess(String result) {
 				// Show statuses in list
+				statusListBox.insertItem(result, 3);
 				statusListBox.addItem(result);
 			}
 			@Override
@@ -126,7 +127,6 @@ public class webpageView extends Composite implements View {
 			}
 		});
 	}
-	
 	protected void handleSignOut() {
 		//log out and go to the login view
 		WebApp.setView(new logInView());

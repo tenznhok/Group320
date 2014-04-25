@@ -95,7 +95,7 @@ public class signUpView extends Composite implements View {
 		layoutPanel.add(errorLabel);
 		layoutPanel.setWidgetLeftWidth(errorLabel, 363.0, Unit.PX, 277.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(errorLabel, 315.0, Unit.PX, 16.0, Unit.PX);
-		
+
 	}
 	
 	@Override

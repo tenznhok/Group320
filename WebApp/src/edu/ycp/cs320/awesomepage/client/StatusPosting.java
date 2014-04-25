@@ -3,7 +3,6 @@ package edu.ycp.cs320.awesomepage.client;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.dom.client.Style.Unit;
@@ -32,8 +31,6 @@ public class StatusPosting extends Composite implements View {
 			public void onClick(ClickEvent event) {
 				postingStatus();
 			}
-
-			
 		});
 		layoutPanel.add(statusPostButt);
 		layoutPanel.setWidgetLeftWidth(statusPostButt, 14.0, Unit.PX, 61.0, Unit.PX);
@@ -48,16 +45,14 @@ public class StatusPosting extends Composite implements View {
 	private void postingStatus() {
 		
 		String status = String.valueOf(statusTextbox.getText());
-		
-		RPC.statusService.postStatus(Session.getInstance().getUser(), status, new AsyncCallback<Void>() {
+		RPC.statusService.postStatus(Session.getInstance().getUser(), status, new AsyncCallback<String>() {
 			
 			@Override
-			public void onSuccess(Void result) {
+			public void onSuccess(String result) {
 				// Status posted successfully
 				
 				// Switch to webpage view
 				WebApp.setView(new webpageView());
-				
 			}
 			
 			@Override
@@ -65,7 +60,5 @@ public class StatusPosting extends Composite implements View {
 				// TODO: display error message in UI
 			}
 		});
-		
-		
 	}
 }

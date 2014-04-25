@@ -101,8 +101,6 @@ public class FakeDatabase implements IDatabase {
 			}
 		}
 		return null;
-		
-		
 	}
 	@Override
 	public userInfo editInfo() {
