@@ -148,7 +148,6 @@ public class logInView extends Composite  {
 			}
 		});
 	}
-	
 	protected void handleSignUp()
 	{
 		WebApp.setView(new signUpView());

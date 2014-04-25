@@ -1,6 +1,8 @@
 package edu.ycp.cs320.awesomepage.shared;
 
-public class userInfo {
+import java.io.Serializable;
+
+public class userInfo implements Serializable {
 	private int id; // unique id of this userInfo (may not be same as User id)
 	private int userId; // ID of User object
 	private String firstName;

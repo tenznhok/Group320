@@ -62,12 +62,12 @@ public class FakeDatabase implements IDatabase {
 		userInfo newInfo = new userInfo();
 		newInfo.setId(userInfoList.size()+1);
 		newInfo.setUserId( userID );
-		newInfo.setFirstName(null);
-		newInfo.setLastName(null);
+		newInfo.setFirstName("Bob");
+		newInfo.setLastName("Jim");
 		newInfo.setMaleOrFemale(null);
-		newInfo.setCity(null);
-		newInfo.setCountry(null);
-		newInfo.setPhoneNum(null);
+		newInfo.setCity("York");
+		newInfo.setCountry("Moon");
+		newInfo.setPhoneNum("1234567899");
 		
 		userInfoList.add(newInfo);
 	}
@@ -80,14 +80,24 @@ public class FakeDatabase implements IDatabase {
 		
 		userStatusList.add(newStatus);
 	}
-	//@Override
-	//public userInfo editInfo( int userID )
-	//{
-		
-	//}
 	@Override
 	public User status(User user, String password) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public userInfo editInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public userInfo getUserInfo( int id )
+	{
+		for (userInfo info : userInfoList) {
+			if( info.getUserId() == id )
+			{
+				return info;
+			}
+		}
 		return null;
 	}
 }

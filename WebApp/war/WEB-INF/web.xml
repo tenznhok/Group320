@@ -22,7 +22,10 @@
     <servlet-name>SignUpServiceImp</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.SignUpServiceImp</servlet-class>
   </servlet>
-  
+      <servlet>
+    <servlet-name>EditInfoServiceImpl</servlet-name>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.EditInfoServiceImpl</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -39,6 +42,10 @@
     <servlet-mapping>
     <servlet-name>SignUpServiceImp</servlet-name>
     <url-pattern>/webapp/sign_up</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>EditInfoServiceImpl</servlet-name>
+    <url-pattern>/webapp/editInfo</url-pattern>
   </servlet-mapping>
   
   <!-- Servlet context listeners -->

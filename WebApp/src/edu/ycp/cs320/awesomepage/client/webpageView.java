@@ -41,8 +41,6 @@ public class webpageView extends Composite {
 			public void onClick(ClickEvent event) {
 				handleStatusPost();
 			}
-
-			
 		});
 		statusBtt.setText("Status");
 		layoutPanel.add(statusBtt);
@@ -66,6 +64,11 @@ public class webpageView extends Composite {
 		layoutPanel.setWidgetTopHeight(btnAddGames, 140.0, Unit.PX, 30.0, Unit.PX);
 		
 		btnEditInfo = new Button("Edit Info");
+		btnEditInfo.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleEditInfo();
+			}
+		});
 		layoutPanel.add(btnEditInfo);
 		layoutPanel.setWidgetLeftWidth(btnEditInfo, 373.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
@@ -89,15 +92,15 @@ public class webpageView extends Composite {
 	protected void handleSignOut() {
 		//log out and go to the login view
 		WebApp.setView(new logInView());
-		
 	}
 
 	protected void handleStatusPost() {
 		
 		// Switch to StatusPosting view
 		WebApp.setView(new StatusPosting());
-		
-		
-		
+	}
+	private void handleEditInfo() {
+		// TODO Auto-generated method stub
+		WebApp.setView(new editInfoView());
 	}
 }

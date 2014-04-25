@@ -5,6 +5,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
-public interface LoginServiceAsync {
-	void logIn(String username, String password, AsyncCallback<User> callback);
+public interface EditInfoServiceAsync {
+	void editInfo( AsyncCallback<userInfo> callback);
+	void getUserInfo(int userID, AsyncCallback<userInfo> asyncCallback);
 }
