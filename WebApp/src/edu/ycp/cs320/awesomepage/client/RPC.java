@@ -11,4 +11,7 @@ public class RPC {
 	
 	public static final SignUpServiceAsync SignUpService = 
 			GWT.create(SignUpService.class);
+
+	public static final EditInfoServiceAsync EditInfoService = 
+			GWT.create(EditInfoService.class);
 }
