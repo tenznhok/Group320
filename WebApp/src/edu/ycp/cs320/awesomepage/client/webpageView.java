@@ -122,7 +122,7 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetTopHeight(CountryLabel, 357.0, Unit.PX, 18.0, Unit.PX);
 		
 		CityLabel = new Label("");
-		layoutPanel.add(CityLabel);
+		layoutPanel.add(CityLabel); 
 		layoutPanel.setWidgetLeftWidth(CityLabel, 297.0, Unit.PX, 342.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(CityLabel, 381.0, Unit.PX, 18.0, Unit.PX);
 		
