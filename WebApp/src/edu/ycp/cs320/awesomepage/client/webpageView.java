@@ -28,19 +28,20 @@ import com.google.gwt.user.client.ui.ListBox;
 
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class webpageView extends Composite implements View {
 
 	private Button statusBtt;
 	private Button btnFriends;
-	private Button btnAddGames;
 	private Button btnEditInfo;
-	private Button btnEditStatus;
 	private Button signOutBut;
 
 	private Label status;
 
 	private ListBox statusListBox;
+	
+	private Label NameLabel, EmailTextLabel, PhoneNumLabel, CountryLabel, CityLabel;
 	
 	//private User user = Session.getInstance().getUser();
 	//private Status userStatus;
@@ -50,7 +51,7 @@ public class webpageView extends Composite implements View {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-		layoutPanel.setSize("527px", "450px");
+		layoutPanel.setSize("666px", "498px");
 		
 		statusBtt = new Button("Post");
 		statusBtt.addClickHandler(new ClickHandler() {
@@ -74,11 +75,6 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetLeftWidth(btnFriends, 165.0, Unit.PX, 98.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnFriends, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		btnAddGames = new Button("Add Games");
-		layoutPanel.add(btnAddGames);
-		layoutPanel.setWidgetLeftWidth(btnAddGames, 269.0, Unit.PX, 98.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnAddGames, 140.0, Unit.PX, 30.0, Unit.PX);
-		
 		btnEditInfo = new Button("Edit Info");
 		btnEditInfo.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -86,13 +82,8 @@ public class webpageView extends Composite implements View {
 			}
 		});
 		layoutPanel.add(btnEditInfo);
-		layoutPanel.setWidgetLeftWidth(btnEditInfo, 373.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnEditInfo, 269.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
-		
-		btnEditStatus = new Button("Edit Status");
-		layoutPanel.add(btnEditStatus);
-		layoutPanel.setWidgetLeftWidth(btnEditStatus, 78.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnEditStatus, 310.0, Unit.PX, 30.0, Unit.PX);
 		
 		signOutBut = new Button("Sign Out");
 		signOutBut.addClickHandler(new ClickHandler() {
@@ -109,11 +100,58 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetLeftWidth(statusListBox, 78.0, Unit.PX, 376.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusListBox, 176.0, Unit.PX, 128.0, Unit.PX);
 		statusListBox.setVisibleItemCount(5);
+		
+		NameLabel = new Label(" ");
+		layoutPanel.add(NameLabel);
+		layoutPanel.setWidgetLeftWidth(NameLabel, 68.0, Unit.PX, 376.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(NameLabel, 51.0, Unit.PX, 18.0, Unit.PX);
+		
+		EmailTextLabel = new Label("");
+		layoutPanel.add(EmailTextLabel);
+		layoutPanel.setWidgetLeftWidth(EmailTextLabel, 297.0, Unit.PX, 342.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(EmailTextLabel, 310.0, Unit.PX, 18.0, Unit.PX);
+		
+		PhoneNumLabel = new Label("");
+		layoutPanel.add(PhoneNumLabel);
+		layoutPanel.setWidgetLeftWidth(PhoneNumLabel, 297.0, Unit.PX, 338.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(PhoneNumLabel, 334.0, Unit.PX, 18.0, Unit.PX);
+		
+		CountryLabel = new Label("");
+		layoutPanel.add(CountryLabel);
+		layoutPanel.setWidgetLeftWidth(CountryLabel, 297.0, Unit.PX, 338.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(CountryLabel, 357.0, Unit.PX, 18.0, Unit.PX);
+		
+		CityLabel = new Label("");
+		layoutPanel.add(CityLabel);
+		layoutPanel.setWidgetLeftWidth(CityLabel, 297.0, Unit.PX, 342.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(CityLabel, 381.0, Unit.PX, 18.0, Unit.PX);
+		
+		Label lblPhone = new Label("Email");
+		layoutPanel.add(lblPhone);
+		layoutPanel.setWidgetLeftWidth(lblPhone, 235.0, Unit.PX, 56.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblPhone, 310.0, Unit.PX, 18.0, Unit.PX);
+		
+		Label label = new Label("Phone:");
+		layoutPanel.add(label);
+		layoutPanel.setWidgetLeftWidth(label, 235.0, Unit.PX, 56.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(label, 334.0, Unit.PX, 18.0, Unit.PX);
+		
+		Label lblCountry = new Label("country");
+		layoutPanel.add(lblCountry);
+		layoutPanel.setWidgetLeftWidth(lblCountry, 235.0, Unit.PX, 56.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblCountry, 357.0, Unit.PX, 18.0, Unit.PX);
+		
+		Label lblCity = new Label("city:::::::");
+		layoutPanel.add(lblCity);
+		layoutPanel.setWidgetLeftWidth(lblCity, 235.0, Unit.PX, 56.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblCity, 381.0, Unit.PX, 18.0, Unit.PX);
+		
 	}
 	
 	
 	public void activate() {
-		User user = Session.getInstance().getUser();
+		final User user = Session.getInstance().getUser();
+		
 		if (user == null) {
 			GWT.log("No user in session?");
 			return;
@@ -131,6 +169,45 @@ public class webpageView extends Composite implements View {
 				GWT.log("Couldn't display statuses", caught);
 			}
 		});
+		
+		
+		
+		int userID = user.getUserID();
+		RPC.EditInfoService.getUserInfo(userID, new AsyncCallback<userInfo>() {
+
+			userInfo info;
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("get user info RPC call failed");
+			}
+			@Override
+			public void onSuccess(userInfo result) {
+				// TODO Auto-generated method stub
+				GWT.log("Successful To Get User Info!");
+				if(result == null)
+				{
+					GWT.log("Failed to get user info");
+				}else{
+					
+					info = result;
+					NameLabel.setText(info.getFirstName() + " " + info.getLastName() );
+					
+					EmailTextLabel.setText(info.getEmailContact());
+					//MorFTextLabel.setText(info.getMaleOrFemale());
+					PhoneNumLabel.setText(info.getPhoneNum());
+					CountryLabel.setText(info.getCountry());
+					CityLabel.setText(info.getCity());
+					
+				}
+			}
+		});
+		
+		
+		
+		
+		
 	}
 	protected void handleSignOut() {
 		//log out and go to the login view
