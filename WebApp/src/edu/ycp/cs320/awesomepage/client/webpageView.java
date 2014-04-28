@@ -199,7 +199,7 @@ public class webpageView extends Composite implements View {
 					PhoneNumLabel.setText(info.getPhoneNum());
 					CountryLabel.setText(info.getCountry());
 					CityLabel.setText(info.getCity());
-					
+					//
 				}
 			}
 		});
