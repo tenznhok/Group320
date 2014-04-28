@@ -26,56 +26,52 @@ import com.google.gwt.event.logical.shared.AttachEvent;
  *
  */
 public class userListView extends Composite implements View  {
-	private Button addFriendButt;
+	private Button btnCancel;
+	private Button btnAdd;
 	public userListView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
-		layoutPanel.addAttachHandler(new Handler() {
-			public void onAttachOrDetach(AttachEvent event) {
-				handleCancle();
-			}
-
-			
-		});
 		initWidget(layoutPanel);
-		layoutPanel.setHeight("365px");
 		
-		ListBox allUserDataListBox = new ListBox();
-		allUserDataListBox.setName("Users");
-		layoutPanel.add(allUserDataListBox);
-		layoutPanel.setWidgetLeftWidth(allUserDataListBox, 56.0, Unit.PX, 253.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(allUserDataListBox, 76.0, Unit.PX, 191.0, Unit.PX);
-		allUserDataListBox.setVisibleItemCount(5);
+		ListBox listBox = new ListBox();
+		layoutPanel.add(listBox);
+		layoutPanel.setWidgetLeftWidth(listBox, 50.0, Unit.PX, 155.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(listBox, 72.0, Unit.PX, 165.0, Unit.PX);
+		listBox.setVisibleItemCount(5);
 		
-		addFriendButt = new Button("Add");
-		addFriendButt.addClickHandler(new ClickHandler() {
+		btnAdd = new Button("Add");
+		btnAdd.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				addFriendAction();
+				handleAdd();
+			}
+
+		});
+		layoutPanel.add(btnAdd);
+		layoutPanel.setWidgetLeftWidth(btnAdd, 50.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnAdd, 250.0, Unit.PX, 30.0, Unit.PX);
+		
+		btnCancel = new Button("Close/ Cancel\r\n");
+		btnCancel.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleCancel();
 			}
 
 			
 		});
-		layoutPanel.add(addFriendButt);
-		layoutPanel.setWidgetLeftWidth(addFriendButt, 56.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(addFriendButt, 273.0, Unit.PX, 30.0, Unit.PX);
-		
-		Button btnCancel = new Button("Cancel");
 		layoutPanel.add(btnCancel);
-		layoutPanel.setWidgetLeftWidth(btnCancel, 158.0, Unit.PX, 82.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnCancel, 273.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnCancel, 152.0, Unit.PX, 109.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnCancel, 250.0, Unit.PX, 30.0, Unit.PX);
 	}
 
-	private void addFriendAction() {
+	private void handleAdd() {
 		// TODO Auto-generated method stub
-		WebApp.setView(new friendListView());
 		
-	}
-	private void handleCancle() {
-		// TODO Auto-generated method stub
-		WebApp.setView(new friendListView());
-
 	}
 	
+	private void handleCancel() {
+		// Switch to friendList view
+			WebApp.setView(new friendListView());
+	}
 	@Override
 	public void activate() {
 		// Nothing to do (don't need to load data)
