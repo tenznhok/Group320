@@ -54,6 +54,7 @@ public class userListView extends Composite implements View  {
 
 	private void addFriendAction() {
 		// TODO Auto-generated method stub
+		WebApp.setView(new editInfoView());
 		
 	}
 	

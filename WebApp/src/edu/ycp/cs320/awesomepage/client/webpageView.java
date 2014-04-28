@@ -64,6 +64,13 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
 		
 		btnAddFriend = new Button("Add Friend");
+		btnAddFriend.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleFriendList();
+			}
+
+			
+		});
 		btnAddFriend.setText("Friends");
 		layoutPanel.add(btnAddFriend);
 		layoutPanel.setWidgetLeftWidth(btnAddFriend, 165.0, Unit.PX, 98.0, Unit.PX);
@@ -140,5 +147,11 @@ public class webpageView extends Composite implements View {
 	private void handleEditInfo() {
 		// TODO Auto-generated method stub
 		WebApp.setView(new editInfoView());
+	}
+	private void handleFriendList() {
+		// Switch to friendList view
+		WebApp.setView(new friendListView());
+		
+		
 	}
 }
