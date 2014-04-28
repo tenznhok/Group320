@@ -32,7 +32,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 public class webpageView extends Composite implements View {
 
 	private Button statusBtt;
-	private Button btnAddFriend;
+	private Button btnFriends;
 	private Button btnAddGames;
 	private Button btnEditInfo;
 	private Button btnEditStatus;
@@ -63,16 +63,16 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		btnAddFriend = new Button("Add Friend");
-		btnAddFriend.addClickHandler(new ClickHandler() {
+		btnFriends = new Button("Friends");
+		btnFriends.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				handleFriendList();
+				handleFriends();
 			}
 		});
-		btnAddFriend.setText("Friends");
-		layoutPanel.add(btnAddFriend);
-		layoutPanel.setWidgetLeftWidth(btnAddFriend, 165.0, Unit.PX, 98.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnAddFriend, 140.0, Unit.PX, 30.0, Unit.PX);
+		btnFriends.setText("Friends");
+		layoutPanel.add(btnFriends);
+		layoutPanel.setWidgetLeftWidth(btnFriends, 165.0, Unit.PX, 98.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnFriends, 140.0, Unit.PX, 30.0, Unit.PX);
 		
 		btnAddGames = new Button("Add Games");
 		layoutPanel.add(btnAddGames);
@@ -146,7 +146,7 @@ public class webpageView extends Composite implements View {
 		// TODO Auto-generated method stub
 		WebApp.setView(new editInfoView());
 	}
-	private void handleFriendList() {
+	private void handleFriends() {
 		// Switch to friendList view
 		WebApp.setView(new friendListView());
 		
