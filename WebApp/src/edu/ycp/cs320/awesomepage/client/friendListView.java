@@ -21,9 +21,11 @@ import com.google.gwt.user.client.ui.ListBox;
 public class friendListView extends Composite implements View {
 	private Button btnBrowseFriend;
 	private Button btnRemoveFriend;
+	private LayoutPanel layoutPanel;
+	private Button btnClose;
 	public friendListView() {
 		
-		LayoutPanel layoutPanel = new LayoutPanel();
+		layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		
 		ListBox listBox = new ListBox();
@@ -54,6 +56,18 @@ public class friendListView extends Composite implements View {
 		layoutPanel.add(btnRemoveFriend);
 		layoutPanel.setWidgetLeftWidth(btnRemoveFriend, 271.0, Unit.PX, 100.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnRemoveFriend, 103.0, Unit.PX, 30.0, Unit.PX);
+		
+		btnClose = new Button("Close");
+		btnClose.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				handleClose();
+			}
+
+		
+		});
+		layoutPanel.add(btnClose);
+		layoutPanel.setWidgetLeftWidth(btnClose, 271.0, Unit.PX, 82.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnClose, 163.0, Unit.PX, 30.0, Unit.PX);
 	}
 
 	private void handleBrowseFriend() {
@@ -65,7 +79,11 @@ public class friendListView extends Composite implements View {
 		// TODO Auto-generated method stub
 		
 	}
+	private void handleClose() {
+		// TODO Auto-generated method stub
+		WebApp.setView(new webpageView());
 
+	}
 	
 	@Override
 	public void activate() {

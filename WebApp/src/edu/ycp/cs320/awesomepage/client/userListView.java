@@ -15,6 +15,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.event.logical.shared.AttachEvent.Handler;
+import com.google.gwt.event.logical.shared.AttachEvent;
 
 /**
  * this class will pull all user's names in databse
@@ -24,11 +26,17 @@ import com.google.gwt.user.client.ui.ListBox;
  *
  */
 public class userListView extends Composite implements View  {
-	private LayoutPanel layoutPanel;
 	private Button addFriendButt;
 	public userListView() {
 		
-		layoutPanel = new LayoutPanel();
+		LayoutPanel layoutPanel = new LayoutPanel();
+		layoutPanel.addAttachHandler(new Handler() {
+			public void onAttachOrDetach(AttachEvent event) {
+				handleCancle();
+			}
+
+			
+		});
 		initWidget(layoutPanel);
 		layoutPanel.setHeight("365px");
 		
@@ -50,12 +58,22 @@ public class userListView extends Composite implements View  {
 		layoutPanel.add(addFriendButt);
 		layoutPanel.setWidgetLeftWidth(addFriendButt, 56.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(addFriendButt, 273.0, Unit.PX, 30.0, Unit.PX);
+		
+		Button btnCancel = new Button("Cancel");
+		layoutPanel.add(btnCancel);
+		layoutPanel.setWidgetLeftWidth(btnCancel, 158.0, Unit.PX, 82.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnCancel, 273.0, Unit.PX, 30.0, Unit.PX);
 	}
 
 	private void addFriendAction() {
 		// TODO Auto-generated method stub
-		WebApp.setView(new editInfoView());
+		WebApp.setView(new friendListView());
 		
+	}
+	private void handleCancle() {
+		// TODO Auto-generated method stub
+		WebApp.setView(new friendListView());
+
 	}
 	
 	@Override
