@@ -33,9 +33,7 @@ public class webpageView extends Composite implements View {
 
 	private Button statusBtt;
 	private Button btnFriends;
-	private Button btnAddGames;
 	private Button btnEditInfo;
-	private Button btnEditStatus;
 	private Button signOutBut;
 
 	private Label status;
@@ -74,11 +72,6 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetLeftWidth(btnFriends, 165.0, Unit.PX, 98.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnFriends, 140.0, Unit.PX, 30.0, Unit.PX);
 		
-		btnAddGames = new Button("Add Games");
-		layoutPanel.add(btnAddGames);
-		layoutPanel.setWidgetLeftWidth(btnAddGames, 269.0, Unit.PX, 98.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnAddGames, 140.0, Unit.PX, 30.0, Unit.PX);
-		
 		btnEditInfo = new Button("Edit Info");
 		btnEditInfo.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -86,13 +79,8 @@ public class webpageView extends Composite implements View {
 			}
 		});
 		layoutPanel.add(btnEditInfo);
-		layoutPanel.setWidgetLeftWidth(btnEditInfo, 373.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnEditInfo, 284.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
-		
-		btnEditStatus = new Button("Edit Status");
-		layoutPanel.add(btnEditStatus);
-		layoutPanel.setWidgetLeftWidth(btnEditStatus, 78.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnEditStatus, 310.0, Unit.PX, 30.0, Unit.PX);
 		
 		signOutBut = new Button("Sign Out");
 		signOutBut.addClickHandler(new ClickHandler() {
