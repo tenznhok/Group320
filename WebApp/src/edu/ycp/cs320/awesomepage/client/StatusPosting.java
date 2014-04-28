@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
+import edu.ycp.cs320.awesomepage.shared.User;
+
 public class StatusPosting extends Composite implements View {
 	private Button statusPostButt;
 	private TextBox statusTextbox;
@@ -44,8 +46,11 @@ public class StatusPosting extends Composite implements View {
 	
 	private void postingStatus() {
 		
+		User user = Session.getInstance().getUser();
+		int userID = user.getUserID();
+		
 		String status = String.valueOf(statusTextbox.getText());
-		RPC.statusService.postStatus(Session.getInstance().getUser(), status, new AsyncCallback<String>() {
+		RPC.statusService.postStatus( user, status, new AsyncCallback<String>() {
 			
 			@Override
 			public void onSuccess(String result) {
