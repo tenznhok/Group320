@@ -13,3 +13,4 @@ public interface EditInfoService extends RemoteService{
 	public userInfo getUserInfo(int userID);
 }
 /////////
+/////
