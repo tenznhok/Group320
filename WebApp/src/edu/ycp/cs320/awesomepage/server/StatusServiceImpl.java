@@ -10,7 +10,7 @@ import edu.ycp.cs320.awesomepage.server.controllers.statusController;
 
 public class StatusServiceImpl extends RemoteServiceServlet implements StatusService {
 	@Override
-	public String postStatus(User user, String status) {
+	public String postStatus( User user, String status ) {
 		System.out.println("User " + user.getEmail() + " posting status " + status);
 		statusController controller = new statusController();
 		

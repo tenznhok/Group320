@@ -26,9 +26,9 @@ public class FakeDatabase implements IDatabase {
 		user.setUserName("testuser");
 		userList.add(user);
 		//sets the user info
-		userInfoStart( user.getUserID() );
+		userInfoStart( 1 );
 		//sets the user status
-		userStatusStart( user.getUserID() );
+		userStatusStart( 1 );
 	}
 	@Override
 	public User login(String username, String password) {	
@@ -52,6 +52,8 @@ public class FakeDatabase implements IDatabase {
 		
 		//makes empty user info
 		userInfoStart( userList.size()+1 );
+		//makes the first user status
+		userStatusStart( userList.size()+1 );
 		
 		return newUser;
 	}
@@ -89,7 +91,7 @@ public class FakeDatabase implements IDatabase {
 				return status.getMessage();
 			}
 		}
-		return null;
+		return "error";
 	}
 	@Override
 	public Status postStatus(int id, String newStatus){

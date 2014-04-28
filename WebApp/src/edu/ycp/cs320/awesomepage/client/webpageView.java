@@ -68,8 +68,6 @@ public class webpageView extends Composite implements View {
 			public void onClick(ClickEvent event) {
 				handleFriendList();
 			}
-
-			
 		});
 		btnAddFriend.setText("Friends");
 		layoutPanel.add(btnAddFriend);
@@ -124,7 +122,7 @@ public class webpageView extends Composite implements View {
 			@Override
 			public void onSuccess(String result) {
 				// Show statuses in list
-				statusListBox.insertItem(result, 3);
+				//statusListBox.insertItem(result, 3);
 				statusListBox.addItem(result);
 			}
 			@Override
