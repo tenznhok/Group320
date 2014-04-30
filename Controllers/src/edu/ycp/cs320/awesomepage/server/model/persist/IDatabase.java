@@ -9,6 +9,6 @@ public interface IDatabase {
 	public User signUp( String username, String password, String email );
 	public String status(int id);
 	public Status postStatus(int id, String newStatus);
-	public userInfo editInfo();
 	public userInfo getUserInfo( int userID );
+	public userInfo editInfo(int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city);
 }

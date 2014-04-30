@@ -22,13 +22,13 @@ public class FakeDatabase implements IDatabase {
 		User user = new User();
 		user.setEmail("user@ycp.edu");
 		user.setPassword("abc123");
-		user.setUserID(1);
+		user.setUserID( 0 );
 		user.setUserName("testuser");
 		userList.add(user);
 		//sets the user info
-		userInfoStart( 1 );
+		userInfoStart( 0 );
 		//sets the user status
-		userStatusStart( 1 );
+		userStatusStart( 0 );
 	}
 	@Override
 	public User login(String username, String password) {	
@@ -43,17 +43,18 @@ public class FakeDatabase implements IDatabase {
 	//sign up page, will add new user to database
 	@Override 
 	public User signUp( String userName, String password, String email ){
+		int id = userList.size()+1;
 		User newUser = new User();
 		newUser.setEmail( email );
 		newUser.setUserName(userName);
 		newUser.setPassword(password);
-		newUser.setUserID(userList.size()+1);
+		newUser.setUserID( id );
 		userList.add(newUser);
 		
-		//makes empty user info
-		userInfoStart( userList.size()+1 );
+		//makes user info
+		userInfoStart( id );
 		//makes the first user status
-		userStatusStart( userList.size()+1 );
+		userStatusStart( id );
 		
 		return newUser;
 	}
@@ -62,7 +63,7 @@ public class FakeDatabase implements IDatabase {
 	{
 		//new user info
 		userInfo newInfo = new userInfo();
-		newInfo.setId(userInfoList.size()+1);
+		newInfo.setId( userInfoList.size()+1 );
 		newInfo.setUserId( userID );
 		newInfo.setFirstName("Bob");
 		newInfo.setLastName("Jim");
@@ -77,6 +78,7 @@ public class FakeDatabase implements IDatabase {
 	{
 		Status newStatus = new Status();
 		
+		newStatus.setId(userStatusList.size()+1);
 		newStatus.setUserId(userID);
 		newStatus.setMessage("Welcome to AwesomePage!!");
 		
@@ -105,10 +107,25 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 	@Override
-	public userInfo editInfo() {
-		// TODO Auto-generated method stub
+	public userInfo editInfo( int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city ) {
+		
+		for (userInfo info : userInfoList) {
+			if( info.getUserId() == id )
+			{
+				info.setFirstName(firstName);
+				info.setLastName(lastName);
+				info.setEmailContact(eMail);
+				info.setMaleOrFemale(mf);
+				info.setPhoneNum(phone);
+				info.setCountry(country);
+				info.setCity(city);
+				return info;
+			}
+		}
+		//if count find userInfo will return null
 		return null;
 	}
+	@Override
 	public userInfo getUserInfo( int id )
 	{
 		for (userInfo info : userInfoList) {

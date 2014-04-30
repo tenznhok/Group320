@@ -190,9 +190,8 @@ public class webpageView extends Composite implements View {
 				{
 					GWT.log("Failed to get user info");
 				}else{
-
 					info = result;
-					NameLabel.setText(info.getFirstName() + " " + info.getLastName() );
+					NameLabel.setText("Welcome back " + info.getFirstName() + " " + info.getLastName() );
 
 					EmailTextLabel.setText(info.getEmailContact());
 					//MorFTextLabel.setText(info.getMaleOrFemale());
@@ -203,11 +202,6 @@ public class webpageView extends Composite implements View {
 				}
 			}
 		});
-
-
-
-
-
 	}
 	protected void handleSignOut() {
 		//log out and go to the login view

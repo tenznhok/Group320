@@ -25,37 +25,12 @@ public class editInfoView extends Composite implements View  {
 	private Button CancelButton;
 	
 	userInfo info;
+	//gets the user from the session
+	User user = Session.getInstance().getUser();
+	int userID = user.getUserID();
 	
 	public editInfoView() {
-		//gets the user from the session
-		User user = Session.getInstance().getUser();
-		int userID = user.getUserID();
-		RPC.EditInfoService.getUserInfo(userID, new AsyncCallback<userInfo>() {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				GWT.log("get user info RPC call failed");
-			}
-			@Override
-			public void onSuccess(userInfo result) {
-				// TODO Auto-generated method stub
-				GWT.log("Successful To Get User Info!");
-				if(result == null)
-				{
-					GWT.log("Failed to get user info");
-				}else{
-					info = result;
-					FirstNameTextBox.setText(info.getFirstName());
-					LastNameTextBox.setText(info.getLastName());
-					EmailTextBox.setText(info.getEmailContact());
-					MorFTextBox.setText(info.getMaleOrFemale());
-					PhoneNumTextBox.setText(info.getPhoneNum());
-					CountryTextBox.setText(info.getCountry());
-					CityTextBox.setText(info.getCity());
-				}
-			}
-		});
+		
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
 		initWidget(absolutePanel);
@@ -121,12 +96,61 @@ public class editInfoView extends Composite implements View  {
 	
 	@Override
 	public void activate() {
-		// Nothing to do (don't need to load data)
+		
+		RPC.EditInfoService.getUserInfo(userID, new AsyncCallback<userInfo>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("get user info RPC call failed");
+			}
+			@Override
+			public void onSuccess(userInfo result) {
+				// TODO Auto-generated method stub
+				GWT.log("Successful To Get User Info!");
+				if(result == null)
+				{
+					GWT.log("Failed to get user info");
+				}else{
+					info = result;
+					FirstNameTextBox.setText(info.getFirstName());
+					LastNameTextBox.setText(info.getLastName());
+					EmailTextBox.setText(info.getEmailContact());
+					MorFTextBox.setText(info.getMaleOrFemale());
+					PhoneNumTextBox.setText(info.getPhoneNum());
+					CountryTextBox.setText(info.getCountry());
+					CityTextBox.setText(info.getCity());
+				}
+			}
+		});
+		
 	}
 	
 	private void handleUpDate() {
+		//RPC upDate use info
+		RPC.EditInfoService.editInfo(userID, FirstNameTextBox.getText(), LastNameTextBox.getText(), EmailTextBox.getText(), MorFTextBox.getText(),
+				PhoneNumTextBox.getText(), CountryTextBox.getText(), CityTextBox.getText(), new AsyncCallback<userInfo>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("get user info RPC call failed");
+			}
+			@Override
+			public void onSuccess(userInfo result) {
+				// TODO Auto-generated method stub
+				GWT.log("Successful To Get User Info!");
+				if(result == null)
+				{
+					GWT.log("Failed to edit user info");
+				}else{
+					WebApp.setView(new webpageView());
+				}
+			}
+		});
+		
 		// TODO Auto-generated method stub
-		WebApp.setView(new webpageView());
+		//WebApp.setView(new webpageView());
 	}
 	private void handleCancel() {
 		// TODO Auto-generated method stub

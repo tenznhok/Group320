@@ -14,6 +14,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class signUpView extends Composite implements View {
 	private Button btnSignUp;
@@ -111,17 +112,15 @@ public class signUpView extends Composite implements View {
 		String userPassword = String.valueOf( PasswordTextBox.getText() );
 		String email = String.valueOf( EmailTextBox.getText() );
 		
-		// Call login RPC method to attempt to log in
+		// Call sign up RPC method to attempt to add new user to database
 		RPC.SignUpService.signUp(userName, userPassword, email, new AsyncCallback<User>() {
 			@Override
 			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				
 				GWT.log("sign up RPC call failed");
 			}
 			@Override
 			public void onSuccess(User result) {
-					WebApp.setView(new logInView());
+				WebApp.setView(new logInView());
 			}
 		});
 	}
