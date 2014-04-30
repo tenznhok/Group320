@@ -74,6 +74,7 @@ public class userListView extends Composite implements View  {
 	}
 	@Override
 	public void activate() {
-		// Nothing to do (don't need to load data)
+		
+		
 	}
 }

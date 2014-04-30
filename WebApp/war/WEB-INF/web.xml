@@ -26,6 +26,10 @@
     <servlet-name>EditInfoServiceImpl</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.EditInfoServiceImpl</servlet-class>
   </servlet>
+      <servlet>
+    <servlet-name>GetFriends</servlet-name>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriends</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -46,6 +50,10 @@
       <servlet-mapping>
     <servlet-name>EditInfoServiceImpl</servlet-name>
     <url-pattern>/webapp/editInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetFriends</servlet-name>
+    <url-pattern>/webapp/GetFriends</url-pattern>
   </servlet-mapping>
   
   <!-- Servlet context listeners -->

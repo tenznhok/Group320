@@ -121,10 +121,10 @@ public class editInfoView extends Composite implements View  {
 					info = result;
 					int index = 0;
 					String string = info.getMaleOrFemale();
-					if( string == "Male" ){
+					if( string.equals("Male") ){
 						index = 1;
 					}
-					if( string == "Female" ){
+					if( string.equals("Female") ){
 						index = 2;
 					}
 					FirstNameTextBox.setText(info.getFirstName());

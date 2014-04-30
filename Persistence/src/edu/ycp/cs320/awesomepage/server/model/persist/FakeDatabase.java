@@ -137,4 +137,9 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	@Override
+	public List<User> getAllUsers()
+	{
+		return userList;
+	}
 }

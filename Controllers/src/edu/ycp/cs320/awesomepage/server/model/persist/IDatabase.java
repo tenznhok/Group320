@@ -1,5 +1,7 @@
 package edu.ycp.cs320.awesomepage.server.model.persist;
 
+import java.util.List;
+
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
@@ -11,4 +13,5 @@ public interface IDatabase {
 	public Status postStatus(int id, String newStatus);
 	public userInfo getUserInfo( int userID );
 	public userInfo editInfo(int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city);
+	public List<User> getAllUsers();
 }
