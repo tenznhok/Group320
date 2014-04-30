@@ -12,12 +12,12 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
+import com.google.gwt.user.client.ui.ListBox;
 
 public class editInfoView extends Composite implements View  {
 	private TextBox FirstNameTextBox;
 	private TextBox LastNameTextBox;
 	private TextBox EmailTextBox;
-	private TextBox MorFTextBox;
 	private TextBox PhoneNumTextBox;
 	private TextBox CountryTextBox;
 	private TextBox CityTextBox;
@@ -28,6 +28,7 @@ public class editInfoView extends Composite implements View  {
 	//gets the user from the session
 	User user = Session.getInstance().getUser();
 	int userID = user.getUserID();
+	private ListBox MaleFemaleListBox;
 	
 	public editInfoView() {
 		
@@ -65,8 +66,13 @@ public class editInfoView extends Composite implements View  {
 		EmailTextBox = new TextBox();
 		absolutePanel.add(EmailTextBox, 158, 175);
 		
-		MorFTextBox = new TextBox();
-		absolutePanel.add(MorFTextBox, 158, 244);
+		MaleFemaleListBox = new ListBox();
+		MaleFemaleListBox.addItem("");
+		MaleFemaleListBox.addItem("Male");
+		MaleFemaleListBox.addItem("Female");
+		absolutePanel.add(MaleFemaleListBox, 162, 255);
+		MaleFemaleListBox.setSize("114px", "20px");
+		MaleFemaleListBox.setVisibleItemCount(1);
 		
 		PhoneNumTextBox = new TextBox();
 		absolutePanel.add(PhoneNumTextBox, 158, 313);
@@ -113,22 +119,30 @@ public class editInfoView extends Composite implements View  {
 					GWT.log("Failed to get user info");
 				}else{
 					info = result;
+					int index = 0;
+					String string = info.getMaleOrFemale();
+					if( string == "Male" ){
+						index = 1;
+					}
+					if( string == "Female" ){
+						index = 2;
+					}
 					FirstNameTextBox.setText(info.getFirstName());
 					LastNameTextBox.setText(info.getLastName());
 					EmailTextBox.setText(info.getEmailContact());
-					MorFTextBox.setText(info.getMaleOrFemale());
+					MaleFemaleListBox.setItemSelected(index, true);
 					PhoneNumTextBox.setText(info.getPhoneNum());
 					CountryTextBox.setText(info.getCountry());
 					CityTextBox.setText(info.getCity());
 				}
 			}
 		});
-		
 	}
 	
 	private void handleUpDate() {
 		//RPC upDate use info
-		RPC.EditInfoService.editInfo(userID, FirstNameTextBox.getText(), LastNameTextBox.getText(), EmailTextBox.getText(), MorFTextBox.getText(),
+		final int index = MaleFemaleListBox.getSelectedIndex();
+		RPC.EditInfoService.editInfo(userID, FirstNameTextBox.getText(), LastNameTextBox.getText(), EmailTextBox.getText(), MaleFemaleListBox.getItemText(index),
 				PhoneNumTextBox.getText(), CountryTextBox.getText(), CityTextBox.getText(), new AsyncCallback<userInfo>() {
 
 			@Override

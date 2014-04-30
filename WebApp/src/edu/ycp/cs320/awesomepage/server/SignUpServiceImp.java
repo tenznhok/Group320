@@ -7,11 +7,11 @@ import edu.ycp.cs320.awesomepage.server.controllers.SignUpController;
 
 public class SignUpServiceImp extends RemoteServiceServlet implements SignUpService {
 	@Override
-	public User signUp(String username, String password, String email) {
+	public User signUp(String username, String password,String firstName, String lastName, String email) {
 		// TODO Auto-generated method stub
 		SignUpController controller = new SignUpController();
 		
-		User result = controller.signUp(username, password, email);
+		User result = controller.signUp(username, password, firstName, lastName, email);
 		if (result == null) {
 			System.out.println("No new user!!");
 		} else {

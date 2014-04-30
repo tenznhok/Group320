@@ -81,11 +81,11 @@ public class userInfo implements Serializable {
 		this.city = city;
 	}
 	//
-	public void editInfo(String firstName, String lastName, String emailContact, String maleOrFemale, String phoneNum, String country, String city){
+	public void editInfo(String firstName, String lastName, String emailContact, String mF, String phoneNum, String country, String city){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailContact = emailContact;
-		this.maleOrFemale = maleOrFemale;
+		this.maleOrFemale = mF;
 		this.phoneNum = phoneNum;
 		this.country = country;
 		this.city = city;

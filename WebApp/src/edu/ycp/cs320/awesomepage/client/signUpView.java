@@ -107,13 +107,13 @@ public class signUpView extends Composite implements View {
 	public void signUp(){
 	
 		String userName = String.valueOf( UserNameTextBox.getText() );
-		//String userFirstName = String.valueOf( FirstNameTextBox.getText() );
-		//String userLastName = String.valueOf( LastNameTextBox.getText() );
+		final String userFirstName = String.valueOf( FirstNameTextBox.getText() );
+		final String userLastName = String.valueOf( LastNameTextBox.getText() );
 		String userPassword = String.valueOf( PasswordTextBox.getText() );
-		String email = String.valueOf( EmailTextBox.getText() );
+		final String email = String.valueOf( EmailTextBox.getText() );
 		
 		// Call sign up RPC method to attempt to add new user to database
-		RPC.SignUpService.signUp(userName, userPassword, email, new AsyncCallback<User>() {
+		RPC.SignUpService.signUp(userName,userPassword,userFirstName,userLastName,email, new AsyncCallback<User>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				GWT.log("sign up RPC call failed");

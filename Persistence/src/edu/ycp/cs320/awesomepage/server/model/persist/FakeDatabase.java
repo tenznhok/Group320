@@ -26,7 +26,7 @@ public class FakeDatabase implements IDatabase {
 		user.setUserName("testuser");
 		userList.add(user);
 		//sets the user info
-		userInfoStart( 0 );
+		userInfoStart( 0, "first", "last", "user@ycp.edu" );
 		//sets the user status
 		userStatusStart( 0 );
 	}
@@ -42,31 +42,32 @@ public class FakeDatabase implements IDatabase {
 	}
 	//sign up page, will add new user to database
 	@Override 
-	public User signUp( String userName, String password, String email ){
+	public User signUp( String userName, String password, String firstName, String lastName, String eMail ){
 		int id = userList.size()+1;
 		User newUser = new User();
-		newUser.setEmail( email );
+		newUser.setEmail( eMail );
 		newUser.setUserName(userName);
 		newUser.setPassword(password);
 		newUser.setUserID( id );
 		userList.add(newUser);
 		
 		//makes user info
-		userInfoStart( id );
+		userInfoStart( id, firstName, lastName, eMail );
 		//makes the first user status
 		userStatusStart( id );
 		
 		return newUser;
 	}
 	//makes the users empty user info which than can be edited in the edit user info page
-	private void userInfoStart(int userID) 
+	private void userInfoStart(int userID, String firstName, String lastName, String eMail) 
 	{
 		//new user info
 		userInfo newInfo = new userInfo();
 		newInfo.setId( userInfoList.size()+1 );
 		newInfo.setUserId( userID );
-		newInfo.setFirstName("Bob");
-		newInfo.setLastName("Jim");
+		newInfo.setFirstName(firstName);
+		newInfo.setLastName(lastName);
+		newInfo.setEmailContact(eMail);
 		newInfo.setMaleOrFemale(" ");
 		newInfo.setCity("York");
 		newInfo.setCountry("Moon");

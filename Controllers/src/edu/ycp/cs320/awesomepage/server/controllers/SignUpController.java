@@ -5,7 +5,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 
 public class SignUpController {
 	
-	public User signUp( String username, String password, String email ){
-		return DatabaseProvider.getInstance().signUp( username, password, email );
+	public User signUp( String username, String password, String firstName, String lastName, String email ){
+		return DatabaseProvider.getInstance().signUp( username, password, firstName, lastName, email );
 	}
 }
