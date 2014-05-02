@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.ListBox;
 
+import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 
@@ -20,16 +21,12 @@ public class friendListView extends Composite implements View {
 	private LayoutPanel layoutPanel;
 	private Button btnClose;
 	private ArrayList<User> friendsList = new ArrayList<User>();
+	private int id;
+	private ListBox FriendListBox;
 	public friendListView() {
 		
 		layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-		
-		ListBox FriendsListBox = new ListBox();
-		layoutPanel.add(FriendsListBox);
-		layoutPanel.setWidgetLeftWidth(FriendsListBox, 87.0, Unit.PX, 147.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(FriendsListBox, 47.0, Unit.PX, 177.0, Unit.PX);
-		FriendsListBox.setVisibleItemCount(5);
 		
 		btnBrowseFriend = new Button("Browse Friend");
 		btnBrowseFriend.addClickHandler(new ClickHandler() {
@@ -60,6 +57,12 @@ public class friendListView extends Composite implements View {
 		layoutPanel.add(btnClose);
 		layoutPanel.setWidgetLeftWidth(btnClose, 271.0, Unit.PX, 100.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnClose, 163.0, Unit.PX, 30.0, Unit.PX);
+		
+		FriendListBox = new ListBox();
+		layoutPanel.add(FriendListBox);
+		layoutPanel.setWidgetLeftWidth(FriendListBox, 51.0, Unit.PX, 176.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(FriendListBox, 25.0, Unit.PX, 227.0, Unit.PX);
+		FriendListBox.setVisibleItemCount(20);
 	}
 
 	private void handleBrowseFriend() {
@@ -78,8 +81,8 @@ public class friendListView extends Composite implements View {
 	
 	@Override
 	public void activate() {
+		
 		RPC.GetFriendsService.user( new AsyncCallback<ArrayList<User>>()  {
-
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
@@ -93,8 +96,10 @@ public class friendListView extends Composite implements View {
 				{
 					GWT.log("Failed to get user info");
 				}else{
-					
-			
+					for (User user : result) {
+						id = user.getUserID();
+						FriendListBox.insertItem(user.getUserName(), id);
+					}
 				}
 			}
 		});

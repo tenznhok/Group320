@@ -9,5 +9,4 @@ import edu.ycp.cs320.awesomepage.shared.User;
 public interface GetFriendsServiceAsync {
 
 	void user(AsyncCallback<ArrayList<User>> callback);
-
 }

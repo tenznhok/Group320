@@ -1,4 +1,6 @@
 package edu.ycp.cs320.awesomepage.client;
+import java.util.ArrayList;
+
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
@@ -6,7 +8,6 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.InlineLabel;
-import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
@@ -19,7 +20,7 @@ import com.google.gwt.event.logical.shared.AttachEvent.Handler;
 import com.google.gwt.event.logical.shared.AttachEvent;
 
 /**
- * this class will pull all user's names in databse
+ * this class will pull all user's names in database
  * so that the user can choose which friend he/she wants 
  * to add that friend into their list
  * @author tnguye17
@@ -28,16 +29,18 @@ import com.google.gwt.event.logical.shared.AttachEvent;
 public class userListView extends Composite implements View  {
 	private Button btnCancel;
 	private Button btnAdd;
+	private ListBox UserListBox;
+	private int id;
 	public userListView() {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		
-		ListBox listBox = new ListBox();
-		layoutPanel.add(listBox);
-		layoutPanel.setWidgetLeftWidth(listBox, 50.0, Unit.PX, 155.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(listBox, 72.0, Unit.PX, 165.0, Unit.PX);
-		listBox.setVisibleItemCount(5);
+		UserListBox = new ListBox();
+		layoutPanel.add(UserListBox);
+		layoutPanel.setWidgetLeftWidth(UserListBox, 50.0, Unit.PX, 155.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(UserListBox, 72.0, Unit.PX, 165.0, Unit.PX);
+		UserListBox.setVisibleItemCount(5);
 		
 		btnAdd = new Button("Add");
 		btnAdd.addClickHandler(new ClickHandler() {
@@ -55,8 +58,6 @@ public class userListView extends Composite implements View  {
 			public void onClick(ClickEvent event) {
 				handleCancel();
 			}
-
-			
 		});
 		layoutPanel.add(btnCancel);
 		layoutPanel.setWidgetLeftWidth(btnCancel, 152.0, Unit.PX, 109.0, Unit.PX);
@@ -74,7 +75,31 @@ public class userListView extends Composite implements View  {
 	}
 	@Override
 	public void activate() {
-		
-		
+		RPC.GetFriendsService.user( new AsyncCallback<ArrayList<User>>()  {
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("get user info RPC call failed");
+			}
+			@Override
+			public void onSuccess(ArrayList<User> result) {
+				// TODO Auto-generated method stub
+				GWT.log("Successful To Get User Info!");
+				if(result == null)
+				{
+					GWT.log("Failed to get user peoples");
+				}else{
+					GWT.log("SuccessFul to get list of all users");
+					for (User user : result) {
+						id = user.getUserID();
+						//int index = 0;
+						String name = user.getUserName();
+						//UserListBox.insertItem(name, id, index);
+						UserListBox.addItem(name);
+						//index++;
+					}
+				}
+			}
+		});
 	}
 }
