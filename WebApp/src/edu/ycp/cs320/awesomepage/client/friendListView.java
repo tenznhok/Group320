@@ -1,24 +1,17 @@
 package edu.ycp.cs320.awesomepage.client;
 import java.util.ArrayList;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.LayoutPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.user.client.ui.InlineLabel;
-import com.google.gwt.user.client.ui.PasswordTextBox;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.LayoutPanel;
+import com.google.gwt.user.client.ui.ListBox;
 
 import edu.ycp.cs320.awesomepage.shared.User;
-import edu.ycp.cs320.awesomepage.shared.userInfo;
-
-import com.google.gwt.user.client.ui.ListBox;
 
 
 public class friendListView extends Composite implements View {
@@ -85,7 +78,7 @@ public class friendListView extends Composite implements View {
 	
 	@Override
 	public void activate() {
-		RPC.GetFriendsService.user( new AsyncCallback<User>()  {
+		RPC.GetFriendsService.user( new AsyncCallback<ArrayList<User>>()  {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -93,7 +86,7 @@ public class friendListView extends Composite implements View {
 				GWT.log("get user info RPC call failed");
 			}
 			@Override
-			public void onSuccess(User result) {
+			public void onSuccess(ArrayList<User> result) {
 				// TODO Auto-generated method stub
 				GWT.log("Successful To Get User Info!");
 				if(result == null)
