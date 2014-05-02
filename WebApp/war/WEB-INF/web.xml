@@ -30,6 +30,10 @@
     <servlet-name>GetFriends</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriends</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>userListView</servlet-name>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriends</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -53,6 +57,10 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetFriends</servlet-name>
+    <url-pattern>/webapp/GetFriends</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>userListView</servlet-name>
     <url-pattern>/webapp/GetFriends</url-pattern>
   </servlet-mapping>
   
