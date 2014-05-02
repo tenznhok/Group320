@@ -1,4 +1,6 @@
 package edu.ycp.cs320.awesomepage.client;
+import java.util.ArrayList;
+
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
@@ -14,6 +16,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 import com.google.gwt.user.client.ui.ListBox;
 
@@ -23,24 +26,23 @@ public class friendListView extends Composite implements View {
 	private Button btnRemoveFriend;
 	private LayoutPanel layoutPanel;
 	private Button btnClose;
+	private ArrayList<User> friendsList = new ArrayList<User>();
 	public friendListView() {
 		
 		layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		
-		ListBox listBox = new ListBox();
-		layoutPanel.add(listBox);
-		layoutPanel.setWidgetLeftWidth(listBox, 87.0, Unit.PX, 147.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(listBox, 47.0, Unit.PX, 177.0, Unit.PX);
-		listBox.setVisibleItemCount(5);
+		ListBox FriendsListBox = new ListBox();
+		layoutPanel.add(FriendsListBox);
+		layoutPanel.setWidgetLeftWidth(FriendsListBox, 87.0, Unit.PX, 147.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(FriendsListBox, 47.0, Unit.PX, 177.0, Unit.PX);
+		FriendsListBox.setVisibleItemCount(5);
 		
 		btnBrowseFriend = new Button("Browse Friend");
 		btnBrowseFriend.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				handleBrowseFriend();
 			}
-
-			
 		});
 		layoutPanel.add(btnBrowseFriend);
 		layoutPanel.setWidgetLeftWidth(btnBrowseFriend, 271.0, Unit.PX, 100.0, Unit.PX);
@@ -51,7 +53,6 @@ public class friendListView extends Composite implements View {
 			public void onClick(ClickEvent event) {
 				handleRemoveFriend();
 			}
-
 					});
 		layoutPanel.add(btnRemoveFriend);
 		layoutPanel.setWidgetLeftWidth(btnRemoveFriend, 271.0, Unit.PX, 100.0, Unit.PX);
@@ -62,11 +63,9 @@ public class friendListView extends Composite implements View {
 			public void onClick(ClickEvent event) {
 				handleClose();
 			}
-
-		
 		});
 		layoutPanel.add(btnClose);
-		layoutPanel.setWidgetLeftWidth(btnClose, 271.0, Unit.PX, 82.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnClose, 271.0, Unit.PX, 100.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnClose, 163.0, Unit.PX, 30.0, Unit.PX);
 	}
 
@@ -82,11 +81,28 @@ public class friendListView extends Composite implements View {
 	private void handleClose() {
 		// TODO Auto-generated method stub
 		WebApp.setView(new webpageView());
-
 	}
 	
 	@Override
 	public void activate() {
-		// Nothing to do (don't need to load data)
+		RPC.GetFriendsService.user( new AsyncCallback<friendsList>()  {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("get user info RPC call failed");
+			}
+			@Override
+			public void onSuccess(friendsList result) {
+				// TODO Auto-generated method stub
+				GWT.log("Successful To Get User Info!");
+				if(result == null)
+				{
+					GWT.log("Failed to get user info");
+				}else{
+			
+				}
+			}
+		});
 	}
 }

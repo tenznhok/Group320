@@ -12,17 +12,7 @@ public class GetFriendsServiceImpl extends RemoteServiceServlet implements GetFr
 
 	@Override
 	public List<User> user( ){
-
 		GetFriendsController controller = new GetFriendsController();
-		
-	
-		
 		return null;
-		
-		// TODO: check to make sure that the provided User really is the user that is logged in
-		
-		// TODO: add the status to the database
-		
 	}
-	
 }
