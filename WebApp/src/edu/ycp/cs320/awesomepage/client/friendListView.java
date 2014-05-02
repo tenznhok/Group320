@@ -85,7 +85,7 @@ public class friendListView extends Composite implements View {
 	
 	@Override
 	public void activate() {
-		RPC.GetFriendsService.user( new AsyncCallback<friendsList>()  {
+		RPC.GetFriendsService.user( new AsyncCallback<User>()  {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -93,13 +93,14 @@ public class friendListView extends Composite implements View {
 				GWT.log("get user info RPC call failed");
 			}
 			@Override
-			public void onSuccess(friendsList result) {
+			public void onSuccess(User result) {
 				// TODO Auto-generated method stub
 				GWT.log("Successful To Get User Info!");
 				if(result == null)
 				{
 					GWT.log("Failed to get user info");
 				}else{
+					
 			
 				}
 			}

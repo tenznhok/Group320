@@ -8,6 +8,6 @@ import edu.ycp.cs320.awesomepage.shared.User;
 
 public interface GetFriendsAsync {
 
-	void user();
+	void user(AsyncCallback<User> asyncCallback);
 	
 }
