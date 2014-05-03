@@ -20,7 +20,6 @@ public class friendListView extends Composite implements View {
 	private Button btnRemoveFriend;
 	private LayoutPanel layoutPanel;
 	private Button btnClose;
-	private ArrayList<User> friendsList = new ArrayList<User>();
 	private int id;
 	private ListBox FriendListBox;
 	public friendListView() {
@@ -86,15 +85,15 @@ public class friendListView extends Composite implements View {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-				GWT.log("get user info RPC call failed");
+				GWT.log("get user friends RPC call failed");
 			}
 			@Override
 			public void onSuccess(ArrayList<User> result) {
 				// TODO Auto-generated method stub
-				GWT.log("Successful To Get User Info!");
+				GWT.log("Successful To Get User friends!");
 				if(result == null)
 				{
-					GWT.log("Failed to get user info");
+					GWT.log("Failed to get user friends");
 				}else{
 					for (User user : result) {
 						id = user.getUserID();

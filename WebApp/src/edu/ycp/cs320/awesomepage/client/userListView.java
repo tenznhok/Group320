@@ -10,10 +10,8 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
-
 import edu.ycp.cs320.awesomepage.shared.User;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.event.logical.shared.AttachEvent.Handler;
@@ -75,16 +73,16 @@ public class userListView extends Composite implements View  {
 	}
 	@Override
 	public void activate() {
-		RPC.GetFriendsService.user( new AsyncCallback<ArrayList<User>>()  {
+		RPC.userListViewService.user( new AsyncCallback<ArrayList<User>>()  {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-				GWT.log("get user info RPC call failed");
+				GWT.log("get All user RPC call failed");
 			}
 			@Override
 			public void onSuccess(ArrayList<User> result) {
 				// TODO Auto-generated method stub
-				GWT.log("Successful To Get User Info!");
+				GWT.log("Successful To Get AllUser!");
 				if(result == null)
 				{
 					GWT.log("Failed to get user peoples");
@@ -95,7 +93,7 @@ public class userListView extends Composite implements View  {
 						//int index = 0;
 						String name = user.getUserName();
 						//UserListBox.insertItem(name, id, index);
-						UserListBox.addItem(name);
+						UserListBox.insertItem(name, id);
 						//index++;
 					}
 				}

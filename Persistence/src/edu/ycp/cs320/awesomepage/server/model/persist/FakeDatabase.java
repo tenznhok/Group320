@@ -8,7 +8,7 @@ import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
-	private List<User> userList;
+	private ArrayList<User> userList;
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
 	
@@ -138,7 +138,7 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 	@Override
-	public List<User> getAllUsers()
+	public ArrayList<User> getAllUsers()
 	{
 		return userList;
 	}

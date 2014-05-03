@@ -27,15 +27,13 @@
     <servlet-class>edu.ycp.cs320.awesomepage.server.EditInfoServiceImpl</servlet-class>
   </servlet>
       <servlet>
-    <servlet-name>GetFriends</servlet-name>
+    <servlet-name>GetFriendsServiceImpl</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriendsServiceImpl</servlet-class>
   </servlet>
-  <!--
    <servlet>
-    <servlet-name>userListView</servlet-name>
-    <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriends</servlet-class>
+    <servlet-name>GetAllUsersServiceImpl</servlet-name>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.GetAllUsersServiceImpl</servlet-class>
   </servlet>
-    -->
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -58,15 +56,13 @@
     <url-pattern>/webapp/editInfo</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>GetFriends</servlet-name>
+    <servlet-name>GetFriendsServiceImpl</servlet-name>
     <url-pattern>/webapp/GetFriends</url-pattern>
   </servlet-mapping>
-  <!--
    <servlet-mapping>
-    <servlet-name>userListView</servlet-name>
-    <url-pattern>/webapp/GetFriends</url-pattern>
+    <servlet-name>GetAllUsersServiceImpl</servlet-name>
+    <url-pattern>/webapp/userListView</url-pattern>
   </servlet-mapping>
-    -->
   
   <!-- Servlet context listeners -->
   <listener>

@@ -8,7 +8,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 @RemoteServiceRelativePath("userListView")
-
 public interface userListViewService extends RemoteService{
 	
 	public ArrayList<User> user();
