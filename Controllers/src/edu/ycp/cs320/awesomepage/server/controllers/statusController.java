@@ -5,7 +5,7 @@ import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 public class statusController {
-	public String status( int id, String newStatus ){
+	public String status( int id ){
 		return DatabaseProvider.getInstance().status( id );
 	}
 	public Status postStatus(int id, String newStatus){

@@ -28,7 +28,7 @@ public class StatusServiceImpl extends RemoteServiceServlet implements StatusSer
 	public String getStatusesForUser(User user) {
 		// TODO Auto-generated method stub
 		statusController controller = new statusController();
-		String result = controller.status(user.getUserID(), "");
+		String result = controller.status(user.getUserID());
 		
 		return result;
 	}

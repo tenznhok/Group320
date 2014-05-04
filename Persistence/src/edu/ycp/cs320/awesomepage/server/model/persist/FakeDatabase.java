@@ -85,6 +85,7 @@ public class FakeDatabase implements IDatabase {
 		
 		userStatusList.add(newStatus);
 	}
+	//will get the users status
 	@Override
 	public String status( int id ) {
 		// TODO Auto-generated method stub
@@ -96,6 +97,7 @@ public class FakeDatabase implements IDatabase {
 		}
 		return "error";
 	}
+	//will post a new status
 	@Override
 	public Status postStatus(int id, String newStatus){
 		
