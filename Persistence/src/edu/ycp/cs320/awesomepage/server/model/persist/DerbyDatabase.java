@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
@@ -139,23 +140,24 @@ public class DerbyDatabase implements IDatabase {
 					stmt1.executeUpdate();
 		
 					stmt2 = conn.prepareStatement(
-							"create table user info (" +
-							"userid interger primary key not null generated always as identity, " +
+							"create table userInfo (" +
+							"userid integer primary key not null, " +
 							"firstname varchar(50) not null, " +
 							"lastname varchar(50) not null," +
 							"emailcontact varchar(50) not null," +
 							"maleorfemale varchar(50) not null," +
 							"phonenum varchar(50) not null," +
 							"country varchar(50) not null," +
-							"city varchar(50) not null," +
+							"city varchar(50) not null" +
 							")"
 					);
 					stmt2.executeUpdate();
 					
 					stmt3 = conn.prepareStatement(
 							"create table status (" +
-							"userid interger primary key not null generated always as identity, " +
-									"message varchar(500000000000) not null," +
+							"id integer primary key not null generated always as identity, " +
+									"message varchar(5000) not null" +
+
 							")"
 					);
 					stmt3.executeUpdate();
@@ -180,5 +182,17 @@ public class DerbyDatabase implements IDatabase {
 //		db.loadInitialData();
 		
 		System.out.println("Success!");
+	}
+
+	@Override
+	public FriendsList addFriends(FriendsList e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FriendsList getAllFriends(int userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
