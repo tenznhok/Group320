@@ -155,7 +155,7 @@ public class DerbyDatabase implements IDatabase {
 					stmt3 = conn.prepareStatement(
 							"create table status (" +
 							"userid integer primary key not null generated always as identity, " +
-									"message varchar(50000) not null," +
+							"message varchar(50000) not null," +
 							")"
 					);
 					stmt3.executeUpdate();
