@@ -13,6 +13,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
+import com.google.gwt.user.client.ui.Image;
 
 public class StatusPosting extends Composite implements View {
 	private Button statusPostButt;
@@ -26,7 +27,7 @@ public class StatusPosting extends Composite implements View {
 		statusTextbox = new TextBox();
 		layoutPanel.add(statusTextbox);
 		layoutPanel.setWidgetLeftWidth(statusTextbox, 0.0, Unit.PX, 483.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusTextbox, 54.0, Unit.PX, 128.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusTextbox, 197.0, Unit.PX, 82.0, Unit.PX);
 		
 		statusPostButt = new Button("Post");
 		statusPostButt.addClickHandler(new ClickHandler() {
@@ -35,8 +36,8 @@ public class StatusPosting extends Composite implements View {
 			}
 		});
 		layoutPanel.add(statusPostButt);
-		layoutPanel.setWidgetLeftWidth(statusPostButt, 14.0, Unit.PX, 61.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusPostButt, 198.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(statusPostButt, 11.0, Unit.PX, 61.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusPostButt, 303.0, Unit.PX, 30.0, Unit.PX);
 	}
 	
 	@Override
