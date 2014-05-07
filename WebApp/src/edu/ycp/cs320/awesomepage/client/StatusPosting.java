@@ -41,8 +41,8 @@ public class StatusPosting extends Composite implements View {
 		
 		Image image = new Image("status.tif");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, -49.0, Unit.PX, 603.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, -32.0, Unit.PX, 251.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, -40.0, Unit.PX, 603.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, -32.0, Unit.PX, 257.0, Unit.PX);
 	}
 	
 	@Override
