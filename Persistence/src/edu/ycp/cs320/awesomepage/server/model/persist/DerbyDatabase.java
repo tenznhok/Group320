@@ -140,7 +140,7 @@ public class DerbyDatabase implements IDatabase {
 		
 					stmt2 = conn.prepareStatement(
 							"create table user info (" +
-							"userid interger primary key not null generated always as identity, " +
+							"userid integer primary key not null generated always as identity, " +
 							"firstname varchar(50) not null, " +
 							"lastname varchar(50) not null," +
 							"emailcontact varchar(50) not null," +
@@ -154,8 +154,8 @@ public class DerbyDatabase implements IDatabase {
 					
 					stmt3 = conn.prepareStatement(
 							"create table status (" +
-							"userid interger primary key not null generated always as identity, " +
-									"message varchar(500000000000) not null," +
+							"userid integer primary key not null generated always as identity, " +
+									"message varchar(50000) not null," +
 							")"
 					);
 					stmt3.executeUpdate();
