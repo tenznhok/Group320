@@ -22,12 +22,12 @@ public class StatusPosting extends Composite implements View {
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-		layoutPanel.setSize("501px", "412px");
+		layoutPanel.setSize("533px", "412px");
 		
 		statusTextbox = new TextBox();
 		layoutPanel.add(statusTextbox);
-		layoutPanel.setWidgetLeftWidth(statusTextbox, 0.0, Unit.PX, 483.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusTextbox, 197.0, Unit.PX, 82.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(statusTextbox, 35.0, Unit.PX, 483.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusTextbox, 231.0, Unit.PX, 82.0, Unit.PX);
 		
 		statusPostButt = new Button("Post");
 		statusPostButt.addClickHandler(new ClickHandler() {
@@ -36,8 +36,13 @@ public class StatusPosting extends Composite implements View {
 			}
 		});
 		layoutPanel.add(statusPostButt);
-		layoutPanel.setWidgetLeftWidth(statusPostButt, 11.0, Unit.PX, 61.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusPostButt, 303.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(statusPostButt, 82.0, Unit.PX, 61.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusPostButt, 319.0, Unit.PX, 30.0, Unit.PX);
+		
+		Image image = new Image("status.tif");
+		layoutPanel.add(image);
+		layoutPanel.setWidgetLeftWidth(image, -49.0, Unit.PX, 603.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, -32.0, Unit.PX, 251.0, Unit.PX);
 	}
 	
 	@Override
