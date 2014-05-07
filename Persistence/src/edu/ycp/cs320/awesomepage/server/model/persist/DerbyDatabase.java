@@ -139,23 +139,23 @@ public class DerbyDatabase implements IDatabase {
 					stmt1.executeUpdate();
 		
 					stmt2 = conn.prepareStatement(
-							"create table user info (" +
-							"userid integer primary key not null generated always as identity, " +
+							"create table userInfo (" +
+							"userid integer primary key not null, " +
 							"firstname varchar(50) not null, " +
 							"lastname varchar(50) not null," +
 							"emailcontact varchar(50) not null," +
 							"maleorfemale varchar(50) not null," +
 							"phonenum varchar(50) not null," +
 							"country varchar(50) not null," +
-							"city varchar(50) not null," +
+							"city varchar(50) not null" +
 							")"
 					);
 					stmt2.executeUpdate();
 					
 					stmt3 = conn.prepareStatement(
 							"create table status (" +
-							"userid integer primary key not null generated always as identity, " +
-									"message varchar(50000) not null," +
+							"id integer primary key not null generated always as identity, " +
+									"message varchar(5000) not null" +
 							")"
 					);
 					stmt3.executeUpdate();
