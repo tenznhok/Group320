@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
@@ -181,5 +182,17 @@ public class DerbyDatabase implements IDatabase {
 //		db.loadInitialData();
 		
 		System.out.println("Success!");
+	}
+
+	@Override
+	public FriendsList addFriends(FriendsList e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FriendsList getAllFriends(int userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
