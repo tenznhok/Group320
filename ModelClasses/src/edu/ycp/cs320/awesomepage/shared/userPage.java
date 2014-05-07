@@ -19,9 +19,9 @@ public class userPage {
 		return userStatus.getMessage();
 	}
 	
-	public friendName getFriendsName()
+	public String getFriendsName( int id )
 	{
-		return usersFriends.getFriendName();
+		return usersFriends.getFriendName(id);
 	}
 	
 }

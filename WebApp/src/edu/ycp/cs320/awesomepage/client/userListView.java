@@ -65,13 +65,6 @@ public class userListView extends Composite implements View  {
 		
 		UserListBox.getSelectedIndex();
 		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	private void handleCancel() {

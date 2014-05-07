@@ -26,14 +26,20 @@
     <servlet-name>EditInfoServiceImpl</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.EditInfoServiceImpl</servlet-class>
   </servlet>
-      <servlet>
-    <servlet-name>GetFriendsServiceImpl</servlet-name>
-    <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriendsServiceImpl</servlet-class>
-  </servlet>
    <servlet>
     <servlet-name>GetAllUsersServiceImpl</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.GetAllUsersServiceImpl</servlet-class>
   </servlet>
+  
+  
+  
+  
+    <!--  
+      <servlet>
+    <servlet-name>GetFriendsServiceImpl</servlet-name>
+    <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriendsServiceImpl</servlet-class>
+  </servlet>
+    -->
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -55,15 +61,28 @@
     <servlet-name>EditInfoServiceImpl</servlet-name>
     <url-pattern>/webapp/editInfo</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>GetFriendsServiceImpl</servlet-name>
-    <url-pattern>/webapp/GetFriends</url-pattern>
-  </servlet-mapping>
    <servlet-mapping>
     <servlet-name>GetAllUsersServiceImpl</servlet-name>
     <url-pattern>/webapp/userListView</url-pattern>
   </servlet-mapping>
   
+  
+  
+
+  <!--  
+    <servlet-mapping>
+    <servlet-name>GetFriendsServiceImpl</servlet-name>
+    <url-pattern>/webapp/GetFriends</url-pattern>
+  </servlet-mapping>
+     -->
+
+
+
+
+
+
+
+
   <!-- Servlet context listeners -->
   <listener>
     <listener-class>edu.ycp.cs320.awesomepage.server.DatabaseInitListener</listener-class>
