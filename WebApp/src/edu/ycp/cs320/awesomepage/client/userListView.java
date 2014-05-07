@@ -45,7 +45,6 @@ public class userListView extends Composite implements View  {
 			public void onClick(ClickEvent event) {
 				handleAdd();
 			}
-
 		});
 		layoutPanel.add(btnAdd);
 		layoutPanel.setWidgetLeftWidth(btnAdd, 50.0, Unit.PX, 81.0, Unit.PX);
@@ -63,7 +62,15 @@ public class userListView extends Composite implements View  {
 	}
 
 	private void handleAdd() {
-		// TODO Auto-generated method stub
+		
+		UserListBox.getSelectedIndex();
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -90,11 +97,8 @@ public class userListView extends Composite implements View  {
 					GWT.log("SuccessFul to get list of all users");
 					for (User user : result) {
 						id = user.getUserID();
-						//int index = 0;
 						String name = user.getUserName();
-						//UserListBox.insertItem(name, id, index);
 						UserListBox.insertItem(name, id);
-						//index++;
 					}
 				}
 			}

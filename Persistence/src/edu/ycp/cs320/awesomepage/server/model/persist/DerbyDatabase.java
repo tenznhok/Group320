@@ -156,6 +156,7 @@ public class DerbyDatabase implements IDatabase {
 							"create table status (" +
 							"id integer primary key not null generated always as identity, " +
 									"message varchar(5000) not null" +
+
 							")"
 					);
 					stmt3.executeUpdate();
