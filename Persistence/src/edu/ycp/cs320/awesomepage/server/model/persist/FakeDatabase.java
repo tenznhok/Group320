@@ -3,12 +3,14 @@ package edu.ycp.cs320.awesomepage.server.model.persist;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
 	private ArrayList<User> userList;
+	private ArrayList<FriendsList> friendsList;
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
 	
@@ -29,6 +31,8 @@ public class FakeDatabase implements IDatabase {
 		userInfoStart( 0, "first", "last", "user@ycp.edu" );
 		//sets the user status
 		userStatusStart( 0 );
+		//sets the user friendsList
+		userFriendsListStart( 0 );
 	}
 	@Override
 	public User login(String username, String password) {	
@@ -55,6 +59,8 @@ public class FakeDatabase implements IDatabase {
 		userInfoStart( id, firstName, lastName, eMail );
 		//makes the first user status
 		userStatusStart( id );
+		//sets the user friendsList
+		userFriendsListStart( id );
 		
 		return newUser;
 	}
@@ -74,6 +80,14 @@ public class FakeDatabase implements IDatabase {
 		newInfo.setPhoneNum("1234567899");
 		
 		userInfoList.add(newInfo);
+	}
+	//make the list for your friends
+	private void userFriendsListStart( int userID, int id ){
+		
+		FriendsList newList = new FriendsList();
+		newList.setUserID(userID);
+		newList.setID( friendsList.size()+1 );
+		friendsList.add(newList);
 	}
 	private void userStatusStart( int userID ) 
 	{
@@ -143,5 +157,22 @@ public class FakeDatabase implements IDatabase {
 	public ArrayList<User> getAllUsers()
 	{
 		return userList;
+	}
+	@Override
+	public FriendsList getAllFriends( int userID ) {
+		
+		for( FriendsList f : friendsList ){
+			if( f.getUserID() == userID ){
+				return f;
+			}
+		}
+		return null;
+	}
+	@Override
+	public ArrayList<FriendsList> addFriends( FriendsList e ) {
+		
+		friendsList.add(e);
+		
+		return null;
 	}
 }

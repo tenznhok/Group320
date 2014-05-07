@@ -4,14 +4,24 @@ import java.util.ArrayList;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import edu.ycp.cs320.awesomepage.client.GetFriendsService;
 import edu.ycp.cs320.awesomepage.server.controllers.GetFriendsController;
+import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.User;
 
 public class GetFriendsServiceImpl extends RemoteServiceServlet implements GetFriendsService  {
 
 	@Override
-	public ArrayList<User> user( ){
+	public FriendsList friendsList( int userID ){
 		GetFriendsController controller = new GetFriendsController();
-		ArrayList<User> result = controller.user();
+		FriendsList result = controller.friends( userID );
 		return result;
+	}
+	@Override
+	public FriendsList addFriends( FriendsList e ){
+		
+		GetFriendsController controller = new GetFriendsController();
+		controller.addFriends(e);
+		
+		return null;
+		
 	}
 }

@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.ListBox;
 
+import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 
@@ -22,6 +23,11 @@ public class friendListView extends Composite implements View {
 	private Button btnClose;
 	private int id;
 	private ListBox FriendListBox;
+	
+	//gets the user from the session
+		User user = Session.getInstance().getUser();
+		int userID = user.getUserID();
+	
 	public friendListView() {
 		
 		layoutPanel = new LayoutPanel();
@@ -81,25 +87,16 @@ public class friendListView extends Composite implements View {
 	@Override
 	public void activate() {
 		
-		RPC.GetFriendsService.user( new AsyncCallback<ArrayList<User>>()  {
+		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<FriendsList>()  {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 				GWT.log("get user friends RPC call failed");
 			}
-			@Override
-			public void onSuccess(ArrayList<User> result) {
+			//@Override
+			public void onSuccess(FriendsList result) {
 				// TODO Auto-generated method stub
-				GWT.log("Successful To Get User friends!");
-				if(result == null)
-				{
-					GWT.log("Failed to get user friends");
-				}else{
-					for (User user : result) {
-						id = user.getUserID();
-						FriendListBox.insertItem(user.getUserName(), id);
-					}
-				}
+				
 			}
 		});
 	}
