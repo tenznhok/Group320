@@ -103,8 +103,8 @@ public class webpageView extends Composite implements View {
 
 		NameLabel = new Label(" ");
 		layoutPanel.add(NameLabel);
-		layoutPanel.setWidgetLeftWidth(NameLabel, 68.0, Unit.PX, 376.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(NameLabel, 51.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(NameLabel, 78.0, Unit.PX, 376.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(NameLabel, 110.0, Unit.PX, 18.0, Unit.PX);
 
 		EmailTextLabel = new Label("");
 		layoutPanel.add(EmailTextLabel);
@@ -145,6 +145,11 @@ public class webpageView extends Composite implements View {
 		layoutPanel.add(lblCity);
 		layoutPanel.setWidgetLeftWidth(lblCity, 235.0, Unit.PX, 56.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(lblCity, 381.0, Unit.PX, 18.0, Unit.PX);
+		
+		Image image = new Image("LoginPage_ASP.jpg");
+		layoutPanel.add(image);
+		layoutPanel.setWidgetLeftWidth(image, 31.0, Unit.PX, 412.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 100.0, Unit.PX);
 
 	}
 
