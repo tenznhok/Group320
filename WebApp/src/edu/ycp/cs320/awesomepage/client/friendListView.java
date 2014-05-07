@@ -21,7 +21,6 @@ public class friendListView extends Composite implements View {
 	private Button btnRemoveFriend;
 	private LayoutPanel layoutPanel;
 	private Button btnClose;
-	private int id;
 	private ListBox FriendListBox;
 	
 	//gets the user from the session
@@ -86,18 +85,21 @@ public class friendListView extends Composite implements View {
 	
 	@Override
 	public void activate() {
-		
+		/*
 		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<FriendsList>()  {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-				GWT.log("get user friends RPC call failed");
+				GWT.log("get user friends LIST RPC call failed");
 			}
 			//@Override
 			public void onSuccess(FriendsList result) {
 				// TODO Auto-generated method stub
+				//for(  )
+				//FriendListBox.addItem(result.g)
+				GWT.log("get user friends LIST DONE DID");
 				
 			}
-		});
+		});*/
 	}
 }

@@ -10,15 +10,16 @@ import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
 	private ArrayList<User> userList;
-	private ArrayList<FriendsList> friendsList;
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
 	
+	private ArrayList<FriendsList> friendsList;
 	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
 		this.userInfoList = new ArrayList<userInfo>();
 		this.userStatusList = new ArrayList<Status>();
+		this.friendsList = new ArrayList<FriendsList>();
 		
 		// add initial user data
 		User user = new User();
@@ -82,11 +83,11 @@ public class FakeDatabase implements IDatabase {
 		userInfoList.add(newInfo);
 	}
 	//make the list for your friends
-	private void userFriendsListStart( int userID, int id ){
-		
+	private void userFriendsListStart( int userID ){
 		FriendsList newList = new FriendsList();
 		newList.setUserID(userID);
 		newList.setID( friendsList.size()+1 );
+		newList.addFriend( userList.get(0) );
 		friendsList.add(newList);
 	}
 	private void userStatusStart( int userID ) 
@@ -158,6 +159,7 @@ public class FakeDatabase implements IDatabase {
 	{
 		return userList;
 	}
+	//will get the users friend list
 	@Override
 	public FriendsList getAllFriends( int userID ) {
 		
@@ -169,10 +171,13 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 	@Override
-	public ArrayList<FriendsList> addFriends( FriendsList e ) {
-		
-		friendsList.add(e);
-		
-		return null;
+	public void addFriends(  int userID, User f ) {
+		for( FriendsList friend : friendsList )
+		{
+			if( friend.getUserID() == userID )
+			{
+				friend.addFriend(f);
+			}
+		}
 	}
 }
