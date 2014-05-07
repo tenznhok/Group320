@@ -126,7 +126,7 @@ public class DerbyDatabase implements IDatabase {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
-				PreparedStatement stmt1 = null, stmt2 = null;
+				PreparedStatement stmt1 = null, stmt2 = null,  stmt3 = null;
 				try {
 					stmt1 = conn.prepareStatement(
 							"create table users (" +
@@ -139,9 +139,28 @@ public class DerbyDatabase implements IDatabase {
 					stmt1.executeUpdate();
 		
 					stmt2 = conn.prepareStatement(
-							""
+							"create table user info (" +
+							"userid interger primary key not null generated always as identity, " +
+							"firstname varchar(50) not null, " +
+							"lastname varchar(50) not null," +
+							"emailcontact varchar(50) not null," +
+							"maleorfemale varchar(50) not null," +
+							"phonenum varchar(50) not null," +
+							"country varchar(50) not null," +
+							"city varchar(50) not null," +
+							")"
 					);
 					stmt2.executeUpdate();
+					
+					stmt3 = conn.prepareStatement(
+							"create table status (" +
+							"userid interger primary key not null generated always as identity, " +
+									"message varchar(5000000) not null," +
+							")"
+					);
+					stmt3.executeUpdate();
+
+					
 				} finally {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
