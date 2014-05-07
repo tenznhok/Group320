@@ -3,6 +3,8 @@ package edu.ycp.cs320.awesomepage.shared;
 import java.util.ArrayList;
 
 public class FriendsList {
+	private int userID;
+	private int id;
 	private friendName friendName;
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 
@@ -10,9 +12,22 @@ public class FriendsList {
 		
 	}
 	
+	public void setUserID( int id ){
+		this.userID = id;
+	}
+	public int getUserID(){
+		return userID;
+	}
+	public void setID( int id ){
+		this.id = id;
+	}
+	public int getID(){
+		return id;
+	}
+	
 	// add friend into the user's list
 	public void addFriend(ArrayList<friendName> friend){
-		listOfFriend.addAll(friend);		
+		listOfFriend.addAll(friend);
 	}
 	
 	//remove friend from the user's list
