@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -28,9 +29,38 @@ public class DerbyDatabase implements IDatabase {
 	private static final int MAX_ATTEMPTS = 10;
 
 	@Override
-	public User login(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public User login(final String username, final String password) {
+		return executeTransaction(new Transaction<User>() {
+			@Override
+			public User execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement("select users.* from users where username = ? and password = ?");
+					stmt.setString(1, username);
+					stmt.setString(2, password);
+					
+					resultSet = stmt.executeQuery();
+					
+					if (!resultSet.next()) {
+						return null; // no such username/password
+					}
+					
+					// Found a matching User
+					User user = new User();
+					user.setUserID(resultSet.getInt(1));
+					user.setUserName(resultSet.getString(2));
+					user.setPassword(resultSet.getString(3));
+					user.setEmail(resultSet.getString(4));
+					
+					return user;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -132,7 +162,7 @@ public class DerbyDatabase implements IDatabase {
 					stmt1 = conn.prepareStatement(
 							"create table users (" +
 							" userid integer primary key not null generated always as identity, " +
-							" username varchar(50) not null, " +
+							" username varchar(50) not null unique, " +
 							" password varchar(50) not null, " +
 							" email varchar(100) not null" +
 							")"
@@ -172,16 +202,39 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public void loadInitialData() {
+		executeTransaction(new Transaction<Boolean>() {
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				
+				try {
+					stmt = conn.prepareStatement("insert into users (username, password, email) values ('testuser', 'abc123', 'user@ycp.edu')");
+				} finally {
+					DBUtil.closeQuietly(stmt);
+				}
+				
+				return true;
+			}
+		});
+	}
+	
 	// The main method creates the database tables and loads the initial data.
 	public static void main(String[] args) throws IOException {
 		System.out.println("Creating tables...");
 		DerbyDatabase db = new DerbyDatabase();
 		db.createTables();
 		
-//		System.out.println("Loading initial data...");
-//		db.loadInitialData();
+		System.out.println("Loading initial data...");
+		db.loadInitialData();
 		
 		System.out.println("Success!");
+	}
+
+	/*@Override
+	public FriendsList getAllFriends(int userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/*@Override

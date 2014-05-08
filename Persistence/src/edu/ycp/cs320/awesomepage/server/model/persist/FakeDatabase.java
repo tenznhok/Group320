@@ -179,5 +179,6 @@ public class FakeDatabase implements IDatabase {
 				friend.addFriend(f);
 			}
 		}
-	}
+
 }*/
+

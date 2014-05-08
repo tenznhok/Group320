@@ -1,8 +1,15 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Wed May 07 17:35:35 EDT 2014:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0145-d89c-eeb2-000002fe7398 
 on database directory H:\workspace\Group320\Persistence\awesomepage.db with class loader sun.misc.Launcher$AppClassLoader@263534c1 
 Loaded from file:/H:/workspace/Group320/CS320_Derby/lib/derby.jar
+=======
+Thu May 08 14:52:43 EDT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0145-dd2e-3359-00000047d588 
+on database directory /Users/nhoktenz/git/Group320/Persistence/awesomepage.db with class loader sun.misc.Launcher$AppClassLoader@5f3c6654 
+Loaded from file:/Users/nhoktenz/git/Group320/CS320_Derby/lib/derby.jar
+>>>>>>> branch 'master' of git@github.com:tenznhok/Group320.git
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_07-b11
 user.dir=H:\workspace\Group320\Persistence

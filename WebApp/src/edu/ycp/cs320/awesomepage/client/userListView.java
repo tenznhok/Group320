@@ -16,6 +16,8 @@ import edu.ycp.cs320.awesomepage.shared.User;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.event.logical.shared.AttachEvent.Handler;
 import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.AbsolutePanel;
 
 /**
  * this class will pull all user's names in database
@@ -31,13 +33,14 @@ public class userListView extends Composite implements View  {
 	private int id;
 	public userListView() {
 		
-		LayoutPanel layoutPanel = new LayoutPanel();
-		initWidget(layoutPanel);
+		AbsolutePanel absolutePanel = new AbsolutePanel();
+		initWidget(absolutePanel);
+		absolutePanel.setHeight("421px");
 		
 		UserListBox = new ListBox();
-		layoutPanel.add(UserListBox);
-		layoutPanel.setWidgetLeftWidth(UserListBox, 50.0, Unit.PX, 155.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(UserListBox, 72.0, Unit.PX, 165.0, Unit.PX);
+		absolutePanel.add(UserListBox, 38, 26);
+		UserListBox.setSize("118px", "225px");
+		
 		UserListBox.setVisibleItemCount(5);
 		
 		btnAdd = new Button("Add");
@@ -46,9 +49,7 @@ public class userListView extends Composite implements View  {
 				handleAdd();
 			}
 		});
-		layoutPanel.add(btnAdd);
-		layoutPanel.setWidgetLeftWidth(btnAdd, 50.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnAdd, 250.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(btnAdd, 10, 277);
 		
 		btnCancel = new Button("Close/ Cancel\r\n");
 		btnCancel.addClickHandler(new ClickHandler() {
@@ -56,9 +57,13 @@ public class userListView extends Composite implements View  {
 				handleCancel();
 			}
 		});
-		layoutPanel.add(btnCancel);
-		layoutPanel.setWidgetLeftWidth(btnCancel, 152.0, Unit.PX, 109.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnCancel, 250.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(btnCancel, 70, 277);
+		
+		Image image = new Image("ASP_UserList.jpg");
+		absolutePanel.add(image, 184, 10);
+		image.setSize("238px", "323px");
+		
+		
 	}
 
 	private void handleAdd() {
