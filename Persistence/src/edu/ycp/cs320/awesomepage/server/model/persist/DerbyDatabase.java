@@ -183,7 +183,7 @@ public class DerbyDatabase implements IDatabase {
 		
 		System.out.println("Success!");
 	}
-
+/*
 	@Override
 	public FriendsList addFriends(FriendsList e) {
 		// TODO Auto-generated method stub
@@ -195,4 +195,5 @@ public class DerbyDatabase implements IDatabase {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	*/
 }

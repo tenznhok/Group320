@@ -39,10 +39,11 @@ public class StatusPosting extends Composite implements View {
 		layoutPanel.setWidgetLeftWidth(statusPostButt, 82.0, Unit.PX, 61.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusPostButt, 319.0, Unit.PX, 30.0, Unit.PX);
 		
-		Image image = new Image("status.tif");
+		Image image = new Image("ASP Posting Status.jpg");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, -49.0, Unit.PX, 603.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, -32.0, Unit.PX, 251.0, Unit.PX);
+		image.setSize("600", "300");
+		layoutPanel.setWidgetLeftWidth(image, 43.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 21.0, Unit.PX, 100.0, Unit.PX);
 	}
 	
 	@Override
