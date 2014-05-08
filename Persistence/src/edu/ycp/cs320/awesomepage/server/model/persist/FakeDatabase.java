@@ -87,7 +87,7 @@ public class FakeDatabase implements IDatabase {
 		FriendsList newList = new FriendsList();
 		newList.setUserID(userID);
 		newList.setID( friendsList.size()+1 );
-		newList.addFriend( userList.get(0) );
+		//newList.addFriend( userList.get(0) );
 		friendsList.add(newList);
 	}
 	private void userStatusStart( int userID ) 
@@ -160,8 +160,6 @@ public class FakeDatabase implements IDatabase {
 		return userList;
 	}
 	//will get the users friend list
-/*
-	@Override
 	public FriendsList getAllFriends( int userID ) {
 		
 		for( FriendsList f : friendsList ){
@@ -171,15 +169,18 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	
 	@Override
-	public void addFriends(  int userID, User f ) {
+	public FriendsList addFriends(  int userID, User f ) {
 		for( FriendsList friend : friendsList )
 		{
 			if( friend.getUserID() == userID )
 			{
 				friend.addFriend(f);
+				return null;
 			}
 		}
 	}
-	*/
+	
+	
 }

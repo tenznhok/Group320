@@ -8,6 +8,6 @@ import edu.ycp.cs320.awesomepage.shared.User;
 @RemoteServiceRelativePath("GetFriends")
 public interface GetFriendsService extends RemoteService {
 	
-	//public FriendsList friendsList( int userID );
+	public FriendsList friendsList( int userID );
 	//public FriendsList addFriends( int userID, User f );
 }

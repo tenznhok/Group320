@@ -26,14 +26,14 @@ public class FriendsList {
 	public int getID(){
 		return id;
 	}
-	
+	/*
 	// add friend into the user's list
-	public void addFriend( User friend ){
-		friendName newFriend = new friendName( friend.getUserName() );
+	public void addFriend( ArrayList<friendName> listOfFriend ){
+		friendName newFriend = new friendName( listOfFriend.getUserName() );
 		newFriend.setFriendID( list.size()+1 );
 		list.add(newFriend);
 	}
-	
+	*/
 	//remove friend from the user's list
 	public void removeFriend(String name){
 		for (friendName f : list) {

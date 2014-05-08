@@ -13,6 +13,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.Image;
 
 public class editInfoView extends Composite implements View  {
 	private TextBox FirstNameTextBox;
@@ -35,6 +36,7 @@ public class editInfoView extends Composite implements View  {
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
 		initWidget(absolutePanel);
+		absolutePanel.setSize("543px", "530px");
 		
 		Label FirstNameLabel = new Label("First Name:");
 		absolutePanel.add(FirstNameLabel, 88, 53);
@@ -89,7 +91,7 @@ public class editInfoView extends Composite implements View  {
 				handleUpDate();
 			}
 		});
-		absolutePanel.add(UpDateButton, 405, 106);
+		absolutePanel.add(UpDateButton, 390, 37);
 		
 		CancelButton = new Button("Cancel");
 		CancelButton.addClickHandler(new ClickHandler() {
@@ -97,7 +99,11 @@ public class editInfoView extends Composite implements View  {
 				handleCancel();
 			}
 		});
-		absolutePanel.add(CancelButton, 405, 140);
+		absolutePanel.add(CancelButton, 390, 82);
+		
+		Image image = new Image("EditingInfo.jpg");
+		absolutePanel.add(image, 353, 122);
+		image.setSize("180px", "363px");
 	}
 	
 	@Override

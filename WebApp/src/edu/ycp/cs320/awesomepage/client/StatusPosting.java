@@ -2,6 +2,7 @@ package edu.ycp.cs320.awesomepage.client;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
@@ -13,21 +14,24 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.awesomepage.shared.User;
+
 import com.google.gwt.user.client.ui.Image;
 
 public class StatusPosting extends Composite implements View {
 	private Button statusPostButt;
 	private TextBox statusTextbox;
+	private Button btnCancel;
 	public StatusPosting() {
 		
-		LayoutPanel layoutPanel = new LayoutPanel();
-		initWidget(layoutPanel);
-		layoutPanel.setSize("533px", "412px");
+		AbsolutePanel absolutePanel = new AbsolutePanel();
+		initWidget(absolutePanel);
+		absolutePanel.setSize("533px", "412px");
 		
 		statusTextbox = new TextBox();
-		layoutPanel.add(statusTextbox);
-		layoutPanel.setWidgetLeftWidth(statusTextbox, 35.0, Unit.PX, 483.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusTextbox, 231.0, Unit.PX, 82.0, Unit.PX);
+		statusTextbox.setVisibleLength(200);
+		statusTextbox.setDirectionEstimator(true);
+		absolutePanel.add(statusTextbox, 10, 200);
+		statusTextbox.setSize("410px", "47px");
 		
 		statusPostButt = new Button("Post");
 		statusPostButt.addClickHandler(new ClickHandler() {
@@ -35,20 +39,35 @@ public class StatusPosting extends Composite implements View {
 				postingStatus();
 			}
 		});
-		layoutPanel.add(statusPostButt);
-		layoutPanel.setWidgetLeftWidth(statusPostButt, 82.0, Unit.PX, 61.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusPostButt, 319.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(statusPostButt, 150, 284);
+		statusPostButt.setSize("65px", "30px");
 		
-		Image image = new Image("ASP Posting Status.jpg");
-		layoutPanel.add(image);
-		image.setSize("600", "300");
-		layoutPanel.setWidgetLeftWidth(image, 43.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 21.0, Unit.PX, 100.0, Unit.PX);
+		Image image = new Image("postingstatus.jpg");
+		absolutePanel.add(image, 0, 0);
+		image.setSize("430px", "178px");
+	
+		
+		btnCancel = new Button("Cancel");
+		btnCancel.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				cancel();
+			}
+
+			
+		});
+		absolutePanel.add(btnCancel, 239, 284);
 	}
 	
 	@Override
 	public void activate() {
 		// Nothing to do (don't need to load data)
+	}
+	
+	private void cancel() {
+		// Switch to webpage view
+		WebApp.setView(new webpageView());
+		
+		
 	}
 	
 	private void postingStatus() {
