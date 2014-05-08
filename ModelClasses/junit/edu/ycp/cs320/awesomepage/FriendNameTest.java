@@ -14,15 +14,15 @@ private friendName userFriend, userFriend2;
 	@Before
 	public void setup(){
 		
-		userFriend = new friendName( "Jack","Jim", 159 );
-		userFriend2 = new friendName(" "," ",1);
-		userFriend2.setFriendFirstName("Bob");
-		userFriend2.setFriendLastName("Green");
+		userFriend = new friendName( "Jack", 0 );
+		userFriend2 = new friendName(" ", 1);
+		//userFriend2.setFriendFirstName("Bob");
+		//userFriend2.setFriendLastName("Green");
 		userFriend2.setFriendID(123);
 		
 	}
 
-	@Test
+	/*@Test
 	public void testGetFriendFirstName() {
 		
 		assertEquals( "Jack",userFriend.getFriendFirstName() );
@@ -35,11 +35,11 @@ private friendName userFriend, userFriend2;
 		assertEquals( "Jim",userFriend.getFriendLastName() );
 		assertEquals( "Green",userFriend2.getFriendLastName() );
 	}
-	
+	*/
 	@Test
 	public void testGetFriendID(){
 		
-		assertEquals( 159,userFriend.getFriendID() );
+		assertEquals( 0,userFriend.getFriendID() );
 		assertEquals( 123,userFriend2.getFriendID() );
 	}
 

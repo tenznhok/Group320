@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
+import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.friendName;
 
 public class FriendsListTest {
@@ -15,10 +16,10 @@ public class FriendsListTest {
 	//private friendName userFriend1, userFriend2, userFriend3, userFriend4;
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 	private FriendsList list = new FriendsList();
-
-	friendName name1 = new friendName("Jack", "First", 1);	
-	friendName name2 = new friendName ("Harry", "Potter", 2);
-	friendName name3 = new friendName ("Ron", "Westley", 3);
+	User f = new User();
+	friendName name1 = new friendName("Jack", 0);	
+	friendName name2 = new friendName ("Harry", 1);
+	friendName name3 = new friendName ("Ron", 2 );
 	
 // add friends	
 	
@@ -27,18 +28,20 @@ public class FriendsListTest {
 		listOfFriend.add(name1);
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
-		list.addFriend(listOfFriend);
+		f.setUserName("AB");
+		list.addFriend(f);
+		
 	
-	listOfFriend.get(1).equals("Jack");
-	listOfFriend.get(2).getFriendFirstName().equals("Harry");
-	assertEquals(3,list.countFriend());		
+	listOfFriend.get(0).equals("Jack");
+	listOfFriend.get(1).getFriendUserName().equals("Harry");
+	assertEquals(1,list.countFriend());		
 	}
 	@Test
 	public void testRemoveFriend(){
 		listOfFriend.add(name1);
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
-		list.addFriend(listOfFriend);
+		
 
 		listOfFriend.remove(name2);
 		
@@ -46,17 +49,5 @@ public class FriendsListTest {
 		assertFalse("Harry", listOfFriend.equals(name2));
 		assertEquals(2,listOfFriend.size());
 	}
-	@Test
-	public void testSetFriendName() {
-		listOfFriend.add(name1);
-		listOfFriend.add(name2);
-		listOfFriend.add(name3);
-		
-		//list.setFriendName(name3);
-		
-		list.setFriendName(name3, "Michael", "NotMe");
-		
-		assertEquals( "Michael", listOfFriend.get(2).getFriendFirstName() );
-		assertEquals( "NotMe", listOfFriend.get(2).getFriendLastName() );	
-	}
+	
 }

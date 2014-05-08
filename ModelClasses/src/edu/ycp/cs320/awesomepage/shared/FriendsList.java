@@ -28,9 +28,8 @@ public class FriendsList {
 	}
 	/*
 	// add friend into the user's list
-	public void addFriend( ArrayList<friendName> listOfFriend ){
-		friendName newFriend = new friendName( listOfFriend.getUserName() );
-		newFriend.setFriendID( list.size()+1 );
+	public void addFriend(String name){
+		friendName newFriend = new friendName(name);
 		list.add(newFriend);
 	}
 	*/
@@ -60,9 +59,6 @@ public class FriendsList {
 	
 	//count how many friends in the list
 	public int countFriend(){
-		//int count; 
-		//count = listOfFriend.size();
-		
 		int count = list.size();
 		
 		return count;
@@ -75,9 +71,17 @@ public class FriendsList {
 		return name;
 	}
 
+
+	/*public String setFriendName(String name) {
+		// TODO Auto-generated method stub
+		return name;
+	}
+	*/
+	
 	public void addFriend(User f) {
 		friendName newFriend = new friendName( f.getUserName(), list.size()+1 );
 		list.add( newFriend );
+
 	}
 	
 	
