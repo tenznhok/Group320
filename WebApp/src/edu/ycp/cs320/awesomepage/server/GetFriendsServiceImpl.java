@@ -11,17 +11,15 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 public class GetFriendsServiceImpl extends RemoteServiceServlet implements GetFriendsService  {
 
 	@Override
-	public ArrayList<friendName> friendsList( int userID ){
+	public ArrayList<friendName> friendsList( ){
 		GetFriendsController controller = new GetFriendsController();
-		ArrayList<friendName> result = controller.getFriendsList(userID);
+		ArrayList<friendName> result = controller.getFriendsList( );
 		return result;
 	}
-/*	
 	@Override
-	public FriendsList addFriends( int userID, User f ){
+	public friendName addFriends( int userID, String name ){
 		GetFriendsController controller = new GetFriendsController();
-		controller.addFriends( userID, f);
+		controller.addFriends(userID, name);
 		return null;
 	}
-	*/
 }

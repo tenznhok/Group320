@@ -11,6 +11,6 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 @RemoteServiceRelativePath("GetFriends")
 public interface GetFriendsService extends RemoteService {
 	
-	public ArrayList<friendName> friendsList( int userID );
-	//public FriendsList addFriends( int userID, User f );
+	public ArrayList<friendName> friendsList( );
+	public friendName addFriends( int userID, String name );
 }

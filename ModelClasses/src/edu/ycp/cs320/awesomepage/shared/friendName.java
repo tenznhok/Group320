@@ -10,7 +10,7 @@ public class friendName {
 	public friendName( String userName, int friendID ){
 		//this.friendFirstName = friendFirstName;
 		//this.friendLastName = friendLastName;
-		this.friendID = friendID;
+		this.userID = friendID;
 		this.userName = userName;
 	}
 	/*

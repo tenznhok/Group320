@@ -98,10 +98,9 @@ public class FakeDatabase implements IDatabase {
 		userInfoList.add(newInfo);
 	}
 	//make the list for your friends
-	private void userFriendsListStart( int userID ){
-		
-
-		friendName newFriend = new friendName( "mike", 1 );
+	private void userFriendsListStart( int userID )
+	{
+		friendName newFriend = new friendName( "mike", userID );
 		newFriend.setUserID(userID);
 		//newList.setID( friendsList.size()+1 );
 		//newList.addFriend( userList.get(1) );
@@ -176,30 +175,19 @@ public class FakeDatabase implements IDatabase {
 	{
 		return userList;
 	}
-	
-	
 	//will get the users friend list
 	@Override
-	public ArrayList<friendName> getAllFriends( int userID ) {
-		
-		//for( ArrayList<friendName> f : friendsList ){
-		//	if(  == userID ){
-				return friendsList;
-			//}
-		//}
-		//return null;
+	public ArrayList<friendName> getAllFriends( ) 
+	{
+		return friendsList;
 	}
-	/*
 	@Override
-	public FriendsList addFriends(  int userID, User f ) {
-		for( FriendsList friend : friendsList )
-		{
-			if( friend.getUserID() == userID )
-			{
-				friend.addFriend(f);
-				return null;
-			}
-		}
+	public friendName addFriend(int userID, String friendName){
+		
+		friendName newFriend = new friendName( friendName, userID );
+		newFriend.setFriendID(friendsList.size()+1);
+		friendsList.add(newFriend);
+		return null;
 	}
-	*/
+	
 }

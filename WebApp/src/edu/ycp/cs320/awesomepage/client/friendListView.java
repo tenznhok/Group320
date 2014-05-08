@@ -87,7 +87,7 @@ public class friendListView extends Composite implements View {
 	@Override
 	public void activate() {
 		
-		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<ArrayList<friendName>>()  {
+		RPC.GetFriendsService.friendsList( new AsyncCallback<ArrayList<friendName>>()  {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
@@ -97,9 +97,11 @@ public class friendListView extends Composite implements View {
 			public void onSuccess(ArrayList<friendName> result) {
 				// TODO Auto-generated method stub
 				for (friendName friend : result) {
-					if( userID == friend.getUserID() ){
-						FriendListBox.insertItem(friend.getFriendUserName(), friend.getFriendID());
-					}
+					//if( friend.getUserID() == userID ){
+						String name = friend.getFriendUserName();
+						
+						FriendListBox.insertItem(name, 1);
+					//}
 			}
 			
 			GWT.log("get user friends LIST DONE DID");
