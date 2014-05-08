@@ -42,7 +42,6 @@ public class StatusPosting extends Composite implements View {
 		absolutePanel.add(statusPostButt, 150, 284);
 		statusPostButt.setSize("65px", "30px");
 		
-		
 		Image image = new Image("postingstatus.jpg");
 		absolutePanel.add(image, 0, 0);
 		image.setSize("430px", "178px");
@@ -57,7 +56,6 @@ public class StatusPosting extends Composite implements View {
 			
 		});
 		absolutePanel.add(btnCancel, 239, 284);
-		
 	}
 	
 	@Override

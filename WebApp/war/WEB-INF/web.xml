@@ -31,15 +31,11 @@
     <servlet-class>edu.ycp.cs320.awesomepage.server.GetAllUsersServiceImpl</servlet-class>
   </servlet>
   
-  
-  
-  
-    <!--  
       <servlet>
     <servlet-name>GetFriendsServiceImpl</servlet-name>
     <servlet-class>edu.ycp.cs320.awesomepage.server.GetFriendsServiceImpl</servlet-class>
   </servlet>
-    -->
+
   
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
@@ -67,14 +63,11 @@
   </servlet-mapping>
   
   
-  
 
-  <!--  
     <servlet-mapping>
     <servlet-name>GetFriendsServiceImpl</servlet-name>
     <url-pattern>/webapp/GetFriends</url-pattern>
   </servlet-mapping>
-     -->
 
 
 

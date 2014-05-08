@@ -237,7 +237,8 @@ public class DerbyDatabase implements IDatabase {
 		return null;
 	}
 
-	/*@Override
+/*
+
 	public FriendsList addFriends(FriendsList e) {
 		// TODO Auto-generated method stub
 		return null;
@@ -247,5 +248,6 @@ public class DerbyDatabase implements IDatabase {
 	public FriendsList getAllFriends(int userID) {
 		// TODO Auto-generated method stub
 		return null;
-	} */
+	}
+	*/
 }

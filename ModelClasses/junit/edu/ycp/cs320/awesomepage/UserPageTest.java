@@ -19,7 +19,7 @@ public class UserPageTest {
 	
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 	private FriendsList list = new FriendsList();	
-	friendName name = new friendName ("Harry");
+	friendName name = new friendName ("Harry", 0);
 
 	@Before
 	public void setup(){
