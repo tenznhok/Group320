@@ -9,7 +9,6 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 
 public interface GetFriendsServiceAsync {
 
-	//void addFriends(int userID, User f, AsyncCallback<FriendsList> callback);
-
-	void friendsList(int userID, AsyncCallback<ArrayList<friendName>> asyncCallback);
+	void addFriends(int userID, String name, AsyncCallback<friendName> asyncCallback);
+	void friendsList( AsyncCallback<ArrayList<friendName>> callback);
 }

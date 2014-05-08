@@ -148,6 +148,7 @@ public class editInfoView extends Composite implements View  {
 	private void handleUpDate() {
 		//RPC upDate use info
 		final int index = MaleFemaleListBox.getSelectedIndex();
+		
 		RPC.EditInfoService.editInfo(userID, FirstNameTextBox.getText(), LastNameTextBox.getText(), EmailTextBox.getText(), MaleFemaleListBox.getItemText(index),
 				PhoneNumTextBox.getText(), CountryTextBox.getText(), CityTextBox.getText(), new AsyncCallback<userInfo>() {
 

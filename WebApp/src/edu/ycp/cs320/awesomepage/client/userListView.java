@@ -13,6 +13,8 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.friendName;
+
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.event.logical.shared.AttachEvent.Handler;
 import com.google.gwt.event.logical.shared.AttachEvent;
@@ -31,6 +33,12 @@ public class userListView extends Composite implements View  {
 	private Button btnAdd;
 	private ListBox UserListBox;
 	private int id;
+	
+	//gets the user from the session
+			User user = Session.getInstance().getUser();
+			int userID = user.getUserID();
+	
+	
 	public userListView() {
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
@@ -67,8 +75,26 @@ public class userListView extends Composite implements View  {
 	}
 
 	private void handleAdd() {
+		int id = UserListBox.getSelectedIndex();
+		String newFriend = UserListBox.getItemText( id );
 		
-		UserListBox.getSelectedIndex();
+		
+		RPC.GetFriendsService.addFriends(userID, newFriend, new AsyncCallback<friendName>(){
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onSuccess(friendName result) {
+				// TODO Auto-generated method stub
+				
+			}
+				
+				
+		});
 		
 	}
 	
