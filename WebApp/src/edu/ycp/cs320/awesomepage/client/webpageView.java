@@ -29,6 +29,9 @@ import com.google.gwt.user.client.ui.ListBox;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
+import com.google.gwt.user.datepicker.client.DateBox;
+import com.google.gwt.widget.client.TextButton;
+import com.google.gwt.user.datepicker.client.DatePicker;
 
 public class webpageView extends Composite implements View {
 
@@ -51,7 +54,7 @@ public class webpageView extends Composite implements View {
 
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-		layoutPanel.setSize("666px", "498px");
+		layoutPanel.setSize("666px", "582px");
 
 		statusBtt = new Button("Post");
 		statusBtt.addClickHandler(new ClickHandler() {
@@ -62,7 +65,7 @@ public class webpageView extends Composite implements View {
 		statusBtt.setText("Status");
 		layoutPanel.add(statusBtt);
 		layoutPanel.setWidgetLeftWidth(statusBtt, 78.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusBtt, 140.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusBtt, 170.0, Unit.PX, 30.0, Unit.PX);
 
 		btnFriends = new Button("Friends");
 		btnFriends.addClickHandler(new ClickHandler() {
@@ -73,7 +76,7 @@ public class webpageView extends Composite implements View {
 		btnFriends.setText("Friends");
 		layoutPanel.add(btnFriends);
 		layoutPanel.setWidgetLeftWidth(btnFriends, 165.0, Unit.PX, 98.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnFriends, 140.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnFriends, 170.0, Unit.PX, 30.0, Unit.PX);
 
 		btnEditInfo = new Button("Edit Info");
 		btnEditInfo.addClickHandler(new ClickHandler() {
@@ -83,7 +86,7 @@ public class webpageView extends Composite implements View {
 		});
 		layoutPanel.add(btnEditInfo);
 		layoutPanel.setWidgetLeftWidth(btnEditInfo, 269.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnEditInfo, 140.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnEditInfo, 170.0, Unit.PX, 30.0, Unit.PX);
 
 		signOutBut = new Button("Sign Out");
 		signOutBut.addClickHandler(new ClickHandler() {
@@ -93,63 +96,74 @@ public class webpageView extends Composite implements View {
 		});
 		layoutPanel.add(signOutBut);
 		layoutPanel.setWidgetLeftWidth(signOutBut, 78.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(signOutBut, 357.0, Unit.PX, 30.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(signOutBut, 325.0, Unit.PX, 30.0, Unit.PX);
 
 		statusListBox = new ListBox();
+		statusListBox.setMultipleSelect(true);
 		layoutPanel.add(statusListBox);
-		layoutPanel.setWidgetLeftWidth(statusListBox, 78.0, Unit.PX, 376.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(statusListBox, 176.0, Unit.PX, 128.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(statusListBox, 20.0, Unit.PX, 464.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(statusListBox, 206.0, Unit.PX, 98.0, Unit.PX);
 		statusListBox.setVisibleItemCount(5);
 
 		NameLabel = new Label(" ");
 		layoutPanel.add(NameLabel);
-		layoutPanel.setWidgetLeftWidth(NameLabel, 78.0, Unit.PX, 376.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(NameLabel, 110.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(NameLabel, 36.0, Unit.PX, 376.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(NameLabel, 146.0, Unit.PX, 18.0, Unit.PX);
 
 		EmailTextLabel = new Label("");
 		layoutPanel.add(EmailTextLabel);
 		layoutPanel.setWidgetLeftWidth(EmailTextLabel, 297.0, Unit.PX, 342.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(EmailTextLabel, 310.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(EmailTextLabel, 456.0, Unit.PX, 18.0, Unit.PX);
 
 		PhoneNumLabel = new Label("");
 		layoutPanel.add(PhoneNumLabel);
 		layoutPanel.setWidgetLeftWidth(PhoneNumLabel, 297.0, Unit.PX, 338.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(PhoneNumLabel, 334.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(PhoneNumLabel, 480.0, Unit.PX, 18.0, Unit.PX);
 
 		CountryLabel = new Label("");
 		layoutPanel.add(CountryLabel);
 		layoutPanel.setWidgetLeftWidth(CountryLabel, 297.0, Unit.PX, 338.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(CountryLabel, 357.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(CountryLabel, 504.0, Unit.PX, 18.0, Unit.PX);
 
 		CityLabel = new Label("");
 		layoutPanel.add(CityLabel); 
 		layoutPanel.setWidgetLeftWidth(CityLabel, 297.0, Unit.PX, 342.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(CityLabel, 381.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(CityLabel, 528.0, Unit.PX, 18.0, Unit.PX);
 
 		Label lblPhone = new Label("Email");
 		layoutPanel.add(lblPhone);
 		layoutPanel.setWidgetLeftWidth(lblPhone, 235.0, Unit.PX, 56.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblPhone, 310.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblPhone, 456.0, Unit.PX, 18.0, Unit.PX);
 
 		Label label = new Label("Phone:");
 		layoutPanel.add(label);
 		layoutPanel.setWidgetLeftWidth(label, 235.0, Unit.PX, 56.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(label, 334.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(label, 480.0, Unit.PX, 18.0, Unit.PX);
 
 		Label lblCountry = new Label("country");
 		layoutPanel.add(lblCountry);
 		layoutPanel.setWidgetLeftWidth(lblCountry, 235.0, Unit.PX, 56.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblCountry, 357.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblCountry, 504.0, Unit.PX, 18.0, Unit.PX);
 
-		Label lblCity = new Label("city:::::::");
+		Label lblCity = new Label("City:");
 		layoutPanel.add(lblCity);
 		layoutPanel.setWidgetLeftWidth(lblCity, 235.0, Unit.PX, 56.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblCity, 381.0, Unit.PX, 18.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblCity, 528.0, Unit.PX, 18.0, Unit.PX);
 		
 		Image image = new Image("LoginPage_ASP.jpg");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 31.0, Unit.PX, 412.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 12.0, Unit.PX, 412.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 24.0, Unit.PX, 100.0, Unit.PX);
+		
+		DatePicker datePicker = new DatePicker();
+		layoutPanel.add(datePicker);
+		layoutPanel.setWidgetLeftWidth(datePicker, 12.0, Unit.PX, 212.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(datePicker, 371.0, Unit.PX, 191.0, Unit.PX);
+		
+		Image image_1 = new Image("aboutme.jpg");
+		layoutPanel.add(image_1);
+		layoutPanel.setWidgetLeftWidth(image_1, 255.0, Unit.PX, 254.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image_1, 325.0, Unit.PX, 95.0, Unit.PX);
 
 	}
 
