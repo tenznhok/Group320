@@ -99,11 +99,12 @@ public class webpageView extends Composite implements View {
 		layoutPanel.setWidgetTopHeight(signOutBut, 325.0, Unit.PX, 30.0, Unit.PX);
 
 		statusListBox = new ListBox();
+		statusListBox.setDirectionEstimator(true);
 		statusListBox.setMultipleSelect(true);
 		layoutPanel.add(statusListBox);
 		layoutPanel.setWidgetLeftWidth(statusListBox, 20.0, Unit.PX, 464.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(statusListBox, 206.0, Unit.PX, 98.0, Unit.PX);
-		statusListBox.setVisibleItemCount(5);
+		statusListBox.setVisibleItemCount(2);
 
 		NameLabel = new Label(" ");
 		layoutPanel.add(NameLabel);
@@ -152,8 +153,8 @@ public class webpageView extends Composite implements View {
 		
 		Image image = new Image("LoginPage_ASP.jpg");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 12.0, Unit.PX, 412.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 24.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 12.0, Unit.PX, 457.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 24.0, Unit.PX, 116.0, Unit.PX);
 		
 		DatePicker datePicker = new DatePicker();
 		layoutPanel.add(datePicker);

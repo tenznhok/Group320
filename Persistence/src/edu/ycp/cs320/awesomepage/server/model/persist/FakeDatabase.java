@@ -160,7 +160,7 @@ public class FakeDatabase implements IDatabase {
 		return userList;
 	}
 	//will get the users friend list
-	@Override
+	/*@Override
 	public FriendsList getAllFriends( int userID ) {
 		
 		for( FriendsList f : friendsList ){
@@ -179,5 +179,5 @@ public class FakeDatabase implements IDatabase {
 				friend.addFriend(f);
 			}
 		}
-	}
+	}*/
 }

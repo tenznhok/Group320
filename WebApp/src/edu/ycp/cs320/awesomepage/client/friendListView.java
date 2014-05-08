@@ -85,7 +85,7 @@ public class friendListView extends Composite implements View {
 	
 	@Override
 	public void activate() {
-		/*
+		
 		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<FriendsList>()  {
 			@Override
 			public void onFailure(Throwable caught) {
@@ -100,6 +100,6 @@ public class friendListView extends Composite implements View {
 				GWT.log("get user friends LIST DONE DID");
 				
 			}
-		});*/
+		});
 	}
 }
