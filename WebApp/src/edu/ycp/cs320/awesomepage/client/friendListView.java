@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.friendName;
 
 
 public class friendListView extends Composite implements View {
@@ -86,19 +87,22 @@ public class friendListView extends Composite implements View {
 	@Override
 	public void activate() {
 		
-		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<FriendsList>()  {
+		RPC.GetFriendsService.friendsList( userID, new AsyncCallback<ArrayList<friendName>>()  {
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 				GWT.log("get user friends LIST RPC call failed");
 			}
-			//@Override
-			public void onSuccess(FriendsList result) {
+			@Override
+			public void onSuccess(ArrayList<friendName> result) {
 				// TODO Auto-generated method stub
-				//for(  )
-				//FriendListBox.addItem(result.g)
-				GWT.log("get user friends LIST DONE DID");
-				
+				for (friendName friend : result) {
+					if( userID == friend.getUserID() ){
+						FriendListBox.insertItem(friend.getFriendUserName(), friend.getFriendID());
+					}
+			}
+			
+			GWT.log("get user friends LIST DONE DID");
 			}
 		});
 	}

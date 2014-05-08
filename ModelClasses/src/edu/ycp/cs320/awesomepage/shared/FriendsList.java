@@ -74,6 +74,11 @@ public class FriendsList {
 		String name = list.get(id).getFriendUserName();
 		return name;
 	}
+
+	public void addFriend(User f) {
+		friendName newFriend = new friendName( f.getUserName(), list.size()+1 );
+		list.add( newFriend );
+	}
 	
 	
 

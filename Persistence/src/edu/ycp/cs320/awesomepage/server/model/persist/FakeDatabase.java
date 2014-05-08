@@ -6,6 +6,7 @@ import java.util.List;
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.friendName;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
@@ -13,13 +14,13 @@ public class FakeDatabase implements IDatabase {
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
 	
-	private ArrayList<FriendsList> friendsList;
+	private ArrayList<friendName> friendsList;
 	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
 		this.userInfoList = new ArrayList<userInfo>();
 		this.userStatusList = new ArrayList<Status>();
-		this.friendsList = new ArrayList<FriendsList>();
+		this.friendsList = new ArrayList<friendName>();
 		
 		// add initial user data
 		User user = new User();
@@ -34,6 +35,20 @@ public class FakeDatabase implements IDatabase {
 		userStatusStart( 0 );
 		//sets the user friendsList
 		userFriendsListStart( 0 );
+		
+		// add mike as a user
+		user = new User();
+		user.setEmail("mike@ycp.edu");
+		user.setPassword("mike");
+		user.setUserID( 1 );
+		user.setUserName("mike");
+		userList.add(user);
+		//sets the user info
+		userInfoStart( 1, "mike", "C", "mike@ycp.edu" );
+		//sets the user status
+		userStatusStart( 1 );
+		//sets the user friendsList
+		userFriendsListStart( 1 );
 	}
 	@Override
 	public User login(String username, String password) {	
@@ -76,19 +91,21 @@ public class FakeDatabase implements IDatabase {
 		newInfo.setLastName(lastName);
 		newInfo.setEmailContact(eMail);
 		newInfo.setMaleOrFemale(" ");
-		newInfo.setCity("York");
-		newInfo.setCountry("Moon");
-		newInfo.setPhoneNum("1234567899");
+		newInfo.setCity(" ");
+		newInfo.setCountry(" ");
+		newInfo.setPhoneNum(" ");
 		
 		userInfoList.add(newInfo);
 	}
 	//make the list for your friends
 	private void userFriendsListStart( int userID ){
-		FriendsList newList = new FriendsList();
-		newList.setUserID(userID);
-		newList.setID( friendsList.size()+1 );
-		//newList.addFriend( userList.get(0) );
-		friendsList.add(newList);
+		
+
+		friendName newFriend = new friendName( "mike", 1 );
+		newFriend.setUserID(userID);
+		//newList.setID( friendsList.size()+1 );
+		//newList.addFriend( userList.get(1) );
+		friendsList.add(newFriend);
 	}
 	private void userStatusStart( int userID ) 
 	{
@@ -159,17 +176,20 @@ public class FakeDatabase implements IDatabase {
 	{
 		return userList;
 	}
-	//will get the users friend list
-	public FriendsList getAllFriends( int userID ) {
-		
-		for( FriendsList f : friendsList ){
-			if( f.getUserID() == userID ){
-				return f;
-			}
-		}
-		return null;
-	}
 	
+	
+	//will get the users friend list
+	@Override
+	public ArrayList<friendName> getAllFriends( int userID ) {
+		
+		//for( ArrayList<friendName> f : friendsList ){
+		//	if(  == userID ){
+				return friendsList;
+			//}
+		//}
+		//return null;
+	}
+	/*
 	@Override
 	public FriendsList addFriends(  int userID, User f ) {
 		for( FriendsList friend : friendsList )
@@ -181,6 +201,5 @@ public class FakeDatabase implements IDatabase {
 			}
 		}
 	}
-	
-	
+	*/
 }

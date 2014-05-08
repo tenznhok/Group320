@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.friendName;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public interface IDatabase {
@@ -16,6 +17,6 @@ public interface IDatabase {
 	public userInfo editInfo(int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city);
 	public ArrayList<User> getAllUsers();
 	
-	public FriendsList addFriends(int userID, User f);
-	//public FriendsList getAllFriends(int userID);
+	//public FriendsList addFriends(int userID, User f);
+	public ArrayList<friendName> getAllFriends(int userID);
 }
