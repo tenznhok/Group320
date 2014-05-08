@@ -16,9 +16,9 @@ public class FriendsListTest {
 	private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
 	private FriendsList list = new FriendsList();
 
-	friendName name1 = new friendName("Jack", "First", 1);	
-	friendName name2 = new friendName ("Harry", "Potter", 2);
-	friendName name3 = new friendName ("Ron", "Westley", 3);
+	friendName name1 = new friendName("Jack");	
+	friendName name2 = new friendName ("Harry");
+	friendName name3 = new friendName ("Ron" );
 	
 // add friends	
 	
@@ -27,10 +27,10 @@ public class FriendsListTest {
 		listOfFriend.add(name1);
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
-		list.addFriend(listOfFriend);
+		
 	
 	listOfFriend.get(1).equals("Jack");
-	listOfFriend.get(2).getFriendFirstName().equals("Harry");
+	listOfFriend.get(2).getFriendUserName().equals("Harry");
 	assertEquals(3,list.countFriend());		
 	}
 	@Test
@@ -38,7 +38,7 @@ public class FriendsListTest {
 		listOfFriend.add(name1);
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
-		list.addFriend(listOfFriend);
+		
 
 		listOfFriend.remove(name2);
 		
@@ -54,9 +54,8 @@ public class FriendsListTest {
 		
 		//list.setFriendName(name3);
 		
-		list.setFriendName(name3, "Michael", "NotMe");
+		list.setFriendName("NotMe");
 		
-		assertEquals( "Michael", listOfFriend.get(2).getFriendFirstName() );
-		assertEquals( "NotMe", listOfFriend.get(2).getFriendLastName() );	
+		assertEquals( "NotMe", listOfFriend.get(2).getFriendUserName());	
 	}
 }

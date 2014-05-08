@@ -87,7 +87,7 @@ public class FakeDatabase implements IDatabase {
 		FriendsList newList = new FriendsList();
 		newList.setUserID(userID);
 		newList.setID( friendsList.size()+1 );
-		newList.addFriend( userList.get(0) );
+		//newList.addFriend( userList.get(0) );
 		friendsList.add(newList);
 	}
 	private void userStatusStart( int userID ) 
