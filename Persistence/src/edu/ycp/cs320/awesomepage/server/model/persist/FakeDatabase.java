@@ -2,8 +2,6 @@ package edu.ycp.cs320.awesomepage.server.model.persist;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
@@ -11,11 +9,11 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class FakeDatabase implements IDatabase {
-	private ArrayList<User> userList;
-	private List<userInfo> userInfoList;
-	private List<Status> userStatusList;
-	private ArrayList<friendName> friendsList;
-	private ArrayList<FriendsList> userFriendsList;
+	private ArrayList<User> userList;//list of all the users
+	private List<userInfo> userInfoList;//a list for evey users info
+	private List<Status> userStatusList;//a list for every users status
+	private ArrayList<friendName> friendsList;//list of friends names
+	private ArrayList<FriendsList> userFriendsList;//a list of the list of friends names to be the users friend list
 	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
@@ -23,7 +21,6 @@ public class FakeDatabase implements IDatabase {
 		this.userStatusList = new ArrayList<Status>();
 		//this.friendsList = new ArrayList<friendName>();
 		userFriendsList = new ArrayList<FriendsList>();
-		
 		// add initial user data
 		User user = new User();
 		user.setEmail("user@ycp.edu");
@@ -37,20 +34,9 @@ public class FakeDatabase implements IDatabase {
 		userStatusStart( 0 );
 		//sets the user friendsList
 		userFriendsListStart( 0 );
-		
-		// add mike as a user
-		User mike = new User();
-		mike.setEmail("mike@ycp.edu");
-		mike.setPassword("mike");
-		mike.setUserID( 1 );
-		mike.setUserName("mike");
-		userList.add(mike);
-		//sets the user info
-		userInfoStart( 1, "mike", "C", "mike@ycp.edu" );
-		//sets the user status
-		userStatusStart( 1 );
-		//sets the user friendsList
-		userFriendsListStart( 1 );
+		//make us users
+		signUp("mike","mike","mike","C","mike@ycp.edu");
+		signUp("lou","lou","lou","T","lou@ycp.edu");
 	}
 	@Override
 	public User login(String username, String password) {	
@@ -72,14 +58,12 @@ public class FakeDatabase implements IDatabase {
 		newUser.setPassword(password);
 		newUser.setUserID( id );
 		userList.add(newUser);
-		
 		//makes user info
 		userInfoStart( id, firstName, lastName, eMail );
 		//makes the first user status
 		userStatusStart( id );
 		//sets the user friendsList
 		userFriendsListStart( id );
-		
 		return newUser;
 	}
 	//makes the users empty user info which than can be edited in the edit user info page
@@ -95,29 +79,20 @@ public class FakeDatabase implements IDatabase {
 		newInfo.setCity(" ");
 		newInfo.setCountry(" ");
 		newInfo.setPhoneNum(" ");
-		
 		userInfoList.add(newInfo);
 	}
 	//make the list for your friends
-
 	private void userFriendsListStart( int userID ){
-		//friendName newFriend = new friendName( "mike", userID );
-		//newFriend.setUserID(userID);
-		//newList.setID( friendsList.size()+1 );
-		//newList.addFriend( userList.get(1) );
-		//friendsList.add(newFriend);
-		
 		FriendsList friends = new FriendsList( );
 		friends.seUserID(userID);
 		userFriendsList.add(friends);
 	}
+	//make the users start up status
 	private void userStatusStart( int userID ) {
 		Status newStatus = new Status();
-		
 		newStatus.setId(userStatusList.size()+1);
 		newStatus.setUserId(userID);
 		newStatus.setMessage("Welcome to AwesomePage!!");
-		
 		userStatusList.add(newStatus);
 	}
 	//will get the users status
@@ -125,8 +100,7 @@ public class FakeDatabase implements IDatabase {
 	public String status( int id ) {
 		// TODO Auto-generated method stub
 		for (Status status : userStatusList) {
-			if( status.getUserId() == id )
-			{
+			if( status.getUserId() == id ){
 				return status.getMessage();
 			}
 		}
@@ -143,6 +117,7 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	//to edit the users info
 	@Override
 	public userInfo editInfo( int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city ) {
 		for (userInfo info : userInfoList) {
@@ -158,36 +133,17 @@ public class FakeDatabase implements IDatabase {
 				return info;
 			}
 		}
-		//if count find userInfo will return null
 		return null;
 	}
-	/*
-	@Override
-	public userInfo getUserInfo( int id ){
-		for (userInfo info : userInfoList) {
-			if( info.getUserId() == id )
-			{
-				return info;
-			}
-		}
-		return null;
-	}
-	*/
+	//will get all the users in the database
 	@Override
 	public ArrayList<User> getAllUsers(){
 		return userList;
 	}
-
-	//will get the users friend list
-	//@Override
-	//public ArrayList<friendName> getAllFriends( ) 
-	//{
-	//	return friendsList;
-
-	//}
+	//will return the current users friendslist
+	//which will be found by the users id
 	@Override
 	public FriendsList friendsList( int userID ) {
-		// TODO Auto-generated method stub
 		for( FriendsList list : userFriendsList )
 		{
 			if( list.getUserID() == userID )
@@ -197,9 +153,9 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	//will add friends to the users list
 	@Override
 	public friendName addFriend(int userID, String friendName) {
-
 		for( FriendsList list : userFriendsList )
 		{
 			if( list.getUserID() == userID )
@@ -212,9 +168,10 @@ public class FakeDatabase implements IDatabase {
 		friendsList.add(newFriend);
 		return null;
 	}
+	//will get the users info from the user info list
+	//which will be found by the users id
 	@Override
 	public userInfo getUserInfo(int userID) {
-
 		for (userInfo info : userInfoList) {
 			if( info.getUserId() == userID )
 			{
@@ -224,9 +181,9 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	//all of the friends list
 	@Override
 	public ArrayList<friendName> getAllFriends() {
-		// TODO Auto-generated method stub
 		return friendsList;
 	}
 }
