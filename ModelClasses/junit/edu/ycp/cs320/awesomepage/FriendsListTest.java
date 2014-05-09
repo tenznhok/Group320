@@ -29,12 +29,11 @@ public class FriendsListTest {
 		listOfFriend.add(name2);
 		listOfFriend.add(name3);
 		f.setUserName("AB");
-		list.addFriend(f);
+		
 		
 	
 	listOfFriend.get(0).equals("Jack");
-	listOfFriend.get(1).getFriendUserName().equals("Harry");
-	assertEquals(1,list.countFriend());		
+	listOfFriend.get(1).getFriendUserName().equals("Harry");	
 	}
 	@Test
 	public void testRemoveFriend(){

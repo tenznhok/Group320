@@ -7,6 +7,7 @@ import java.util.List;
 public class FriendsList implements Serializable  {
 	private int userID;
 	private int id;
+	//private friendName friendName;
 	private ArrayList<friendName> list = new ArrayList<friendName>();
 
 	public FriendsList(  ){
@@ -24,6 +25,31 @@ public class FriendsList implements Serializable  {
 	public int getID(){
 		return id;
 	}
+	/*
+	// add friend into the user's list
+	public void addFriend(String name){
+		friendName newFriend = new friendName(name);
+		list.add(newFriend);
+	}
+	*/
+	//remove friend from the user's list
+
+		
+		
+		/*
+		ArrayList<friendName> toRemove = new ArrayList<friendName>();
+		
+			for (int i = 0; i < listOfFriend.size(); i++){
+				name = listOfFriend.get(i);
+				if (name.equals(getFriendName())){
+					toRemove.add(name);
+				}//
+			}
+			
+			listOfFriend.removeAll(toRemove);
+			*/
+	
+	
 	//count how many friends in the list
 	public int countFriend(){
 		int count = list.size();
@@ -57,4 +83,5 @@ public class FriendsList implements Serializable  {
 	public ArrayList<friendName> getFriendsList(){
 		return this.list;
 	}
+	
 }
