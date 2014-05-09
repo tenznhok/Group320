@@ -21,7 +21,6 @@ import com.google.gwt.user.client.ui.Image;
 
 public class friendListView extends Composite implements View {
 	private Button btnBrowseFriend;
-	private Button btnRemoveFriend;
 	private Button btnClose;
 	private ListBox FriendListBox;
 	
@@ -42,15 +41,6 @@ public class friendListView extends Composite implements View {
 			}
 		});
 		absolutePanel.add(btnBrowseFriend, 371, 173);
-		
-		
-		btnRemoveFriend = new Button("Remove Friend");
-		btnRemoveFriend.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				handleRemoveFriend();
-			}
-		});
-		absolutePanel.add(btnRemoveFriend, 371, 226);
 		
 		
 		btnClose = new Button("Close");
@@ -83,30 +73,6 @@ public class friendListView extends Composite implements View {
 	private void handleBrowseFriend() {
 		// switch to the user's list view
 		WebApp.setView(new userListView());
-	}
-	
-	private void handleRemoveFriend() {
-		// TODO Auto-generated method stub
-		
-		int id = FriendListBox.getSelectedIndex();
-		final friendName name = new friendName();
-		name.setFriendUserName( FriendListBox.getItemText(id) );
-		name.setFriendID(id);
-		
-		RPC.GetFriendsService.removeFriend(userID, name, new AsyncCallback<friendName>()  {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				GWT.log("did not remove friend");
-			}
-			@Override
-			public void onSuccess(friendName result) {
-				// TODO Auto-generated method stub
-				GWT.log("you removed a friend");
-				WebApp.setView(new friendListView());
-			}
-		});
 	}
 	private void handleClose() {
 		// TODO Auto-generated method stub
