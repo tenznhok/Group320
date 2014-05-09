@@ -6,6 +6,5 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Controllers"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ModelClasses"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Persistence"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.5.1_if the other wont work"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

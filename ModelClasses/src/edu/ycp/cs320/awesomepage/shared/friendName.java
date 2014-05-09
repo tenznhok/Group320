@@ -9,9 +9,16 @@ public class friendName implements Serializable {
 	//private String friendLastName;
 	private String userName;
 	
-	public friendName( ){
+	public friendName(){
+
+	
+	}
+	
+	public friendName( String userName, int friendID ){
 		//this.friendFirstName = friendFirstName;
 		//this.friendLastName = friendLastName;
+		this.friendID = friendID;
+		this.userName = userName;
 		
 	}
 	/*

@@ -13,7 +13,7 @@ public class FakeDatabase implements IDatabase {
 	private ArrayList<User> userList;
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
-	//private ArrayList<friendName> friendsList;
+	private ArrayList<friendName> friendsList;
 	private ArrayList<FriendsList> userFriendsList;
 	
 	public FakeDatabase() {
@@ -160,6 +160,7 @@ public class FakeDatabase implements IDatabase {
 		//if count find userInfo will return null
 		return null;
 	}
+	/*
 	@Override
 	public userInfo getUserInfo( int id ){
 		for (userInfo info : userInfoList) {
@@ -170,10 +171,19 @@ public class FakeDatabase implements IDatabase {
 		}
 		return null;
 	}
+	*/
 	@Override
 	public ArrayList<User> getAllUsers(){
 		return userList;
 	}
+
+	//will get the users friend list
+	//@Override
+	//public ArrayList<friendName> getAllFriends( ) 
+	//{
+	//	return friendsList;
+
+	//}
 	@Override
 	public FriendsList friendsList( int userID ) {
 		// TODO Auto-generated method stub
@@ -188,7 +198,7 @@ public class FakeDatabase implements IDatabase {
 	}
 	@Override
 	public friendName addFriend(int userID, String friendName) {
-		
+
 		for( FriendsList list : userFriendsList )
 		{
 			if( list.getUserID() == userID )
@@ -196,7 +206,27 @@ public class FakeDatabase implements IDatabase {
 				list.addFriend(friendName);
 			}
 		}
+		friendName newFriend = new friendName( friendName, userID );
+		newFriend.setFriendID(friendsList.size()+1);
+		friendsList.add(newFriend);
 		return null;
+	}
+	@Override
+	public userInfo getUserInfo(int userID) {
+
+		for (userInfo info : userInfoList) {
+			if( info.getUserId() == userID )
+			{
+				return info;
+			}
+			
+		}
+		return null;
+	}
+	@Override
+	public ArrayList<friendName> getAllFriends() {
+		// TODO Auto-generated method stub
+		return friendsList;
 	}
 }
 

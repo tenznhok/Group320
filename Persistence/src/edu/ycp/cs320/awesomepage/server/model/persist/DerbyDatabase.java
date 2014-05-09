@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
+import edu.ycp.cs320.awesomepage.shared.friendName;
 import edu.ycp.cs320.awesomepage.shared.userInfo;
 
 public class DerbyDatabase implements IDatabase {
@@ -229,6 +230,16 @@ public class DerbyDatabase implements IDatabase {
 		db.loadInitialData();
 		
 		System.out.println("Success!");
+	}
+
+	@Override
+	public ArrayList<friendName> getAllFriends() {
+		throw new UnsupportedOperationException("TODO - implement");
+	}
+
+	@Override
+	public friendName addFriend(int userID, String friendName) {
+		throw new UnsupportedOperationException("TODO - implement");
 	}
 
 	/*@Override
