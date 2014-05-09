@@ -158,7 +158,7 @@ public class DerbyDatabase implements IDatabase {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
-				PreparedStatement stmt1 = null, stmt2 = null,  stmt3 = null;
+				PreparedStatement stmt1 = null, stmt2 = null,  stmt3 = null, stmt4 = null; 
 				try {
 					stmt1 = conn.prepareStatement(
 							"create table users (" +
@@ -192,6 +192,15 @@ public class DerbyDatabase implements IDatabase {
 							")"
 					);
 					stmt3.executeUpdate();
+					
+					stmt4 = conn.prepareStatement(
+							"create table friendname (" +
+							"id integer primary key not null generated always as identity, " +
+							"username varchar(50) not null" +
+
+							")"
+					);
+					stmt4.executeUpdate();
 
 					
 				} finally {
