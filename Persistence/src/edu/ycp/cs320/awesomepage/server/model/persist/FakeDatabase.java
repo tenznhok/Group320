@@ -177,7 +177,6 @@ public class FakeDatabase implements IDatabase {
 	public ArrayList<User> getAllUsers()
 	{
 		return userList;
-<<<<<<< HEAD
 	}*/
 
 	//will get the users friend list

@@ -16,7 +16,7 @@ public class friendName implements Serializable {
 	public friendName( String userName, int friendID ){
 		//this.friendFirstName = friendFirstName;
 		//this.friendLastName = friendLastName;
-		this.userID = friendID;
+		this.friendID = friendID;
 		this.userName = userName;
 	}
 	/*
