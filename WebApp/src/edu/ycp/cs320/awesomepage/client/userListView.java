@@ -78,24 +78,16 @@ public class userListView extends Composite implements View  {
 		int id = UserListBox.getSelectedIndex();
 		String newFriend = UserListBox.getItemText( id );
 		
-		
 		RPC.GetFriendsService.addFriends(userID, newFriend, new AsyncCallback<friendName>(){
-
 			@Override
 			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				
+				// TODO Auto-generated method stub	
 			}
-
 			@Override
 			public void onSuccess(friendName result) {
 				// TODO Auto-generated method stub
-				
-			}
-				
-				
+			}	
 		});
-		
 	}
 	
 	private void handleCancel() {
