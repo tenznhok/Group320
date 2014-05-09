@@ -13,14 +13,15 @@ public class FakeDatabase implements IDatabase {
 	private ArrayList<User> userList;
 	private List<userInfo> userInfoList;
 	private List<Status> userStatusList;
-	
-	private ArrayList<friendName> friendsList;
+	//private ArrayList<friendName> friendsList;
+	private ArrayList<FriendsList> userFriendsList;
 	
 	public FakeDatabase() {
 		this.userList = new ArrayList<User>();
 		this.userInfoList = new ArrayList<userInfo>();
 		this.userStatusList = new ArrayList<Status>();
-		this.friendsList = new ArrayList<friendName>();
+		//this.friendsList = new ArrayList<friendName>();
+		userFriendsList = new ArrayList<FriendsList>();
 		
 		// add initial user data
 		User user = new User();
@@ -37,12 +38,12 @@ public class FakeDatabase implements IDatabase {
 		userFriendsListStart( 0 );
 		
 		// add mike as a user
-		user = new User();
-		user.setEmail("mike@ycp.edu");
-		user.setPassword("mike");
-		user.setUserID( 1 );
-		user.setUserName("mike");
-		userList.add(user);
+		User mike = new User();
+		mike.setEmail("mike@ycp.edu");
+		mike.setPassword("mike");
+		mike.setUserID( 1 );
+		mike.setUserName("mike");
+		userList.add(mike);
 		//sets the user info
 		userInfoStart( 1, "mike", "C", "mike@ycp.edu" );
 		//sets the user status
@@ -81,8 +82,7 @@ public class FakeDatabase implements IDatabase {
 		return newUser;
 	}
 	//makes the users empty user info which than can be edited in the edit user info page
-	private void userInfoStart(int userID, String firstName, String lastName, String eMail) 
-	{
+	private void userInfoStart(int userID, String firstName, String lastName, String eMail) {
 		//new user info
 		userInfo newInfo = new userInfo();
 		newInfo.setId( userInfoList.size()+1 );
@@ -99,17 +99,18 @@ public class FakeDatabase implements IDatabase {
 	}
 	//make the list for your friends
 
-	private void userFriendsListStart( int userID )
-	{
-		friendName newFriend = new friendName( "mike", userID );
-		newFriend.setUserID(userID);
+	private void userFriendsListStart( int userID ){
+		//friendName newFriend = new friendName( "mike", userID );
+		//newFriend.setUserID(userID);
 		//newList.setID( friendsList.size()+1 );
 		//newList.addFriend( userList.get(1) );
-		friendsList.add(newFriend);
-
+		//friendsList.add(newFriend);
+		
+		FriendsList friends = new FriendsList( );
+		friends.seUserID(userID);
+		userFriendsList.add(friends);
 	}
-	private void userStatusStart( int userID ) 
-	{
+	private void userStatusStart( int userID ) {
 		Status newStatus = new Status();
 		
 		newStatus.setId(userStatusList.size()+1);
@@ -133,7 +134,6 @@ public class FakeDatabase implements IDatabase {
 	//will post a new status
 	@Override
 	public Status postStatus(int id, String newStatus){
-		
 		for (Status status : userStatusList) {
 			if( status.getUserId() == id )
 			{
@@ -144,7 +144,6 @@ public class FakeDatabase implements IDatabase {
 	}
 	@Override
 	public userInfo editInfo( int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city ) {
-		
 		for (userInfo info : userInfoList) {
 			if( info.getUserId() == id )
 			{
@@ -161,10 +160,8 @@ public class FakeDatabase implements IDatabase {
 		//if count find userInfo will return null
 		return null;
 	}
-	
 	@Override
-	public userInfo getUserInfo( int id )
-	{
+	public userInfo getUserInfo( int id ){
 		for (userInfo info : userInfoList) {
 			if( info.getUserId() == id )
 			{
@@ -174,27 +171,32 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 	@Override
-	public ArrayList<User> getAllUsers()
-	{
+	public ArrayList<User> getAllUsers(){
 		return userList;
-
 	}
 	@Override
-	public ArrayList<friendName> getAllFriends() {
+	public FriendsList friendsList( int userID ) {
 		// TODO Auto-generated method stub
+		for( FriendsList list : userFriendsList )
+		{
+			if( list.getUserID() == userID )
+			{
+				return list;
+			}
+		}
 		return null;
 	}
 	@Override
 	public friendName addFriend(int userID, String friendName) {
 		
-		friendName newFriend = new friendName( friendName, userID );
-		newFriend.setFriendID(friendsList.size()+1);
-		
-		friendsList.add(newFriend);
-		
+		for( FriendsList list : userFriendsList )
+		{
+			if( list.getUserID() == userID )
+			{
+				list.addFriend(friendName);
+			}
+		}
 		return null;
 	}
-
-	
 }
 

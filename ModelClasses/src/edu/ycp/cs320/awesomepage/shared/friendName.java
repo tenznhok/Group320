@@ -1,17 +1,18 @@
 package edu.ycp.cs320.awesomepage.shared;
 
-public class friendName {
+import java.io.Serializable;
+
+public class friendName implements Serializable {
 	private int friendID; // ID of each friend
-	private int userID;//the users id of this friend
+	
 	//private String friendFirstName;
 	//private String friendLastName;
 	private String userName;
 	
-	public friendName( String userName, int friendID ){
+	public friendName( ){
 		//this.friendFirstName = friendFirstName;
 		//this.friendLastName = friendLastName;
-		this.userID = friendID;
-		this.userName = userName;
+		
 	}
 	/*
 	public String getFriendFirstName() {
@@ -38,16 +39,5 @@ public class friendName {
 	}
 	public String getFriendUserName(){
 		return this.userName;
-	}
-	public int getUserID() {
-	
-		return this.friendID;
-	}
-	public void setUserID(int userID) {
-		
-		this.userID = userID;
-	}
-	public int getFriendUserIDa(){
-		return this.userID;
 	}
 }
