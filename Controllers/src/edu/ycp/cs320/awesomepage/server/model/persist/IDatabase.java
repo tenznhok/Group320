@@ -20,4 +20,5 @@ public interface IDatabase {
 	public friendName addFriend(int userID, String friendName);
 	public FriendsList friendsList(int userID);
 	public ArrayList<friendName> getAllFriends();
+	public friendName removeFriend(int userID, friendName name);
 }

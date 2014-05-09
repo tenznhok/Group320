@@ -72,11 +72,12 @@ public class FriendsList implements Serializable  {
 		newFriend.setFriendID(list.size()+1);
 		list.add( newFriend );
 	}
-	public void removeFriend(String name)
+	public void removeFriend(friendName name)
 	{
 		for (friendName f : list) {
-			if ( f.getFriendUserName() == name ) {
+			if ( f.getFriendUserName() == name.getFriendUserName() ) {
 				list.remove(f);
+				list.clear();
 			}
 		}
 	}

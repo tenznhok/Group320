@@ -11,4 +11,5 @@ public interface GetFriendsServiceAsync {
 
 	void addFriends(int userID, String name, AsyncCallback<friendName> asyncCallback);
 	void friendsList( int userID, AsyncCallback<FriendsList> asyncCallback);
+	void removeFriend(int userID, friendName name, AsyncCallback<friendName> asyncCallback);
 }

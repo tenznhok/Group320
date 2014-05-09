@@ -14,4 +14,7 @@ public class GetFriendsController {
 	public friendName addFriends( int userID, String name ){
 		return DatabaseProvider.getInstance().addFriend( userID, name );
 	}
+	public friendName removeFriends( int userID, friendName name ){
+		return DatabaseProvider.getInstance().removeFriend( userID, name );
+	}
 }

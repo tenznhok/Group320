@@ -22,4 +22,10 @@ public class GetFriendsServiceImpl extends RemoteServiceServlet implements GetFr
 		controller.addFriends(userID, name);
 		return null;
 	}
+	@Override
+	public friendName removeFriend(int userID, friendName name ) {
+		GetFriendsController controller = new GetFriendsController();
+		controller.removeFriends( userID, name );
+		return null;
+	}
 }

@@ -186,5 +186,19 @@ public class FakeDatabase implements IDatabase {
 	public ArrayList<friendName> getAllFriends() {
 		return friendsList;
 	}
+	//i dont like this person so he is not my friend
+	//will remove friend
+	//@Override
+	public friendName removeFriend( int userID, friendName name ) {
+		
+		for( FriendsList list : userFriendsList )
+		{
+			if( list.getUserID() == userID )
+			{
+				list.removeFriend(name);
+			}
+		}
+		return null;
+	}
 }
 
