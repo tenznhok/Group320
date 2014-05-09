@@ -194,14 +194,23 @@ public class FakeDatabase implements IDatabase {
 		friendsList.add(newFriend);
 		return null;
 	}
+	
 	@Override
 	public userInfo getUserInfo(int userID) {
-		throw new UnsupportedOperationException("TODO - implement");
+
+		for (userInfo info : userInfoList) {
+			if( info.getUserId() == userID )
+			{
+				return info;
+			}
+			
+		}
+		return null;
 	}
 
 	@Override
 	public ArrayList<User> getAllUsers() {
-		throw new UnsupportedOperationException("TODO - implement");
+		return userList;
 	}
 
 	
