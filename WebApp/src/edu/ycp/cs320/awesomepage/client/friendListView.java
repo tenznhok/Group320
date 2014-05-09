@@ -6,6 +6,7 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
@@ -15,12 +16,12 @@ import edu.ycp.cs320.awesomepage.shared.FriendsList;
 import edu.ycp.cs320.awesomepage.shared.Status;
 import edu.ycp.cs320.awesomepage.shared.User;
 import edu.ycp.cs320.awesomepage.shared.friendName;
+import com.google.gwt.user.client.ui.Image;
 
 
 public class friendListView extends Composite implements View {
 	private Button btnBrowseFriend;
 	private Button btnRemoveFriend;
-	private LayoutPanel layoutPanel;
 	private Button btnClose;
 	private ListBox FriendListBox;
 	
@@ -30,8 +31,9 @@ public class friendListView extends Composite implements View {
 	
 	public friendListView() {
 		
-		layoutPanel = new LayoutPanel();
-		initWidget(layoutPanel);
+		AbsolutePanel absolutePanel = new AbsolutePanel();
+		initWidget(absolutePanel);
+		absolutePanel.setSize("561px", "536px");
 		
 		btnBrowseFriend = new Button("Browse Friend");
 		btnBrowseFriend.addClickHandler(new ClickHandler() {
@@ -39,9 +41,8 @@ public class friendListView extends Composite implements View {
 				handleBrowseFriend();
 			}
 		});
-		layoutPanel.add(btnBrowseFriend);
-		layoutPanel.setWidgetLeftWidth(btnBrowseFriend, 271.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnBrowseFriend, 47.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(btnBrowseFriend, 371, 173);
+		
 		
 		btnRemoveFriend = new Button("Remove Friend");
 		btnRemoveFriend.addClickHandler(new ClickHandler() {
@@ -49,9 +50,8 @@ public class friendListView extends Composite implements View {
 				handleRemoveFriend();
 			}
 					});
-		layoutPanel.add(btnRemoveFriend);
-		layoutPanel.setWidgetLeftWidth(btnRemoveFriend, 271.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnRemoveFriend, 103.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(btnRemoveFriend, 371, 226);
+		
 		
 		btnClose = new Button("Close");
 		btnClose.addClickHandler(new ClickHandler() {
@@ -59,15 +59,25 @@ public class friendListView extends Composite implements View {
 				handleClose();
 			}
 		});
-		layoutPanel.add(btnClose);
-		layoutPanel.setWidgetLeftWidth(btnClose, 271.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnClose, 163.0, Unit.PX, 30.0, Unit.PX);
+		absolutePanel.add(btnClose, 371, 274);
+		
 		
 		FriendListBox = new ListBox();
-		layoutPanel.add(FriendListBox);
-		layoutPanel.setWidgetLeftWidth(FriendListBox, 51.0, Unit.PX, 176.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(FriendListBox, 25.0, Unit.PX, 227.0, Unit.PX);
+		absolutePanel.add(FriendListBox, 183, 41);
+		FriendListBox.setSize("167px", "263px");
 		FriendListBox.setVisibleItemCount(20);
+		
+		Image image = new Image("happy_three_friends____or_two_by_superaura-d34li8h.png");
+		absolutePanel.add(image, 10, 330);
+		image.setSize("527px", "169px");
+		
+		Image image_1 = new Image("my-friends-logo.jpg");
+		absolutePanel.add(image_1, 10, 26);
+		image_1.setSize("167px", "298px");
+		
+		Image image_2 = new Image("ASP_Icon.jpg");
+		absolutePanel.add(image_2, 376, 41);
+		image_2.setSize("104px", "107px");
 	}
 
 	private void handleBrowseFriend() {

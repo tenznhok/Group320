@@ -37,6 +37,8 @@ public class userListView extends Composite implements View  {
 	//gets the user from the session
 			User user = Session.getInstance().getUser();
 			int userID = user.getUserID();
+			private Label friendSucc;
+			private Label friendErr;
 	
 	
 	public userListView() {
@@ -46,8 +48,8 @@ public class userListView extends Composite implements View  {
 		absolutePanel.setHeight("421px");
 		
 		UserListBox = new ListBox();
-		absolutePanel.add(UserListBox, 38, 26);
-		UserListBox.setSize("118px", "225px");
+		absolutePanel.add(UserListBox, 21, 10);
+		UserListBox.setSize("185px", "193px");
 		
 		UserListBox.setVisibleItemCount(5);
 		
@@ -68,8 +70,24 @@ public class userListView extends Composite implements View  {
 		absolutePanel.add(btnCancel, 70, 277);
 		
 		Image image = new Image("ASP_UserList.jpg");
-		absolutePanel.add(image, 184, 10);
-		image.setSize("238px", "323px");
+		absolutePanel.add(image, 337, 10);
+		image.setSize("234px", "274px");
+		
+		friendSucc = new Label("");
+		absolutePanel.add(friendSucc, 10, 241);
+		friendSucc.setSize("223px", "30px");
+		
+		Image image_1 = new Image("ASP_Icon.jpg");
+		absolutePanel.add(image_1, 20, 313);
+		image_1.setSize("125px", "100px");
+		
+		Image image_2 = new Image("list-image.gif");
+		absolutePanel.add(image_2, 198, 139);
+		image_2.setSize("178px", "260px");
+		
+		friendErr = new Label("");
+		absolutePanel.add(friendErr, 10, 209);
+		friendErr.setSize("223px", "30px");
 		
 		
 	}
@@ -80,13 +98,21 @@ public class userListView extends Composite implements View  {
 		
 		RPC.GetFriendsService.addFriends(userID, newFriend, new AsyncCallback<friendName>(){
 			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub	
-			}
-			@Override
 			public void onSuccess(friendName result) {
 				// TODO Auto-generated method stub
-			}	
+				if (result == null) {
+					friendErr.setText("You re failing to add friend");
+				}	else {
+				friendSucc.setText("Yeah!! You have a friend");
+				
+				}
+			}
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+					
+			}
+			
 		});
 	}
 	
