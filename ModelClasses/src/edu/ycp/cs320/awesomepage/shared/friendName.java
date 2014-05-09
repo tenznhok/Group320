@@ -1,11 +1,17 @@
 package edu.ycp.cs320.awesomepage.shared;
 
-public class friendName {
+import java.io.Serializable;
+
+public class friendName implements Serializable {
 	private int friendID; // ID of each friend
 	private int userID;//the users id of this friend
 	//private String friendFirstName;
 	//private String friendLastName;
 	private String userName;
+	
+	public friendName() {
+		
+	}
 	
 	public friendName( String userName, int friendID ){
 		//this.friendFirstName = friendFirstName;
