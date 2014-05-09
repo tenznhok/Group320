@@ -4,13 +4,14 @@ import java.io.Serializable;
 
 public class friendName implements Serializable {
 	private int friendID; // ID of each friend
-	private int userID;//the users id of this friend
+	
 	//private String friendFirstName;
 	//private String friendLastName;
 	private String userName;
 	
-	public friendName() {
-		
+	public friendName(){
+
+	
 	}
 	
 	public friendName( String userName, int friendID ){
@@ -18,6 +19,7 @@ public class friendName implements Serializable {
 		//this.friendLastName = friendLastName;
 		this.friendID = friendID;
 		this.userName = userName;
+		
 	}
 	/*
 	public String getFriendFirstName() {
@@ -44,16 +46,5 @@ public class friendName implements Serializable {
 	}
 	public String getFriendUserName(){
 		return this.userName;
-	}
-	public int getUserID() {
-	
-		return this.friendID;
-	}
-	public void setUserID(int userID) {
-		
-		this.userID = userID;
-	}
-	public int getFriendUserIDa(){
-		return this.userID;
 	}
 }

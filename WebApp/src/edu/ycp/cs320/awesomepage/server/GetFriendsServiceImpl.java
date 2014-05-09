@@ -11,9 +11,9 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 public class GetFriendsServiceImpl extends RemoteServiceServlet implements GetFriendsService  {
 
 	@Override
-	public ArrayList<friendName> friendsList( ){
+	public FriendsList friendsList( int userID ){
 		GetFriendsController controller = new GetFriendsController();
-		ArrayList<friendName> result = controller.getFriendsList( );
+		FriendsList result = controller.getFriendsList( userID );
 		return result;
 	}
 	@Override

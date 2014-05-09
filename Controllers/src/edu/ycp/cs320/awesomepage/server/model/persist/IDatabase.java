@@ -17,6 +17,7 @@ public interface IDatabase {
 	public userInfo editInfo(int id, String firstName, String lastName, String eMail, String mf, String phone, String country, String city);
 	public ArrayList<User> getAllUsers();
 	
-	public ArrayList<friendName> getAllFriends();
 	public friendName addFriend(int userID, String friendName);
+	public FriendsList friendsList(int userID);
+	ArrayList<friendName> getAllFriends();
 }

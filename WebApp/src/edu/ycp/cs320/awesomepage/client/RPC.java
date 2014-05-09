@@ -14,10 +14,10 @@ public class RPC {
 
 	public static final EditInfoServiceAsync EditInfoService = 
 			GWT.create(EditInfoService.class);
+
+	public static final userListViewServiceAsync userListViewService = 
+			GWT.create(userListViewService.class);
 	
 	public static final GetFriendsServiceAsync GetFriendsService = 
 			GWT.create(GetFriendsService.class);
-	
-	public static final userListViewServiceAsync userListViewService = 
-			GWT.create(userListViewService.class);
 }

@@ -1,24 +1,23 @@
 package edu.ycp.cs320.awesomepage.shared;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FriendsList {
+public class FriendsList implements Serializable  {
 	private int userID;
 	private int id;
 	//private friendName friendName;
-	//private ArrayList<friendName> listOfFriend = new ArrayList<friendName>();
-	private List<friendName> list;
+	private ArrayList<friendName> list = new ArrayList<friendName>();
 
-	public FriendsList(){
-		this.list = new ArrayList<friendName>();
-	}
-	
-	public void setUserID( int id ){
-		this.userID = id;
+	public FriendsList(  ){
+		
 	}
 	public int getUserID(){
 		return userID;
+	}
+	public void seUserID(int userID){
+		this.userID = userID;
 	}
 	public void setID( int id ){
 		this.id = id;
@@ -34,12 +33,7 @@ public class FriendsList {
 	}
 	*/
 	//remove friend from the user's list
-	public void removeFriend(String name){
-		for (friendName f : list) {
-			if ( f.getFriendUserName() == name ) {
-				list.remove(f);
-			}
-		}
+
 		
 		
 		/*
@@ -54,7 +48,6 @@ public class FriendsList {
 			
 			listOfFriend.removeAll(toRemove);
 			*/
-	}
 	
 	
 	//count how many friends in the list
@@ -63,41 +56,32 @@ public class FriendsList {
 		
 		return count;
 	}
-	public List<friendName> getFriendList(){
+	public ArrayList<friendName> getFriendList( int userID )
+	{
 		return this.list;
 	}
-	public String getFriendName( int id ){
+	public String getFriendName( int id )
+	{
 		String name = list.get(id).getFriendUserName();
 		return name;
 	}
-
-
-	/*public String setFriendName(String name) {
-		// TODO Auto-generated method stub
-		return name;
-	}
-	*/
-	
-	public void addFriend(User f) {
-		friendName newFriend = new friendName( f.getUserName(), list.size()+1 );
+	public void addFriend( String name ) 
+	{
+		friendName newFriend = new friendName( );
+		newFriend.setFriendUserName(name);
+		newFriend.setFriendID(list.size()+1);
 		list.add( newFriend );
-
 	}
-	
-	
-
-	/*
-	public friendName getFriendName() {
-		return friendName;
+	public void removeFriend(String name)
+	{
+		for (friendName f : list) {
+			if ( f.getFriendUserName() == name ) {
+				list.remove(f);
+			}
+		}
 	}
-
-	public void setFriendName(friendName friendName, String firstName, String lastName ) {
-		
-		friendName.setFriendFirstName( firstName );
-		friendName.setFriendLastName( lastName );
-		//this.friendName = friendName;
-		
+	public ArrayList<friendName> getFriendsList(){
+		return this.list;
 	}
-*/
 	
 }

@@ -8,8 +8,8 @@ import edu.ycp.cs320.awesomepage.shared.friendName;
 
 public class GetFriendsController {
 
-	public ArrayList<friendName> getFriendsList( ){
-		return DatabaseProvider.getInstance().getAllFriends( );
+	public FriendsList getFriendsList( int userID ){
+		return DatabaseProvider.getInstance().friendsList( userID );
 	}
 	public friendName addFriends( int userID, String name ){
 		return DatabaseProvider.getInstance().addFriend( userID, name );

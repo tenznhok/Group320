@@ -242,6 +242,12 @@ public class DerbyDatabase implements IDatabase {
 		throw new UnsupportedOperationException("TODO - implement");
 	}
 
+	@Override
+	public FriendsList friendsList(int userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/*@Override
 	public FriendsList getAllFriends(int userID) {
 		// TODO Auto-generated method stub
