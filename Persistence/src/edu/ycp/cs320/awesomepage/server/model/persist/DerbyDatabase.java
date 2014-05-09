@@ -247,6 +247,12 @@ public class DerbyDatabase implements IDatabase {
 		// TODO Auto-generated method stub
 		return null;
 	}
+//no more friends
+	@Override
+	public friendName removeFriend(int userID, String name, int friendID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/*@Override
 	public FriendsList getAllFriends(int userID) {

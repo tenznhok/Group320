@@ -13,4 +13,5 @@ public interface GetFriendsService extends RemoteService {
 	
 	public friendName addFriends( int userID, String name );
 	public FriendsList friendsList(int userID);
+	public friendName removeFriend(int userID, friendName name);
 }

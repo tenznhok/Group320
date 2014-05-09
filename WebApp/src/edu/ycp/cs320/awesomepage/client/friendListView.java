@@ -49,7 +49,7 @@ public class friendListView extends Composite implements View {
 			public void onClick(ClickEvent event) {
 				handleRemoveFriend();
 			}
-					});
+		});
 		absolutePanel.add(btnRemoveFriend, 371, 226);
 		
 		
@@ -88,6 +88,25 @@ public class friendListView extends Composite implements View {
 	private void handleRemoveFriend() {
 		// TODO Auto-generated method stub
 		
+		int id = FriendListBox.getSelectedIndex();
+		final friendName name = new friendName();
+		name.setFriendUserName( FriendListBox.getItemText(id) );
+		name.setFriendID(id);
+		
+		RPC.GetFriendsService.removeFriend(userID, name, new AsyncCallback<friendName>()  {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("did not remove friend");
+			}
+			@Override
+			public void onSuccess(friendName result) {
+				// TODO Auto-generated method stub
+				GWT.log("you removed a friend");
+				WebApp.setView(new friendListView());
+			}
+		});
 	}
 	private void handleClose() {
 		// TODO Auto-generated method stub
